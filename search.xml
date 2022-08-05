@@ -4,32 +4,19 @@
   
     
     <entry>
-      <title>新建</title>
-      <link href="/2022/07/20/%E6%96%B0%E5%BB%BA/"/>
-      <url>/2022/07/20/%E6%96%B0%E5%BB%BA/</url>
+      <title>fpga学习第一节（流程实现）.md</title>
+      <link href="/2022/08/05/fpga%E5%AD%A6%E4%B9%A0/"/>
+      <url>/2022/08/05/fpga%E5%AD%A6%E4%B9%A0/</url>
       
-        <content type="html"><![CDATA[<h1 id="新建网站"><a href="#新建网站" class="headerlink" title="新建网站"></a>新建网站</h1><h2 id="使用工具"><a href="#使用工具" class="headerlink" title="使用工具"></a>使用工具</h2><ul><li>typora</li><li>vscode  <h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><img src="https://img.tukuppt.com/bg_grid/00/11/74/9AwqyrzQdi.jpg!/fh/350"><h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><a href="https://code.visualstudio.com/">vscode下载地址</a></li></ul>]]></content>
+        <content type="html"><![CDATA[<h1 id="Xilinx-FPGA学习第一节"><a href="#Xilinx-FPGA学习第一节" class="headerlink" title="Xilinx FPGA学习第一节"></a>Xilinx FPGA学习第一节</h1><h2 id="1-FPGA开发流程"><a href="#1-FPGA开发流程" class="headerlink" title="1. FPGA开发流程"></a>1. FPGA开发流程</h2><ul><li>设计定义</li><li>设计输入</li><li>分析综合（EDA软件，得到逻辑门级别的电路内容）</li><li>功能仿真（modelsim）</li><li>布局布线（vivado、quartus）</li><li>分析性能（时序仿真modelsim或者静态时序分析vivado、quartus）</li><li>板级调试  </li></ul><h2 id="2-二选一多路选择器实现"><a href="#2-二选一多路选择器实现" class="headerlink" title="2. 二选一多路选择器实现"></a>2. 二选一多路选择器实现</h2><h3 id="2-1-设计"><a href="#2-1-设计" class="headerlink" title="2.1 设计"></a>2.1 设计</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/9edd1c31d1e7c1c3.jpg"></p><h3 id="2-2-编写设计代码mux2-v"><a href="#2-2-编写设计代码mux2-v" class="headerlink" title="2.2 编写设计代码mux2.v"></a>2.2 编写设计代码mux2.v</h3><pre class=" language-mux2.v"><code class="language-mux2.v">module mux2(    a,    b,    sel,    out);    input a;    input b;    input sel;    output out;        assign out = (sel==1)?a:b;endmodule</code></pre><h3 id="2-3-Run-Synthesis-分析综合"><a href="#2-3-Run-Synthesis-分析综合" class="headerlink" title="2.3 Run Synthesis 分析综合"></a>2.3 Run Synthesis 分析综合</h3><h3 id="2-4-功能仿真"><a href="#2-4-功能仿真" class="headerlink" title="2.4 功能仿真"></a>2.4 功能仿真</h3><h4 id="2-4-1-仿真原理图"><a href="#2-4-1-仿真原理图" class="headerlink" title="2.4.1 仿真原理图"></a>2.4.1 仿真原理图</h4><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/c70fa874be2dea65.jpg"></p><h4 id="2-4-2-编写仿真代码-mux2-tb-test-bench"><a href="#2-4-2-编写仿真代码-mux2-tb-test-bench" class="headerlink" title="2.4.2 编写仿真代码 mux2_tb(test_bench)"></a>2.4.2 编写仿真代码 mux2_tb(test_bench)</h4><pre class=" language-mux2_tb.v"><code class="language-mux2_tb.v">`timescale  1ns / 1ns//两个1ns含义不一样，第一个是以ns为单位，比如延时200ns:#200；//第二个ns是精度module mux2_tb();   reg s_a;   reg s_b;   reg s_sel;   wire out;      mux2 mux2_inst(  //mux2_inst相当于mux2的代号    .a(s_a),  //s_a是a连接的信号线    .b(s_b),    .sel(s_sel),    .out(out)   );      initial begin      s_a=0;s_b=0;s_sel=0;      #200;      s_a=0;s_b=0;s_sel=1;      #200;      s_a=0;s_b=1;s_sel=0;      #200;      s_a=0;s_b=1;s_sel=1;      #200;      s_a=1;s_b=0;s_sel=0;      #200;      s_a=1;s_b=0;s_sel=1;      #200;      s_a=1;s_b=1;s_sel=0;      #200;      s_a=1;s_b=1;s_sel=1;      #200;      $stop;   endendmodule</code></pre><h4 id="2-4-3-Run-simulation-点击第一个功能仿真"><a href="#2-4-3-Run-simulation-点击第一个功能仿真" class="headerlink" title="2.4.3 Run simulation 点击第一个功能仿真"></a>2.4.3 Run simulation 点击第一个功能仿真</h4><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/a316449d90350d67.jpg"></p><h3 id="2-5-布局布线"><a href="#2-5-布局布线" class="headerlink" title="2.5 布局布线"></a>2.5 布局布线</h3><h4 id="2-5-1-Run-Implementation"><a href="#2-5-1-Run-Implementation" class="headerlink" title="2.5.1 Run Implementation"></a>2.5.1 Run Implementation</h4><h4 id="2-5-2-时序仿真-Run-simulation-点击最后一个时序仿真"><a href="#2-5-2-时序仿真-Run-simulation-点击最后一个时序仿真" class="headerlink" title="2.5.2 时序仿真 Run simulation 点击最后一个时序仿真"></a>2.5.2 时序仿真 Run simulation 点击最后一个时序仿真</h4><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/c899b38b774395c7.jpg"><br>可以看到400ns时out还没变，而是400ns多一点才变的</p><h4 id="2-5-3-添加约束文件并保存"><a href="#2-5-3-添加约束文件并保存" class="headerlink" title="2.5.3 添加约束文件并保存"></a>2.5.3 添加约束文件并保存</h4><p>Layout I/O.Planning<br><img src="https://s3.bmp.ovh/imgs/2022/08/05/5cddea62898c1d4a.jpg"><br>xdc文件里面可查看</p><h3 id="2-6-板级调试"><a href="#2-6-板级调试" class="headerlink" title="2.6 板级调试"></a>2.6 板级调试</h3><p>1.产生比特流<br>2.点击Open Hardware Manager，然后点击Open target的Auto connect<br>3.program device<br>4.拨开关<br><img src="https://s3.bmp.ovh/imgs/2022/08/05/7e2e363616f951c3.jpg"><br>如上图，sw0代表a,sw1代表b,sw7代表sel,led0代表out<br>sw7上拨，sw0上拨，led就亮了</p><p>以前畏惧硬件，现在感觉还是蛮有意思^_^</p>]]></content>
       
       
       
         <tags>
             
-            <tag> web </tag>
+            <tag> fpga学习 </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="/2022/07/18/hello-world/"/>
-      <url>/2022/07/18/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-      
-      
       
     </entry>
     

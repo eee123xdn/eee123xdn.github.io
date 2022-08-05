@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="新建, 谢东娜的博客">
+    <meta name="keywords" content="fpga学习第一节（流程实现）.md, 谢东娜的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>新建 | 谢东娜的博客</title>
+    <title>fpga学习第一节（流程实现）.md | 谢东娜的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">新建</h1>
+                    <h1 class="description center-align post-title">fpga学习第一节（流程实现）.md</h1>
                 </div>
             </div>
         </div>
@@ -432,8 +432,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/web/">
-                                <span class="chip bg-color">web</span>
+                            <a href="/tags/fpga%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">fpga学习</span>
                             </a>
                         
                     </div>
@@ -448,21 +448,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-07-20
+                    2022-08-05
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-20
+                    2022-08-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    20
+                    435
                 </div>
                 
 
@@ -489,10 +489,75 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="新建网站"><a href="#新建网站" class="headerlink" title="新建网站"></a>新建网站</h1><h2 id="使用工具"><a href="#使用工具" class="headerlink" title="使用工具"></a>使用工具</h2><ul>
-<li>typora</li>
-<li>vscode  <h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><img src="https://img.tukuppt.com/bg_grid/00/11/74/9AwqyrzQdi.jpg!/fh/350"><h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><a target="_blank" rel="noopener" href="https://code.visualstudio.com/">vscode下载地址</a></li>
+                <h1 id="Xilinx-FPGA学习第一节"><a href="#Xilinx-FPGA学习第一节" class="headerlink" title="Xilinx FPGA学习第一节"></a>Xilinx FPGA学习第一节</h1><h2 id="1-FPGA开发流程"><a href="#1-FPGA开发流程" class="headerlink" title="1. FPGA开发流程"></a>1. FPGA开发流程</h2><ul>
+<li>设计定义</li>
+<li>设计输入</li>
+<li>分析综合（EDA软件，得到逻辑门级别的电路内容）</li>
+<li>功能仿真（modelsim）</li>
+<li>布局布线（vivado、quartus）</li>
+<li>分析性能（时序仿真modelsim或者静态时序分析vivado、quartus）</li>
+<li>板级调试  </li>
 </ul>
+<h2 id="2-二选一多路选择器实现"><a href="#2-二选一多路选择器实现" class="headerlink" title="2. 二选一多路选择器实现"></a>2. 二选一多路选择器实现</h2><h3 id="2-1-设计"><a href="#2-1-设计" class="headerlink" title="2.1 设计"></a>2.1 设计</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/9edd1c31d1e7c1c3.jpg"></p>
+<h3 id="2-2-编写设计代码mux2-v"><a href="#2-2-编写设计代码mux2-v" class="headerlink" title="2.2 编写设计代码mux2.v"></a>2.2 编写设计代码mux2.v</h3><pre class=" language-mux2.v"><code class="language-mux2.v">module mux2(
+    a,
+    b,
+    sel,
+    out
+);
+    input a;
+    input b;
+    input sel;
+    output out;
+    
+    assign out = (sel==1)?a:b;
+
+endmodule
+</code></pre>
+<h3 id="2-3-Run-Synthesis-分析综合"><a href="#2-3-Run-Synthesis-分析综合" class="headerlink" title="2.3 Run Synthesis 分析综合"></a>2.3 Run Synthesis 分析综合</h3><h3 id="2-4-功能仿真"><a href="#2-4-功能仿真" class="headerlink" title="2.4 功能仿真"></a>2.4 功能仿真</h3><h4 id="2-4-1-仿真原理图"><a href="#2-4-1-仿真原理图" class="headerlink" title="2.4.1 仿真原理图"></a>2.4.1 仿真原理图</h4><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/c70fa874be2dea65.jpg"></p>
+<h4 id="2-4-2-编写仿真代码-mux2-tb-test-bench"><a href="#2-4-2-编写仿真代码-mux2-tb-test-bench" class="headerlink" title="2.4.2 编写仿真代码 mux2_tb(test_bench)"></a>2.4.2 编写仿真代码 mux2_tb(test_bench)</h4><pre class=" language-mux2_tb.v"><code class="language-mux2_tb.v">`timescale  1ns / 1ns
+//两个1ns含义不一样，第一个是以ns为单位，比如延时200ns:#200；
+//第二个ns是精度
+module mux2_tb();
+
+   reg s_a;
+   reg s_b;
+   reg s_sel;
+   wire out;
+   
+   mux2 mux2_inst(  //mux2_inst相当于mux2的代号
+    .a(s_a),  //s_a是a连接的信号线
+    .b(s_b),
+    .sel(s_sel),
+    .out(out)
+   );
+   
+   initial begin
+      s_a=0;s_b=0;s_sel=0;
+      #200;
+      s_a=0;s_b=0;s_sel=1;
+      #200;
+      s_a=0;s_b=1;s_sel=0;
+      #200;
+      s_a=0;s_b=1;s_sel=1;
+      #200;
+      s_a=1;s_b=0;s_sel=0;
+      #200;
+      s_a=1;s_b=0;s_sel=1;
+      #200;
+      s_a=1;s_b=1;s_sel=0;
+      #200;
+      s_a=1;s_b=1;s_sel=1;
+      #200;
+      $stop;
+   end
+endmodule
+</code></pre>
+<h4 id="2-4-3-Run-simulation-点击第一个功能仿真"><a href="#2-4-3-Run-simulation-点击第一个功能仿真" class="headerlink" title="2.4.3 Run simulation 点击第一个功能仿真"></a>2.4.3 Run simulation 点击第一个功能仿真</h4><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/a316449d90350d67.jpg"></p>
+<h3 id="2-5-布局布线"><a href="#2-5-布局布线" class="headerlink" title="2.5 布局布线"></a>2.5 布局布线</h3><h4 id="2-5-1-Run-Implementation"><a href="#2-5-1-Run-Implementation" class="headerlink" title="2.5.1 Run Implementation"></a>2.5.1 Run Implementation</h4><h4 id="2-5-2-时序仿真-Run-simulation-点击最后一个时序仿真"><a href="#2-5-2-时序仿真-Run-simulation-点击最后一个时序仿真" class="headerlink" title="2.5.2 时序仿真 Run simulation 点击最后一个时序仿真"></a>2.5.2 时序仿真 Run simulation 点击最后一个时序仿真</h4><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/c899b38b774395c7.jpg"><br>可以看到400ns时out还没变，而是400ns多一点才变的</p>
+<h4 id="2-5-3-添加约束文件并保存"><a href="#2-5-3-添加约束文件并保存" class="headerlink" title="2.5.3 添加约束文件并保存"></a>2.5.3 添加约束文件并保存</h4><p>Layout I/O.Planning<br><img src="https://s3.bmp.ovh/imgs/2022/08/05/5cddea62898c1d4a.jpg"><br>xdc文件里面可查看</p>
+<h3 id="2-6-板级调试"><a href="#2-6-板级调试" class="headerlink" title="2.6 板级调试"></a>2.6 板级调试</h3><p>1.产生比特流<br>2.点击Open Hardware Manager，然后点击Open target的Auto connect<br>3.program device<br>4.拨开关<br><img src="https://s3.bmp.ovh/imgs/2022/08/05/7e2e363616f951c3.jpg"><br>如上图，sw0代表a,sw1代表b,sw7代表sel,led0代表out<br>sw7上拨，sw0上拨，led就亮了</p>
+<p>以前畏惧硬件，现在感觉还是蛮有意思^_^</p>
 
                 
             </div>
@@ -519,7 +584,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://eee123xdn.github.io/2022/07/20/%E6%96%B0%E5%BB%BA/">http://eee123xdn.github.io/2022/07/20/%E6%96%B0%E5%BB%BA/</a>
+                    <a href="http://eee123xdn.github.io/2022/08/05/fpga%E5%AD%A6%E4%B9%A0/">http://eee123xdn.github.io/2022/08/05/fpga%E5%AD%A6%E4%B9%A0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -557,8 +622,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/web/">
-                                    <span class="chip bg-color">web</span>
+                                <a href="/tags/fpga%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">fpga学习</span>
                                 </a>
                             
                         </div>
@@ -729,7 +794,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2022-07-20T14-29-10',
+        id: '2022-08-05T14-04-25',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -753,7 +818,7 @@
 <script src="/libs/gitment/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-    id: 'Wed Jul 20 2022 14:29:10 GMT+0800',
+    id: 'Fri Aug 05 2022 14:04:25 GMT+0800',
     owner: '',
     repo: '',
     oauth: {
@@ -778,9 +843,9 @@ gitment.render('gitment-content');
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'http://eee123xdn.github.io/2022/07/20/%E6%96%B0%E5%BB%BA/';
-        this.page.identifier = '/2022/07/20/%E6%96%B0%E5%BB%BA/';
-        this.page.title = '新建';
+        this.page.url = 'http://eee123xdn.github.io/2022/08/05/fpga%E5%AD%A6%E4%B9%A0/';
+        this.page.identifier = '/2022/08/05/fpga%E5%AD%A6%E4%B9%A0/';
+        this.page.title = 'fpga学习第一节（流程实现）.md';
     };
     let disqus_shortname = '';
 
@@ -1144,13 +1209,13 @@ gitment.render('gitment-content');
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2022/07/20/%E6%96%B0%E5%BB%BA/">
+                <a href="/2022/08/05/fpga%E5%AD%A6%E4%B9%A0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="新建">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="fpga学习第一节（流程实现）.md">
                         
-                        <span class="card-title">新建</span>
+                        <span class="card-title">fpga学习第一节（流程实现）.md</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1161,7 +1226,7 @@ gitment.render('gitment-content');
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-05
                             </span>
                         <span class="publish-author">
                             
@@ -1175,8 +1240,8 @@ gitment.render('gitment-content');
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/web/">
-                        <span class="chip bg-color">web</span>
+                    <a href="/tags/fpga%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">fpga学习</span>
                     </a>
                     
                 </div>
@@ -1187,16 +1252,16 @@ gitment.render('gitment-content');
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2022/07/18/hello-world/">
+                <a href="/2022/08/05/fpga%E5%AD%A6%E4%B9%A0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="fpga学习第一节（流程实现）.md">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">fpga学习第一节（流程实现）.md</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1207,7 +1272,7 @@ gitment.render('gitment-content');
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-05
                             </span>
                         <span class="publish-author">
                             
@@ -1216,6 +1281,15 @@ gitment.render('gitment-content');
                             
                         </span>
                     </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/fpga%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">fpga学习</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1416,7 +1490,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">93</span>&nbsp;字
+                class="white-color">435</span>&nbsp;字
             
             
             

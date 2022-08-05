@@ -6,7 +6,7 @@
   <link href="http://eee123xdn.github.io/atom.xml" rel="self"/>
   
   <link href="http://eee123xdn.github.io/"/>
-  <updated>2022-07-20T07:10:08.119Z</updated>
+  <updated>2022-08-05T12:10:23.898Z</updated>
   <id>http://eee123xdn.github.io/</id>
   
   <author>
@@ -17,46 +17,25 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>新建</title>
-    <link href="http://eee123xdn.github.io/2022/07/20/%E6%96%B0%E5%BB%BA/"/>
-    <id>http://eee123xdn.github.io/2022/07/20/%E6%96%B0%E5%BB%BA/</id>
-    <published>2022-07-20T06:29:10.000Z</published>
-    <updated>2022-07-20T07:10:08.119Z</updated>
+    <title>fpga学习第一节（流程实现）.md</title>
+    <link href="http://eee123xdn.github.io/2022/08/05/fpga%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://eee123xdn.github.io/2022/08/05/fpga%E5%AD%A6%E4%B9%A0/</id>
+    <published>2022-08-05T06:04:25.000Z</published>
+    <updated>2022-08-05T12:10:23.898Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;新建网站&quot;&gt;&lt;a href=&quot;#新建网站&quot; class=&quot;headerlink&quot; title=&quot;新建网站&quot;&gt;&lt;/a&gt;新建网站&lt;/h1&gt;&lt;h2 id=&quot;使用工具&quot;&gt;&lt;a href=&quot;#使用工具&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;Xilinx-FPGA学习第一节&quot;&gt;&lt;a href=&quot;#Xilinx-FPGA学习第一节&quot; class=&quot;headerlink&quot; title=&quot;Xilinx FPGA学习第一节&quot;&gt;&lt;/a&gt;Xilinx FPGA学习第一节&lt;/h1&gt;&lt;h2</summary>
         
       
     
     
     
     
-    <category term="web" scheme="http://eee123xdn.github.io/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://eee123xdn.github.io/2022/07/18/hello-world/"/>
-    <id>http://eee123xdn.github.io/2022/07/18/hello-world/</id>
-    <published>2022-07-18T15:35:41.064Z</published>
-    <updated>2022-07-18T15:33:17.161Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
-        
-      
-    
-    
-    
+    <category term="fpga学习" scheme="http://eee123xdn.github.io/tags/fpga%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
