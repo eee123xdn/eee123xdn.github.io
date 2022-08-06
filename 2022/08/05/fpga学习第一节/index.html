@@ -455,21 +455,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-05
+                    2022-08-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    435
+                    767
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -557,6 +557,97 @@ endmodule
 <h3 id="2-5-布局布线"><a href="#2-5-布局布线" class="headerlink" title="2.5 布局布线"></a>2.5 布局布线</h3><h4 id="2-5-1-Run-Implementation"><a href="#2-5-1-Run-Implementation" class="headerlink" title="2.5.1 Run Implementation"></a>2.5.1 Run Implementation</h4><h4 id="2-5-2-时序仿真-Run-simulation-点击最后一个时序仿真"><a href="#2-5-2-时序仿真-Run-simulation-点击最后一个时序仿真" class="headerlink" title="2.5.2 时序仿真 Run simulation 点击最后一个时序仿真"></a>2.5.2 时序仿真 Run simulation 点击最后一个时序仿真</h4><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/c899b38b774395c7.jpg"><br>可以看到400ns时out还没变，而是400ns多一点才变的</p>
 <h4 id="2-5-3-添加约束文件并保存"><a href="#2-5-3-添加约束文件并保存" class="headerlink" title="2.5.3 添加约束文件并保存"></a>2.5.3 添加约束文件并保存</h4><p>Layout I/O.Planning<br><img src="https://s3.bmp.ovh/imgs/2022/08/05/5cddea62898c1d4a.jpg"><br>xdc文件里面可查看</p>
 <h3 id="2-6-板级调试"><a href="#2-6-板级调试" class="headerlink" title="2.6 板级调试"></a>2.6 板级调试</h3><p>1.产生比特流<br>2.点击Open Hardware Manager，然后点击Open target的Auto connect<br>3.program device<br>4.拨开关<br><img src="https://s3.bmp.ovh/imgs/2022/08/05/7e2e363616f951c3.jpg"><br>如上图，sw0代表a,sw1代表b,sw7代表sel,led0代表out<br>sw7上拨，sw0上拨，led就亮了</p>
+<h2 id="3-3-8译码器"><a href="#3-3-8译码器" class="headerlink" title="3. 3-8译码器"></a>3. 3-8译码器</h2><h3 id="3-1-逻辑设计"><a href="#3-1-逻辑设计" class="headerlink" title="3.1 逻辑设计"></a>3.1 逻辑设计</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/f8055d5063fba239.jpg"></p>
+<h3 id="3-2-设计输入-decoder-3-8-v"><a href="#3-2-设计输入-decoder-3-8-v" class="headerlink" title="3.2 设计输入 decoder_3_8.v"></a>3.2 设计输入 decoder_3_8.v</h3><pre class=" language-decoder_3_8.v"><code class="language-decoder_3_8.v">`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 2022/08/06 11:28:17
+// Design Name: 
+// Module Name: decoder_3_8
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module decoder_3_8(
+    a,
+    b,
+    c,
+    out
+    );
+    input a;
+    input b;
+    input c;
+    output reg[7:0] out;
+    
+    //always或者initial的左值必须是reg类型
+    //assign左值类型是wire
+    //&#123;a,b,c&#125;是指三个一位拼接成一个三位
+    //比如 wire [3:0]d
+    // assign d=&#123;a,1'b0,b,c&#125;
+    always@(*)begin
+       case(&#123;a,b,c&#125;)
+           3'd0: out=8'b00000001;
+           3'd1: out=8'b00000010;
+           3'd2: out=8'b00000100;
+           3'd3: out=8'b00001000;
+           3'd4: out=8'b00010000;
+           3'd5: out=8'b00100000;
+           3'd6: out=8'b01000000;
+           3'd7: out=8'b10000000;
+       endcase
+    end
+endmodule
+</code></pre>
+<h3 id="3-3-跑综合，语法没问题"><a href="#3-3-跑综合，语法没问题" class="headerlink" title="3.3 跑综合，语法没问题"></a>3.3 跑综合，语法没问题</h3><h3 id="3-4-写仿真文件-decoder-3-8-tb-v"><a href="#3-4-写仿真文件-decoder-3-8-tb-v" class="headerlink" title="3.4 写仿真文件 decoder_3_8_tb.v"></a>3.4 写仿真文件 decoder_3_8_tb.v</h3><pre class=" language-decoder_3_8_tb.v"><code class="language-decoder_3_8_tb.v">`timescale 1ns / 1ps
+
+module decoder_3_8_tb();
+     
+     reg s_a;
+     reg s_b;
+     reg s_c;
+     wire [7:0]out;
+     decoder_3_8 decoder_3_8_inst(
+        .a(s_a),
+        .b(s_b),
+        .c(s_c),
+        .out(out)
+    );
+    
+    initial begin
+      s_a=0;s_b=0;s_c=0;
+      #200;
+      s_a=0;s_b=0;s_c=1;
+      #200;
+      s_a=0;s_b=1;s_c=0;
+      #200;
+      s_a=0;s_b=1;s_c=1;
+      #200;
+      s_a=1;s_b=0;s_c=0;
+      #200;
+      s_a=1;s_b=0;s_c=1;
+      #200;
+      s_a=1;s_b=1;s_c=0;
+      #200;
+      s_a=1;s_b=1;s_c=1;
+      #200;
+      $stop;
+    end
+endmodule
+</code></pre>
+<h3 id="3-5-功能仿真"><a href="#3-5-功能仿真" class="headerlink" title="3.5 功能仿真"></a>3.5 功能仿真</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/06/a3fd636b6c80f3f2.jpg"><br>结果没问题</p>
+<h3 id="3-6-布局布线，然后schematic"><a href="#3-6-布局布线，然后schematic" class="headerlink" title="3.6 布局布线，然后schematic"></a>3.6 布局布线，然后schematic</h3><h3 id="3-7-时序仿真（该程序比较简单，这个就不做了）"><a href="#3-7-时序仿真（该程序比较简单，这个就不做了）" class="headerlink" title="3.7 时序仿真（该程序比较简单，这个就不做了）"></a>3.7 时序仿真（该程序比较简单，这个就不做了）</h3><h3 id="3-8-设置引脚"><a href="#3-8-设置引脚" class="headerlink" title="3.8 设置引脚"></a>3.8 设置引脚</h3><h3 id="3-9-写比特流"><a href="#3-9-写比特流" class="headerlink" title="3.9 写比特流"></a>3.9 写比特流</h3><h3 id="3-10-板级调试"><a href="#3-10-板级调试" class="headerlink" title="3.10 板级调试"></a>3.10 板级调试</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/06/e27152cc7fac241f.jpg"></p>
 <p>以前畏惧硬件，现在感觉还是蛮有意思^_^</p>
 
                 
@@ -584,7 +675,7 @@ endmodule
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://eee123xdn.github.io/2022/08/05/fpga%E5%AD%A6%E4%B9%A0/">http://eee123xdn.github.io/2022/08/05/fpga%E5%AD%A6%E4%B9%A0/</a>
+                    <a href="http://eee123xdn.github.io/2022/08/05/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E8%8A%82/">http://eee123xdn.github.io/2022/08/05/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E8%8A%82/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -843,8 +934,8 @@ gitment.render('gitment-content');
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'http://eee123xdn.github.io/2022/08/05/fpga%E5%AD%A6%E4%B9%A0/';
-        this.page.identifier = '/2022/08/05/fpga%E5%AD%A6%E4%B9%A0/';
+        this.page.url = 'http://eee123xdn.github.io/2022/08/05/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E8%8A%82/';
+        this.page.identifier = '/2022/08/05/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E8%8A%82/';
         this.page.title = 'fpga学习第一节（流程实现）.md';
     };
     let disqus_shortname = '';
@@ -1209,7 +1300,7 @@ gitment.render('gitment-content');
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2022/08/05/fpga%E5%AD%A6%E4%B9%A0/">
+                <a href="/2022/08/05/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E8%8A%82/">
                     <div class="card-image">
                         
                         
@@ -1255,7 +1346,7 @@ gitment.render('gitment-content');
                 本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/05/fpga%E5%AD%A6%E4%B9%A0/">
+                <a href="/2022/08/05/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E8%8A%82/">
                     <div class="card-image">
                         
                         
@@ -1490,7 +1581,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">435</span>&nbsp;字
+                class="white-color">767</span>&nbsp;字
             
             
             
