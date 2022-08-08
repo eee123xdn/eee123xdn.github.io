@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="fpga学习第一节（组合逻辑）.md, 谢东娜的博客">
+    <meta name="keywords" content="递归（python）, 谢东娜的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>fpga学习第一节（组合逻辑）.md | 谢东娜的博客</title>
+    <title>递归（python） | 谢东娜的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">fpga学习第一节（组合逻辑）.md</h1>
+                    <h1 class="description center-align post-title">递归（python）</h1>
                 </div>
             </div>
         </div>
@@ -430,13 +430,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/fpga%E5%AD%A6%E4%B9%A0/">
-                                <span class="chip bg-color">fpga学习</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -448,28 +444,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-05
+                    2022-08-08
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-06
+                    2022-08-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    767
+                    0
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    1 分
                 </div>
                 
 
@@ -489,167 +485,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Xilinx-FPGA学习第一节"><a href="#Xilinx-FPGA学习第一节" class="headerlink" title="Xilinx FPGA学习第一节"></a>Xilinx FPGA学习第一节</h1><h2 id="1-FPGA开发流程"><a href="#1-FPGA开发流程" class="headerlink" title="1. FPGA开发流程"></a>1. FPGA开发流程</h2><ul>
-<li>设计定义</li>
-<li>设计输入</li>
-<li>分析综合（EDA软件，得到逻辑门级别的电路内容）</li>
-<li>功能仿真（modelsim）</li>
-<li>布局布线（vivado、quartus）</li>
-<li>分析性能（时序仿真modelsim或者静态时序分析vivado、quartus）</li>
-<li>板级调试  </li>
-</ul>
-<h2 id="2-二选一多路选择器实现"><a href="#2-二选一多路选择器实现" class="headerlink" title="2. 二选一多路选择器实现"></a>2. 二选一多路选择器实现</h2><h3 id="2-1-设计"><a href="#2-1-设计" class="headerlink" title="2.1 设计"></a>2.1 设计</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/9edd1c31d1e7c1c3.jpg"></p>
-<h3 id="2-2-编写设计代码mux2-v"><a href="#2-2-编写设计代码mux2-v" class="headerlink" title="2.2 编写设计代码mux2.v"></a>2.2 编写设计代码mux2.v</h3><pre class=" language-mux2.v"><code class="language-mux2.v">module mux2(
-    a,
-    b,
-    sel,
-    out
-);
-    input a;
-    input b;
-    input sel;
-    output out;
-    
-    assign out = (sel==1)?a:b;
-
-endmodule
-</code></pre>
-<h3 id="2-3-Run-Synthesis-分析综合"><a href="#2-3-Run-Synthesis-分析综合" class="headerlink" title="2.3 Run Synthesis 分析综合"></a>2.3 Run Synthesis 分析综合</h3><h3 id="2-4-功能仿真"><a href="#2-4-功能仿真" class="headerlink" title="2.4 功能仿真"></a>2.4 功能仿真</h3><h4 id="2-4-1-仿真原理图"><a href="#2-4-1-仿真原理图" class="headerlink" title="2.4.1 仿真原理图"></a>2.4.1 仿真原理图</h4><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/c70fa874be2dea65.jpg"></p>
-<h4 id="2-4-2-编写仿真代码-mux2-tb-test-bench"><a href="#2-4-2-编写仿真代码-mux2-tb-test-bench" class="headerlink" title="2.4.2 编写仿真代码 mux2_tb(test_bench)"></a>2.4.2 编写仿真代码 mux2_tb(test_bench)</h4><pre class=" language-mux2_tb.v"><code class="language-mux2_tb.v">`timescale  1ns / 1ns
-//两个1ns含义不一样，第一个是以ns为单位，比如延时200ns:#200；
-//第二个ns是精度
-module mux2_tb();
-
-   reg s_a;
-   reg s_b;
-   reg s_sel;
-   wire out;
-   
-   mux2 mux2_inst(  //mux2_inst相当于mux2的代号
-    .a(s_a),  //s_a是a连接的信号线
-    .b(s_b),
-    .sel(s_sel),
-    .out(out)
-   );
-   
-   initial begin
-      s_a=0;s_b=0;s_sel=0;
-      #200;
-      s_a=0;s_b=0;s_sel=1;
-      #200;
-      s_a=0;s_b=1;s_sel=0;
-      #200;
-      s_a=0;s_b=1;s_sel=1;
-      #200;
-      s_a=1;s_b=0;s_sel=0;
-      #200;
-      s_a=1;s_b=0;s_sel=1;
-      #200;
-      s_a=1;s_b=1;s_sel=0;
-      #200;
-      s_a=1;s_b=1;s_sel=1;
-      #200;
-      $stop;
-   end
-endmodule
-</code></pre>
-<h4 id="2-4-3-Run-simulation-点击第一个功能仿真"><a href="#2-4-3-Run-simulation-点击第一个功能仿真" class="headerlink" title="2.4.3 Run simulation 点击第一个功能仿真"></a>2.4.3 Run simulation 点击第一个功能仿真</h4><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/a316449d90350d67.jpg"></p>
-<h3 id="2-5-布局布线"><a href="#2-5-布局布线" class="headerlink" title="2.5 布局布线"></a>2.5 布局布线</h3><h4 id="2-5-1-Run-Implementation"><a href="#2-5-1-Run-Implementation" class="headerlink" title="2.5.1 Run Implementation"></a>2.5.1 Run Implementation</h4><h4 id="2-5-2-时序仿真-Run-simulation-点击最后一个时序仿真"><a href="#2-5-2-时序仿真-Run-simulation-点击最后一个时序仿真" class="headerlink" title="2.5.2 时序仿真 Run simulation 点击最后一个时序仿真"></a>2.5.2 时序仿真 Run simulation 点击最后一个时序仿真</h4><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/c899b38b774395c7.jpg"><br>可以看到400ns时out还没变，而是400ns多一点才变的</p>
-<h4 id="2-5-3-添加约束文件并保存"><a href="#2-5-3-添加约束文件并保存" class="headerlink" title="2.5.3 添加约束文件并保存"></a>2.5.3 添加约束文件并保存</h4><p>Layout I/O.Planning<br><img src="https://s3.bmp.ovh/imgs/2022/08/05/5cddea62898c1d4a.jpg"><br>xdc文件里面可查看</p>
-<h3 id="2-6-板级调试"><a href="#2-6-板级调试" class="headerlink" title="2.6 板级调试"></a>2.6 板级调试</h3><p>1.产生比特流<br>2.点击Open Hardware Manager，然后点击Open target的Auto connect<br>3.program device<br>4.拨开关<br><img src="https://s3.bmp.ovh/imgs/2022/08/05/7e2e363616f951c3.jpg"><br>如上图，sw0代表a,sw1代表b,sw7代表sel,led0代表out<br>sw7上拨，sw0上拨，led就亮了</p>
-<h2 id="3-3-8译码器"><a href="#3-3-8译码器" class="headerlink" title="3. 3-8译码器"></a>3. 3-8译码器</h2><h3 id="3-1-逻辑设计"><a href="#3-1-逻辑设计" class="headerlink" title="3.1 逻辑设计"></a>3.1 逻辑设计</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/f8055d5063fba239.jpg"></p>
-<h3 id="3-2-设计输入-decoder-3-8-v"><a href="#3-2-设计输入-decoder-3-8-v" class="headerlink" title="3.2 设计输入 decoder_3_8.v"></a>3.2 设计输入 decoder_3_8.v</h3><pre class=" language-decoder_3_8.v"><code class="language-decoder_3_8.v">`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 2022/08/06 11:28:17
-// Design Name: 
-// Module Name: decoder_3_8
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
-
-module decoder_3_8(
-    a,
-    b,
-    c,
-    out
-    );
-    input a;
-    input b;
-    input c;
-    output reg[7:0] out;
-    
-    //always或者initial的左值必须是reg类型
-    //assign左值类型是wire
-    //&#123;a,b,c&#125;是指三个一位拼接成一个三位
-    //比如 wire [3:0]d
-    // assign d=&#123;a,1'b0,b,c&#125;
-    always@(*)begin
-       case(&#123;a,b,c&#125;)
-           3'd0: out=8'b00000001;
-           3'd1: out=8'b00000010;
-           3'd2: out=8'b00000100;
-           3'd3: out=8'b00001000;
-           3'd4: out=8'b00010000;
-           3'd5: out=8'b00100000;
-           3'd6: out=8'b01000000;
-           3'd7: out=8'b10000000;
-       endcase
-    end
-endmodule
-</code></pre>
-<h3 id="3-3-跑综合，语法没问题"><a href="#3-3-跑综合，语法没问题" class="headerlink" title="3.3 跑综合，语法没问题"></a>3.3 跑综合，语法没问题</h3><h3 id="3-4-写仿真文件-decoder-3-8-tb-v"><a href="#3-4-写仿真文件-decoder-3-8-tb-v" class="headerlink" title="3.4 写仿真文件 decoder_3_8_tb.v"></a>3.4 写仿真文件 decoder_3_8_tb.v</h3><pre class=" language-decoder_3_8_tb.v"><code class="language-decoder_3_8_tb.v">`timescale 1ns / 1ps
-
-module decoder_3_8_tb();
-     
-     reg s_a;
-     reg s_b;
-     reg s_c;
-     wire [7:0]out;
-     decoder_3_8 decoder_3_8_inst(
-        .a(s_a),
-        .b(s_b),
-        .c(s_c),
-        .out(out)
-    );
-    
-    initial begin
-      s_a=0;s_b=0;s_c=0;
-      #200;
-      s_a=0;s_b=0;s_c=1;
-      #200;
-      s_a=0;s_b=1;s_c=0;
-      #200;
-      s_a=0;s_b=1;s_c=1;
-      #200;
-      s_a=1;s_b=0;s_c=0;
-      #200;
-      s_a=1;s_b=0;s_c=1;
-      #200;
-      s_a=1;s_b=1;s_c=0;
-      #200;
-      s_a=1;s_b=1;s_c=1;
-      #200;
-      $stop;
-    end
-endmodule
-</code></pre>
-<h3 id="3-5-功能仿真"><a href="#3-5-功能仿真" class="headerlink" title="3.5 功能仿真"></a>3.5 功能仿真</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/06/a3fd636b6c80f3f2.jpg"><br>结果没问题</p>
-<h3 id="3-6-布局布线，然后schematic"><a href="#3-6-布局布线，然后schematic" class="headerlink" title="3.6 布局布线，然后schematic"></a>3.6 布局布线，然后schematic</h3><h3 id="3-7-时序仿真（该程序比较简单，这个就不做了）"><a href="#3-7-时序仿真（该程序比较简单，这个就不做了）" class="headerlink" title="3.7 时序仿真（该程序比较简单，这个就不做了）"></a>3.7 时序仿真（该程序比较简单，这个就不做了）</h3><h3 id="3-8-设置引脚"><a href="#3-8-设置引脚" class="headerlink" title="3.8 设置引脚"></a>3.8 设置引脚</h3><h3 id="3-9-写比特流"><a href="#3-9-写比特流" class="headerlink" title="3.9 写比特流"></a>3.9 写比特流</h3><h3 id="3-10-板级调试"><a href="#3-10-板级调试" class="headerlink" title="3.10 板级调试"></a>3.10 板级调试</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/06/e27152cc7fac241f.jpg"></p>
-<p>以前畏惧硬件，现在感觉还是蛮有意思^_^</p>
-
+                
                 
             </div>
             <hr/>
@@ -675,7 +511,7 @@ endmodule
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://eee123xdn.github.io/2022/08/05/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E8%8A%82/">http://eee123xdn.github.io/2022/08/05/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E8%8A%82/</a>
+                    <a href="http://eee123xdn.github.io/2022/08/08/%E9%80%92%E5%BD%92%EF%BC%88python%EF%BC%89/">http://eee123xdn.github.io/2022/08/08/%E9%80%92%E5%BD%92%EF%BC%88python%EF%BC%89/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -712,11 +548,7 @@ endmodule
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/fpga%E5%AD%A6%E4%B9%A0/">
-                                    <span class="chip bg-color">fpga学习</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -885,7 +717,7 @@ endmodule
         repo: '',
         owner: '',
         admin: null,
-        id: '2022-08-05T14-04-25',
+        id: '2022-08-08T18-24-14',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -909,7 +741,7 @@ endmodule
 <script src="/libs/gitment/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-    id: 'Fri Aug 05 2022 14:04:25 GMT+0800',
+    id: 'Mon Aug 08 2022 18:24:14 GMT+0800',
     owner: '',
     repo: '',
     oauth: {
@@ -934,9 +766,9 @@ gitment.render('gitment-content');
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'http://eee123xdn.github.io/2022/08/05/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E8%8A%82/';
-        this.page.identifier = '/2022/08/05/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E8%8A%82/';
-        this.page.title = 'fpga学习第一节（组合逻辑）.md';
+        this.page.url = 'http://eee123xdn.github.io/2022/08/08/%E9%80%92%E5%BD%92%EF%BC%88python%EF%BC%89/';
+        this.page.identifier = '/2022/08/08/%E9%80%92%E5%BD%92%EF%BC%88python%EF%BC%89/';
+        this.page.title = '递归（python）';
     };
     let disqus_shortname = '';
 
@@ -1295,62 +1127,18 @@ gitment.render('gitment-content');
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%BF%B0/">
+                <a href="/2022/08/08/%E9%80%92%E5%BD%92%EF%BC%88python%EF%BC%89/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="机器学习概述">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="递归（python）">
                         
-                        <span class="card-title">机器学习概述</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-08
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            xdn
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
-                        <span class="chip bg-color">深度学习与神经网络</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/08/05/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E8%8A%82/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="fpga学习第一节（组合逻辑）.md">
-                        
-                        <span class="card-title">fpga学习第一节（组合逻辑）.md</span>
+                        <span class="card-title">递归（python）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1361,7 +1149,7 @@ gitment.render('gitment-content');
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-08
                             </span>
                         <span class="publish-author">
                             
@@ -1373,10 +1161,47 @@ gitment.render('gitment-content');
                 </div>
 
                 
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/08/08/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="高等数学基础">
+                        
+                        <span class="card-title">高等数学基础</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            xdn
+                            
+                        </span>
+                    </div>
+                </div>
+                
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/fpga%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">fpga学习</span>
+                    <a href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">数学基础</span>
                     </a>
                     
                 </div>

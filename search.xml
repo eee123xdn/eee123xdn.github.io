@@ -4,7 +4,77 @@
   
     
     <entry>
-      <title>fpga学习第一节（流程实现）.md</title>
+      <title>递归（python）</title>
+      <link href="/2022/08/08/%E9%80%92%E5%BD%92%EF%BC%88python%EF%BC%89/"/>
+      <url>/2022/08/08/%E9%80%92%E5%BD%92%EF%BC%88python%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>高等数学基础</title>
+      <link href="/2022/08/08/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+      <url>/2022/08/08/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 数学基础 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>神经网络与深度学习绪论</title>
+      <link href="/2022/08/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BB%AA%E8%AE%BA/"/>
+      <url>/2022/08/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BB%AA%E8%AE%BA/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-路线"><a href="#1-路线" class="headerlink" title="1.路线"></a>1.路线</h2><p><img src="https://s3.bmp.ovh/imgs/2022/08/08/838008e089ea0cf5.png"></p><h2 id="2-深度学习与表示学习"><a href="#2-深度学习与表示学习" class="headerlink" title="2.深度学习与表示学习"></a>2.深度学习与表示学习</h2><p><img src="https://s3.bmp.ovh/imgs/2022/08/08/aacb3a4245fe8b54.png"></p><h2 id="3-语义表示（独热表示与分布式表示）"><a href="#3-语义表示（独热表示与分布式表示）" class="headerlink" title="3.语义表示（独热表示与分布式表示）"></a>3.语义表示（独热表示与分布式表示）</h2><p><img src="https://s3.bmp.ovh/imgs/2022/08/08/e79a201fef0a31ec.png"><br><img src="https://s3.bmp.ovh/imgs/2022/08/08/db0ddb1a6ab8315a.png"></p><h2 id="4-神经元模型"><a href="#4-神经元模型" class="headerlink" title="4.神经元模型"></a>4.神经元模型</h2><p>这个模型就是模仿大脑，接收其他神经元传来的刺激，每个都赋一个权值，然后和产生刺激的阈值比较<br><img src="https://s3.bmp.ovh/imgs/2022/08/08/f8b90f522c4f2c81.png"></p><h2 id="5-人工神经网络"><a href="#5-人工神经网络" class="headerlink" title="5.人工神经网络"></a>5.人工神经网络</h2><p><img src="https://s3.bmp.ovh/imgs/2022/08/08/6f86ebfa497af24d.png"><br>贡献度就可以用偏导数来表示，偏导值越大，贡献占比越大</p><h2 id="6-需要的数学基础"><a href="#6-需要的数学基础" class="headerlink" title="6.需要的数学基础"></a>6.需要的数学基础</h2><p><a href="https://www.bilibili.com/video/BV1Yg411X7gw?spm_id_from=333.337.search-card.all.click&vd_source=a647ee5114ce65eae6f65468f4ff0eb8">数学学习链接</a><br><a href="https://www.bilibili.com/video/BV1uA411N7c5?p=51&vd_source=a647ee5114ce65eae6f65468f4ff0eb8">python基础练习</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 神经网络与深度学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>机器学习概述</title>
+      <link href="/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%BF%B0/"/>
+      <url>/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%BF%B0/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 深度学习与神经网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>fpga学习第一节（组合逻辑）.md</title>
       <link href="/2022/08/05/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E8%8A%82/"/>
       <url>/2022/08/05/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E8%8A%82/</url>
       

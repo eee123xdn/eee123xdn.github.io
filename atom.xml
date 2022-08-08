@@ -6,7 +6,7 @@
   <link href="http://eee123xdn.github.io/atom.xml" rel="self"/>
   
   <link href="http://eee123xdn.github.io/"/>
-  <updated>2022-08-06T04:57:16.253Z</updated>
+  <updated>2022-08-08T10:24:14.433Z</updated>
   <id>http://eee123xdn.github.io/</id>
   
   <author>
@@ -17,11 +17,77 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>fpga学习第一节（流程实现）.md</title>
+    <title>递归（python）</title>
+    <link href="http://eee123xdn.github.io/2022/08/08/%E9%80%92%E5%BD%92%EF%BC%88python%EF%BC%89/"/>
+    <id>http://eee123xdn.github.io/2022/08/08/%E9%80%92%E5%BD%92%EF%BC%88python%EF%BC%89/</id>
+    <published>2022-08-08T10:24:14.000Z</published>
+    <updated>2022-08-08T10:24:14.433Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>高等数学基础</title>
+    <link href="http://eee123xdn.github.io/2022/08/08/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    <id>http://eee123xdn.github.io/2022/08/08/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/</id>
+    <published>2022-08-08T10:20:34.000Z</published>
+    <updated>2022-08-08T10:20:50.939Z</updated>
+    
+    
+    
+    
+    
+    <category term="数学基础" scheme="http://eee123xdn.github.io/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>神经网络与深度学习绪论</title>
+    <link href="http://eee123xdn.github.io/2022/08/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BB%AA%E8%AE%BA/"/>
+    <id>http://eee123xdn.github.io/2022/08/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BB%AA%E8%AE%BA/</id>
+    <published>2022-08-08T09:46:08.000Z</published>
+    <updated>2022-08-08T10:19:16.664Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-路线&quot;&gt;&lt;a href=&quot;#1-路线&quot; class=&quot;headerlink&quot; title=&quot;1.路线&quot;&gt;&lt;/a&gt;1.路线&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    
+    <category term="神经网络与深度学习" scheme="http://eee123xdn.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习概述</title>
+    <link href="http://eee123xdn.github.io/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%BF%B0/"/>
+    <id>http://eee123xdn.github.io/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%BF%B0/</id>
+    <published>2022-08-08T09:45:11.000Z</published>
+    <updated>2022-08-08T10:15:10.544Z</updated>
+    
+    
+    
+    
+    
+    <category term="深度学习与神经网络" scheme="http://eee123xdn.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>fpga学习第一节（组合逻辑）.md</title>
     <link href="http://eee123xdn.github.io/2022/08/05/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E8%8A%82/"/>
     <id>http://eee123xdn.github.io/2022/08/05/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E8%8A%82/</id>
     <published>2022-08-05T06:04:25.000Z</published>
-    <updated>2022-08-06T04:57:16.253Z</updated>
+    <updated>2022-08-06T11:18:08.277Z</updated>
     
     
       
