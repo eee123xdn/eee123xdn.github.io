@@ -4,22 +4,47 @@
   
     
     <entry>
-      <title>递归（python）</title>
-      <link href="/2022/08/08/%E9%80%92%E5%BD%92%EF%BC%88python%EF%BC%89/"/>
-      <url>/2022/08/08/%E9%80%92%E5%BD%92%EF%BC%88python%EF%BC%89/</url>
+      <title>python前言</title>
+      <link href="/2022/08/09/python%E5%89%8D%E8%A8%80/"/>
+      <url>/2022/08/09/python%E5%89%8D%E8%A8%80/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h2 id="1-随便说点"><a href="#1-随便说点" class="headerlink" title="1.随便说点"></a>1.随便说点</h2><p>三年来大多数时间都花在写C++上，虽然之前做过java,python的小项目，但是过段时间不用，语法就忘了很多，而且一直以来并没有系统学过，导致一个问题:别人让写一个python的作业或者项目时，知道自己可以完成，但是无法预估出需要花多少时间，会有心虚感，而不比当时C++完成一个编译原理课设，知道自己几天完成，差不多就几天写完。那光学点基础的语法和一些包的应用，够吗？显然不行。那接下来还是像我当初熟练C++一样，先用python写数据结构与基本的算法练熟，再学习各种框架怎么写吧。</p><h2 id="2-python的一些基础小问题"><a href="#2-python的一些基础小问题" class="headerlink" title="2.python的一些基础小问题"></a>2.python的一些基础小问题</h2><p>基础语法里面也有一些和C++不同，传参当时确实坑了我一把<br>2.1 <a href="https://blog.csdn.net/xyl99520/article/details/125853623">python传参时避免参数改变</a><br>2.2 <a href="https://blog.csdn.net/xyl99520/article/details/125854730">python中的self和init</a><br>类属性和对象属性写在不同位置也是不一样的<br>2.3 <a href="https://blog.csdn.net/xyl99520/article/details/125854997">python构造类和对象</a></p><h2 id="3-写了两场简单的cf，更熟悉一点"><a href="#3-写了两场简单的cf，更熟悉一点" class="headerlink" title="3.写了两场简单的cf，更熟悉一点"></a>3.写了两场简单的cf，更熟悉一点</h2><p>3.1 <a href="https://blog.csdn.net/xyl99520/article/details/125831080">Codeforces Round #806 (Div. 4)A-E–python</a><br>3.2 <a href="https://blog.csdn.net/xyl99520/article/details/126216342">Codeforces Round #812 (Div. 2)A-C–python</a></p>]]></content>
       
       
+      
+        <tags>
+            
+            <tag> python数据结构与算法 </tag>
+            
+        </tags>
       
     </entry>
     
     
     
     <entry>
-      <title>高等数学基础</title>
-      <link href="/2022/08/08/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
-      <url>/2022/08/08/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/</url>
+      <title>python递归与查找</title>
+      <link href="/2022/08/08/python%E9%80%92%E5%BD%92%E4%B8%8E%E6%9F%A5%E6%89%BE/"/>
+      <url>/2022/08/08/python%E9%80%92%E5%BD%92%E4%B8%8E%E6%9F%A5%E6%89%BE/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-递归：汉诺塔问题"><a href="#1-递归：汉诺塔问题" class="headerlink" title="1.递归：汉诺塔问题"></a>1.递归：汉诺塔问题</h2><pre class=" language-hannuota.py"><code class="language-hannuota.py">import mathimport osimport collectionsimport sysdef hannuota(n, a, b, c):    if n > 0:        hannuota(n - 1, a, c, b)        print("%s->%s" % (a, c))        hannuota(n - 1, b, a, c)hannuota(3, 'A', 'B', 'C')</code></pre><p>移动次数转移方程 dp[n]=2*dp[n-1]+1   </p><h2 id="2-顺序查找"><a href="#2-顺序查找" class="headerlink" title="2.顺序查找"></a>2.顺序查找</h2><pre class=" language-line_search.py"><code class="language-line_search.py">import mathimport osimport collectionsimport sysdef line_search(li,val):    for i in range(len(li)):        if(li[i]==val):            return i    return Nonex=[2,7,1,6,4]index1=line_search(x,6)print(index1)    </code></pre><p>当然，也有内置的index函数</p><pre class=" language-indexfunc.py"><code class="language-indexfunc.py">aList = [123, 'xyz', 'runoob', 'abc']print("xyz 索引位置: ", aList.index('xyz'))print("runoob 索引位置 : ", aList.index('runoob', 1, 3))</code></pre><h2 id="3-二分查找"><a href="#3-二分查找" class="headerlink" title="3.二分查找"></a>3.二分查找</h2><p>下面两个函数分别能够查找最左边和最右边满足条件的<br>当然，二分查找前提需要数组有序</p><pre class=" language-erfen_search.py"><code class="language-erfen_search.py">import mathdef erfen_search1(li,val):    l,r=0,len(li)-1    while l<r:        mid=(l+r)>>1        if li[mid]>=val:            r=mid        else:            l=mid+1    if li[l]==val:        return l    else:        return -1def erfen_search2(li,val):    l,r=0,len(li)-1    while l<r:        mid=(l+r+1)>>1        if li[mid]<=val:            l=mid        else:            r=mid-1    if li[l]==val:        return l    else:        return -1x=[1,2,3,3,3,4,5,6,7,7]index1=erfen_search1(x,3)print("最左边等于3的数的下标%d" % index1)index2=erfen_search2(x,3)print("最右边等于3的数的下标%d" % index2)</code></pre><p>二分查找也有内置的函数，和lower_bound和upper_bound一样<br><a href="https://blog.csdn.net/YMWM_/article/details/122378152">参考链接</a></p><pre class=" language-bisect.py"><code class="language-bisect.py">import mathimport bisectx=[1,2,3,3,3,4,5,6,7,7]index1=bisect.bisect_left(x,3)index2=bisect.bisect_right(x,3)print("第一个大于等于3的数的下标%d" % index1)print("第一个大于3的数的下标%d" % index2)</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> python数据结构与算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>机器学习数学基础</title>
+      <link href="/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+      <url>/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/</url>
       
         <content type="html"><![CDATA[]]></content>
       

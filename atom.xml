@@ -6,7 +6,7 @@
   <link href="http://eee123xdn.github.io/atom.xml" rel="self"/>
   
   <link href="http://eee123xdn.github.io/"/>
-  <updated>2022-08-08T10:24:14.433Z</updated>
+  <updated>2022-08-09T08:54:59.320Z</updated>
   <id>http://eee123xdn.github.io/</id>
   
   <author>
@@ -17,24 +17,57 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>递归（python）</title>
-    <link href="http://eee123xdn.github.io/2022/08/08/%E9%80%92%E5%BD%92%EF%BC%88python%EF%BC%89/"/>
-    <id>http://eee123xdn.github.io/2022/08/08/%E9%80%92%E5%BD%92%EF%BC%88python%EF%BC%89/</id>
-    <published>2022-08-08T10:24:14.000Z</published>
-    <updated>2022-08-08T10:24:14.433Z</updated>
+    <title>python前言</title>
+    <link href="http://eee123xdn.github.io/2022/08/09/python%E5%89%8D%E8%A8%80/"/>
+    <id>http://eee123xdn.github.io/2022/08/09/python%E5%89%8D%E8%A8%80/</id>
+    <published>2022-08-09T08:34:59.000Z</published>
+    <updated>2022-08-09T08:54:59.320Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-随便说点&quot;&gt;&lt;a href=&quot;#1-随便说点&quot; class=&quot;headerlink&quot;</summary>
+        
+      
     
     
     
     
+    <category term="python数据结构与算法" scheme="http://eee123xdn.github.io/tags/python%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
-    <title>高等数学基础</title>
-    <link href="http://eee123xdn.github.io/2022/08/08/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
-    <id>http://eee123xdn.github.io/2022/08/08/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/</id>
+    <title>python递归与查找</title>
+    <link href="http://eee123xdn.github.io/2022/08/08/python%E9%80%92%E5%BD%92%E4%B8%8E%E6%9F%A5%E6%89%BE/"/>
+    <id>http://eee123xdn.github.io/2022/08/08/python%E9%80%92%E5%BD%92%E4%B8%8E%E6%9F%A5%E6%89%BE/</id>
+    <published>2022-08-08T10:24:14.000Z</published>
+    <updated>2022-08-09T10:13:08.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-递归：汉诺塔问题&quot;&gt;&lt;a href=&quot;#1-递归：汉诺塔问题&quot; class=&quot;headerlink&quot; title=&quot;1.递归：汉诺塔问题&quot;&gt;&lt;/a&gt;1.递归：汉诺塔问题&lt;/h2&gt;&lt;pre class=&quot; language-hannuota.py&quot;&gt;&lt;code</summary>
+        
+      
+    
+    
+    
+    
+    <category term="python数据结构与算法" scheme="http://eee123xdn.github.io/tags/python%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习数学基础</title>
+    <link href="http://eee123xdn.github.io/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    <id>http://eee123xdn.github.io/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/</id>
     <published>2022-08-08T10:20:34.000Z</published>
-    <updated>2022-08-08T10:20:50.939Z</updated>
+    <updated>2022-08-09T12:02:46.188Z</updated>
     
     
     
