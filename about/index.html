@@ -29,7 +29,11 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="谢东娜的博客" type="application/atom+xml">
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="谢东娜的博客" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -365,16 +369,21 @@
                     <div class="post-statis col l4 hide-on-med-and-down" data-aos="zoom-in-right">
                         
 <div class="statis">
-    <span class="count"><a href="/">6</a></span>
+    <span class="count"><a href="/">10</a></span>
     <span class="name">文章</span>
 </div>
 
 
 
+<div class="statis">
+    <span class="count"><a href="/categories">5</a></span>
+    <span class="name">分类</span>
+</div>
+
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">5</a></span>
+    <span class="count"><a href="/tags">9</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -390,16 +399,21 @@
                                 <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
                                     
 <div class="statis">
-    <span class="count"><a href="/">6</a></span>
+    <span class="count"><a href="/">10</a></span>
     <span class="name">文章</span>
 </div>
 
 
 
+<div class="statis">
+    <span class="count"><a href="/categories">5</a></span>
+    <span class="name">分类</span>
+</div>
+
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">5</a></span>
+    <span class="count"><a href="/tags">9</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -543,7 +557,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,0,0,0,0,0,6],
+                data: [0,0,0,0,0,0,0,0,0,0,0,0,10],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -585,7 +599,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [],
+                data: [{"name":"python基础","value":3},{"name":"硬件学习","value":2},{"name":"神经网络与深度学习","value":2},{"name":"数学基础","value":2},{"name":"cf题解","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -609,7 +623,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["python数据结构与算法","fpga学习","神经网络与深度学习","深度学习与神经网络","数学基础"]
+                data: ["数据结构与算法","python","fpga","verilog","神经网络与深度学习","深度学习与神经网络","线性代数","高等数学","Codeforces"]
             }
         ],
         yAxis: [
@@ -622,7 +636,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [2,1,1,1,1],
+                data: [3,3,2,2,1,1,1,1,1],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -792,12 +806,6 @@
         <div class="tag-chips center-align">
             
             
-            <a href="/tags/fpga%E5%AD%A6%E4%B9%A0/">
-                <span class="chip center-align waves-effect waves-light chip-default">fpga学习</span>
-            </a>
-            
-            
-            
             <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
                 <span class="chip center-align waves-effect waves-light chip-default">神经网络与深度学习</span>
             </a>
@@ -810,14 +818,44 @@
             
             
             
-            <a href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">
-                <span class="chip center-align waves-effect waves-light chip-default">数学基础</span>
+            <a href="/tags/fpga/">
+                <span class="chip center-align waves-effect waves-light chip-default">fpga</span>
             </a>
             
             
             
-            <a href="/tags/python%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
-                <span class="chip center-align waves-effect waves-light chip-default">python数据结构与算法</span>
+            <a href="/tags/verilog/">
+                <span class="chip center-align waves-effect waves-light chip-default">verilog</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+                <span class="chip center-align waves-effect waves-light chip-default">数据结构与算法</span>
+            </a>
+            
+            
+            
+            <a href="/tags/python/">
+                <span class="chip center-align waves-effect waves-light chip-default">python</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
+                <span class="chip center-align waves-effect waves-light chip-default">线性代数</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/">
+                <span class="chip center-align waves-effect waves-light chip-default">高等数学</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Codeforces/">
+                <span class="chip center-align waves-effect waves-light chip-default">Codeforces</span>
             </a>
             
             
@@ -948,7 +986,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">1.4k</span>&nbsp;字
+                class="white-color">3.8k</span>&nbsp;字
             
             
             

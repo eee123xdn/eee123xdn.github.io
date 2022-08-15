@@ -4,17 +4,129 @@
   
     
     <entry>
-      <title>python前言</title>
-      <link href="/2022/08/09/python%E5%89%8D%E8%A8%80/"/>
-      <url>/2022/08/09/python%E5%89%8D%E8%A8%80/</url>
+      <title>Codeforces Round 811 (Div.3)</title>
+      <link href="/2022/08/14/Codeforces-Round-811-%EF%BC%88Div-3%EF%BC%89/"/>
+      <url>/2022/08/14/Codeforces-Round-811-%EF%BC%88Div-3%EF%BC%89/</url>
       
-        <content type="html"><![CDATA[<h2 id="1-随便说点"><a href="#1-随便说点" class="headerlink" title="1.随便说点"></a>1.随便说点</h2><p>三年来大多数时间都花在写C++上，虽然之前做过java,python的小项目，但是过段时间不用，语法就忘了很多，而且一直以来并没有系统学过，导致一个问题:别人让写一个python的作业或者项目时，知道自己可以完成，但是无法预估出需要花多少时间，会有心虚感，而不比当时C++完成一个编译原理课设，知道自己几天完成，差不多就几天写完。那光学点基础的语法和一些包的应用，够吗？显然不行。那接下来还是像我当初熟练C++一样，先用python写数据结构与基本的算法练熟，再学习各种框架怎么写吧。</p><h2 id="2-python的一些基础小问题"><a href="#2-python的一些基础小问题" class="headerlink" title="2.python的一些基础小问题"></a>2.python的一些基础小问题</h2><p>基础语法里面也有一些和C++不同，传参当时确实坑了我一把<br>2.1 <a href="https://blog.csdn.net/xyl99520/article/details/125853623">python传参时避免参数改变</a><br>2.2 <a href="https://blog.csdn.net/xyl99520/article/details/125854730">python中的self和init</a><br>类属性和对象属性写在不同位置也是不一样的<br>2.3 <a href="https://blog.csdn.net/xyl99520/article/details/125854997">python构造类和对象</a></p><h2 id="3-写了两场简单的cf，更熟悉一点"><a href="#3-写了两场简单的cf，更熟悉一点" class="headerlink" title="3.写了两场简单的cf，更熟悉一点"></a>3.写了两场简单的cf，更熟悉一点</h2><p>3.1 <a href="https://blog.csdn.net/xyl99520/article/details/125831080">Codeforces Round #806 (Div. 4)A-E–python</a><br>3.2 <a href="https://blog.csdn.net/xyl99520/article/details/126216342">Codeforces Round #812 (Div. 2)A-C–python</a></p>]]></content>
+        <content type="html"><![CDATA[<p><a href="https://codeforces.com/contest/1714">比赛链接</a>        </p><h2 id="A-Everyone-Loves-to-Sleep"><a href="#A-Everyone-Loves-to-Sleep" class="headerlink" title="A. Everyone Loves to Sleep"></a>A. Everyone Loves to Sleep</h2><p>就是问下一个闹钟与当前时间的时间差，用24小时制表示出来就行，模拟一下   </p><pre class=" language-811A.py"><code class="language-811A.py">import osimport mathT=int(input())for _ in range(T):    n,h,m=map(int,input().split())    tmp=h*60+m    f1=0    li1=[]    li2=[]    for i in range(n):        hi,mi=map(int,input().split())        tmp1=hi*60+mi        if tmp1==tmp:            f1=1        elif tmp1>tmp:            li1.append(tmp1)        else:            li2.append(tmp1)    # print(li1)    # print(li2)    if f1==1:        print("0 0")        continue    if len(li1)>0:        li1.sort()        ans=li1[0]        res=ans-tmp        print("%d %d" % (res/60,res%60))        continue    li2.sort()    ans1 = li2[0]    res1 = ans1 +24*60- tmp    print("%d %d" % (res1/60,res1%60))</code></pre><h2 id="B-Remove-Prefix"><a href="#B-Remove-Prefix" class="headerlink" title="B. Remove Prefix"></a>B. Remove Prefix</h2><p>问删掉前几个可以使得后面的元素互不相同？倒着遍历判断一下就行    </p><pre class=" language-811B.py"><code class="language-811B.py">import osimport mathT=int(input())for _ in range(T):    n=int(input())    a=list(map(int,input().split()))    s=set()    f=0    for i in range(len(a)-1,-1,-1):        if a[i] not in s:            s.add(a[i])        else:            f=i+1            break    print(f)</code></pre><h2 id="C-Minimum-Varied-Number"><a href="#C-Minimum-Varied-Number" class="headerlink" title="C. Minimum Varied Number"></a>C. Minimum Varied Number</h2><p>给一个sum，问每一位互不相同的最小的数使得各位和为sum。从末尾9,8,7挨着放即可   </p><pre class=" language-811C.py"><code class="language-811C.py">import osimport mathT=int(input())for _ in range(T):    s=int(input())    ans=[]    num=9    while s>0:        if num>=s:            ans.append(s)            s=0        else:            ans.append(num)            s-=num            num-=1    ans.reverse()    for i in range(len(ans)):        print(ans[i],end='')    print("\n")</code></pre><h2 id="D-Color-with-Occurrences"><a href="#D-Color-with-Occurrences" class="headerlink" title="D. Color with Occurrences"></a>D. Color with Occurrences</h2><p>有一个长度在100之内的字符串$t$和n个长度在10之内的字符串$s_i$,每一步可以选一个$s_i$把字符串$t$的部分子串染成红色，问最少要多少步$t$能染成全红,并且输出每一步需要的字符串和开始染的下标。<br>这个题可以转换一下：相当于每一个字符串$s_i$可以染字符串$t$的一些连续区间，问最少多少个$s_i$可以把区间完全覆盖。这样就可以贪心地去做：对所有能操作的字符串区间进行排序，按照左端点升序排列（右端点如何排不要紧），只要后面的区间左端点小于等于上次区间的右端点，那就贪心选择右端点最大的区间。           </p><pre class=" language-811D.py"><code class="language-811D.py">import bisectimport osimport mathfrom functools import cmp_to_keyclass node(object):    def __init__(self,a,b,c):        self.l=a        self.r=b        self.id=cdef check(pos,si,t):    for i in range(len(si)):        if si[i]!=t[i+pos]:            return False    return Truedef cmp(a,b):    if a.l<b.l:        return -1    else:        return 1li=[]T=int(input())for _ in range(T):    li.clear()    t=input()    t='?'+t    n=int(input())    for i in range(1,n+1):        si=input()        for j in range(len(t)):            if j+len(si)-1>=len(t):                break            if check(j, si, t):                tmp=node(j,j+len(si)-1,i)                li.append(tmp)    li.sort(key=cmp_to_key(cmp))    #for i in range(len(li)):     #   print("%d %d %d" % (li[i].l,li[i].r,li[i].id))    # print(len(li))    ans=[]    s=1    ed=len(t)-1    f=0    for i in range(len(li)):        j=i        r=int(-2e9)        tmpid=0        while j<len(li) and li[j].l<=s:            if li[j].r>r:                r=li[j].r                tmpid=j            j+=1        j-=1        if r<s:           f=0           break        ans.append((li[tmpid].id,li[tmpid].l))        if r>=ed:            f=1            break        s=r+1        i=j    if f==1:        print(len(ans))        for a, b in ans:            print("%d %d" % (a, b))    else:        print("-1")</code></pre><h2 id="G-Path-Prefixes"><a href="#G-Path-Prefixes" class="headerlink" title="G. Path Prefixes"></a>G. Path Prefixes</h2><p>题意很简单，给一棵树，每条边有两条边权a,b,现在对于每一个节点，求该节点的一个值x,x代表从根节点开始到该节点的路径上的前x节点，这些节点的b值之和要小于等于根节点到该节点路径上的a值之和，求满足条件的x最大可能取多少。<br>一个dfs+二分的问题   </p><pre class=" language-811G.py"><code class="language-811G.py">import bisectimport osimport mathfrom types import GeneratorTypedef bootstrap(f, stack=[]):    def wrappedfunc(*args, **kwargs):        if stack:            return f(*args, **kwargs)        else:            to = f(*args, **kwargs)            while True:                if type(to) is GeneratorType:                    stack.append(to)                    to = next(to)                else:                    stack.pop()                    if not stack:                        break                    to = stack[-1].send(to)            return to    return wrappedfuncN = 200005head = [-1] * Nto = [0] * Nnex = [0] * Nw1 = [0] * Nw2 = [0] * Nidx = 0sum1 = [0] * Nsum2 = []ans = [0] * Ndef init():    global idx    # print("这次n是%d" % n),用的n就是input的n,只要接下来不需要修改n,不用加global    # list类型是不需要global申明的    idx = 0    for i in range(n + 5):        head[i] = -1        sum1[i] = 0        ans[i] = 0    sum2.clear()def add(u, v, e1, e2):    global idx    to[idx] = v    w1[idx] = e1    w2[idx] = e2    nex[idx] = head[u]    head[u] = idx    idx+=1@bootstrapdef dfs(u, fa):    i = head[u]    while i != -1:        v = to[i]        if v == fa:            continue        sum1[v] = sum1[u] + w1[i]        if len(sum2) == 0:            sum2.append(w2[i])        else:            # sum2存的是b的前缀和数组            tmp = sum2[len(sum2) - 1]            tmp += w2[i]            sum2.append(tmp)        ans[v] = bisect.bisect_right(sum2, sum1[v])        yield dfs(v, u)        sum2.pop()        i = nex[i]    yield NoneT = int(input())for _ in range(T):    n = int(input())    init()    for i in range(2, n + 1):        p, a, b = map(int, input().split())        add(p, i, a, b)    dfs(1, 0)    for i in range(2, n + 1):        print(ans[i], end=' ')    print("\n")</code></pre><p>开始一直runtime error,python递归可以用bootstrap：<br>[参考1]<a href="https://pyrival.readthedocs.io/en/latest/bootstrap.html">https://pyrival.readthedocs.io/en/latest/bootstrap.html</a><br>[参考2]<a href="https://flykiller.github.io/performance%20tricks/">https://flykiller.github.io/performance%20tricks/</a><br>这题也可以用class写成结构体数组类型，然后表达链式向前星，但是用上面这种写法简单一点             </p>]]></content>
       
+      
+      <categories>
+          
+          <category> cf题解 </category>
+          
+      </categories>
       
       
         <tags>
             
-            <tag> python数据结构与算法 </tag>
+            <tag> Codeforces </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>fpga学习第二节（时序逻辑）</title>
+      <link href="/2022/08/11/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E8%8A%82%EF%BC%88%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%EF%BC%89/"/>
+      <url>/2022/08/11/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E8%8A%82%EF%BC%88%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 硬件学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> fpga </tag>
+            
+            <tag> verilog </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>机器学习数学基础之线性代数篇</title>
+      <link href="/2022/08/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AF%87/"/>
+      <url>/2022/08/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AF%87/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-矩阵"><a href="#1-矩阵" class="headerlink" title="1.矩阵"></a>1.矩阵</h2><p>行列式求值用det函数就行，我们就不介绍了，知道行列式和矩阵意义不同就行了：矩阵是一种表示形式，一个矩阵包含了一组向量；行列式是一个数，其行数和列数相同，可以看成是多个行向量张成的几何体的面积或者体积。</p><h3 id="1-1矩阵性质"><a href="#1-1矩阵性质" class="headerlink" title="1.1矩阵性质"></a>1.1矩阵性质</h3><p>$$\begin{aligned}<br>AB &amp; \neq BA\newline<br>(AB)C &amp; &#x3D; A(BC)\newline<br>\lambda (AB) &amp; &#x3D; (\lambda A)B&#x3D;A (\lambda B)\newline<br>A(B+C) &amp; &#x3D; AB+AC \newline<br>(B+C)A &amp; &#x3D;BA+CA \newline<br>\end{aligned}$$</p><h3 id="1-2矩阵变换"><a href="#1-2矩阵变换" class="headerlink" title="1.2矩阵变换"></a>1.2矩阵变换</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/12/dc34b50b2c4f8561.jpg"></p><ul><li>矩阵转置<br><img src="https://s3.bmp.ovh/imgs/2022/08/12/a8f1e1639474b9eb.jpg">    </li><li>矩阵的逆<br><img src="https://s3.bmp.ovh/imgs/2022/08/12/798513fc39373815.jpg"></li></ul><h3 id="1-3矩阵的秩"><a href="#1-3矩阵的秩" class="headerlink" title="1.3矩阵的秩"></a>1.3矩阵的秩</h3><h3 id="1-3-1秩的解释"><a href="#1-3-1秩的解释" class="headerlink" title="1.3.1秩的解释"></a>1.3.1秩的解释</h3><ul><li>比如一个$4*4$的矩阵$A$，行向量分别为$\alpha_1,\alpha_2,\alpha_3,\alpha_4$,列向量分别为$\beta_1,\beta_2,\beta_3,\beta_4$。    </li><li>首先，线性相关就是指一个向量可以用另一个向量带一个系数表示出来，那如果三个向量$\alpha_1,\alpha_2,\alpha_3$，令$k_1\alpha_1+k_2\alpha_2+k_3\alpha_3&#x3D;0$,我们无法求得一个非零解，只存在一个零解$(k_1&#x3D;0,k_2&#x3D;0,k_3&#x3D;0)$能使得上式成立，那就说明$\alpha_1,\alpha_2,\alpha_3$线性无关，即任何一个向量都不能由其他向量组合表示。     </li><li>如果这个$4*4$的矩阵最多只能找到3个行向量是线性无关的，那就说矩阵的行秩为3,即$\ r(A)&#x3D;3$。    </li><li>矩阵的行秩&#x3D;列秩</li></ul><h4 id="1-3-2秩的几何意义"><a href="#1-3-2秩的几何意义" class="headerlink" title="1.3.2秩的几何意义"></a>1.3.2秩的几何意义</h4><p>三点：<br>1.「秩」是图像经过矩阵变换之后的空间维度<br>2.「秩」是列空间的维度  (列向量能张成的几何空间)<br>3.矩阵的变换目标是列空间<br><img src="https://s3.bmp.ovh/imgs/2022/08/13/e6c9f2e5ec69dafc.png"><br><a href="https://www.zhihu.com/question/21605094">讲得很清楚的一个参考链接</a>   </p><h2 id="2-向量"><a href="#2-向量" class="headerlink" title="2.向量"></a>2.向量</h2><h3 id="2-1向量的内积"><a href="#2-1向量的内积" class="headerlink" title="2.1向量的内积"></a>2.1向量的内积</h3><p>$n维列向量：X\cdot Y&#x3D;X^TY&#x3D;x_1y_1+x_2y_2+\cdots+x_ny_n \ (或者[X,Y]&#x3D;X^TY) $<br>性质：<br>1.对称性 $[X,Y]&#x3D;[Y,X]$<br>2.线性性质：<br>$$\begin{aligned}<br>\lambda[X,Y] &amp; &#x3D; [\lambda X,Y]\newline<br>[X+Y,Z] &amp; &#x3D; [X,Z]+[Y,Z]<br>\end{aligned}$$<br>3.三角不等式：<br>$$<br>\left | X+Y \right | \leq \left | X \right |+\left | Y \right |<br>$$</p><h3 id="2-2向量的正交"><a href="#2-2向量的正交" class="headerlink" title="2.2向量的正交"></a>2.2向量的正交</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 线性代数 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>python排序算法</title>
+      <link href="/2022/08/10/python%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
+      <url>/2022/08/10/python%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<p>总结几个我经常用的就行了     </p><h2 id="1-冒泡排序"><a href="#1-冒泡排序" class="headerlink" title="1.冒泡排序"></a>1.冒泡排序</h2><p>两两比较，每轮大的交换到后面</p><pre class=" language-bubble.py"><code class="language-bubble.py">import randomdef bubble_sort(li):    for i in range(len(li)-1):  # 第i趟        for j in range(len(li) - 1 - i):            if li[j] > li[j + 1]:                li[j], li[j + 1] = li[j + 1], li[j]li = [random.randint(0, 10000) for i in range(10)]print(li)bubble_sort(li)print(li)</code></pre><h2 id="2-选择排序"><a href="#2-选择排序" class="headerlink" title="2.选择排序"></a>2.选择排序</h2><p>每轮找出剩余元素最小的放在前面   </p><pre class=" language-select_sort.py"><code class="language-select_sort.py">import randomdef select_sort(li):    for i in range(len(li) - 1):  # 第i趟        min_index = i        for j in range(i + 1, len(li)):            if li[j] < li[min_index]:                min_index = j        if min_index != i:            li[i], li[min_index] = li[min_index], li[i]li = [random.randint(0, 10000) for i in range(10)]print(li)select_sort(li)print(li)</code></pre><h2 id="3-快速排序"><a href="#3-快速排序" class="headerlink" title="3.快速排序"></a>3.快速排序</h2><p>快读排序的思想是每次找一个元素，每一轮的操作要把它放在它最后应该放的位置并保证该轮操作后其左边的元素的值都比它小，右边的比它大</p><pre class=" language-quick_sort.py"><code class="language-quick_sort.py">import randomdef part(li, left, right):    # 先随机一个指定元素    idx = random.randint(left, right - 1)    # 和最左元素交换    li[idx], li[left] = li[left], li[idx]    tmp = li[left]    while left < right:        while left < right and li[right] >= tmp:            right -= 1        li[left] = li[right]        while left < right and li[left] <= tmp:            left += 1        li[right] = li[left]    li[left] = tmp    return leftdef quick_sort(li, left, right):    if left < right:        mid = part(li, left, right)        quick_sort(li, left, mid - 1)        quick_sort(li, mid + 1, right)li = list(range(100))random.shuffle(li)print(li)quick_sort(li, 0, len(li) - 1)print(li)</code></pre><p>我们为什么要随机一个指定元素，而不是每次把指定元素设置为最左边的呢?<br>因为把指定的元素设置为最左边的话，我们可以找到一个数组达到最坏复杂度$O(n^2)$的情况,随机以后虽然还是可能出现这种情况，但是我们无法直接构造出，也就是这种情况出现的几率很小。<br>这种情况就如：li&#x3D;[9,8,7,6,5,4,3,2,1],每轮操作相当于减少一个头或尾的元素，剩下n-1个元素递归处理，而不是分成两部分，这样每轮的复杂度就是$O(len(li))$,也就是总复杂度为$1+2+…+n&#x3D;O(n^2)$,随机处理下之后一般情况下都是$O(nlogn)$的复杂度。</p><h2 id="4-堆排序"><a href="#4-堆排序" class="headerlink" title="4.堆排序"></a>4.堆排序</h2><h3 id="4-1-手动实现"><a href="#4-1-手动实现" class="headerlink" title="4.1 手动实现"></a>4.1 手动实现</h3><p>看了官方写法，迭代写的，个人感觉还是递归写好写一点<br>以小根堆为例，其思想就是先建堆，建堆的话是对前(n-1)&#x2F;2个节点（即有儿子节点的节点）倒序进行down操作，使每个子树满足小根堆；堆建好后，每次pop出最小元素，然后根节点用最后一个节点顶替，再把现在的根节点进行down操作，就又是一个小根堆了，再pop出最小元素，这样挨着pop出来的就是从小到大的关系。<br>其中down操作：找出父亲和两个儿子节点三个元素之间的最小值，如果不是父亲节点，那父亲节点和最小值儿子节点就要进行交换（小的值成为子树根节点），但是还没完，没有被交换的那个儿子节点的子树自然不变，但是被交换的儿子节点的子树可能还有变动，因此要递归修改。</p><pre class=" language-heap_sort.py"><code class="language-heap_sort.py">import mathimport random#小根堆def down(li,i,n):    l=i*2    r=i*2+1    k=i    if l<=n and li[l]<li[k]:        k=l    if r<=n and li[r]<li[k]:        k=r    if k!=i:        li[k],li[i]=li[i],li[k]        down(li,k,n)def heap_sort(li):    n = len(li)-1    for i in range((n-1)//2,-1,-1):        down(li,i,n)    ans=[]    while n>=0:        ans.append(li[0])        li[0]=li[n]        n -= 1        down(li,0,n)    print(ans)li = [random.randint(0, 1000) for i in range(10)]print(li)heap_sort(li)</code></pre><h3 id="4-2-python内置堆实现"><a href="#4-2-python内置堆实现" class="headerlink" title="4.2 python内置堆实现"></a>4.2 python内置堆实现</h3><pre class=" language-heap_func.py"><code class="language-heap_func.py">import heapqimport mathimport randomli = [random.randint(0, 1000) for i in range(10)]print(li)heapq.heapify(li)ans=[]while len(li)>0:    ans.append(heapq.heappop(li))print(ans)</code></pre><h2 id="5-计数排序"><a href="#5-计数排序" class="headerlink" title="5.计数排序"></a>5.计数排序</h2><pre class=" language-count_sort.py"><code class="language-count_sort.py">import heapqimport mathimport randomdef count_sort(li, max_num=100):    count = [0 for i in range(max_num + 1)]    for val in li:        count[val] += 1    li.clear()    for idx, val in enumerate(count):        for i in range(val):            li.append(idx)    print(li)li = [random.randint(0, 101) for i in range(20)]print(li)count_sort(li)</code></pre><p>就先写这几个，后面想写其他的再补充~</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> python基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据结构与算法 </tag>
+            
+            <tag> python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>python前言</title>
+      <link href="/2022/08/09/python%E5%89%8D%E8%A8%80/"/>
+      <url>/2022/08/09/python%E5%89%8D%E8%A8%80/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-随便说点"><a href="#1-随便说点" class="headerlink" title="1.随便说点"></a>1.随便说点</h2><p>三年来大多数时间都花在写C++上，虽然之前做过java,python的小项目，但是过段时间不用，语法就忘了很多，而且一直以来并没有系统学过，导致一个问题:别人让写一个python的作业或者项目时，知道自己可以完成，但是无法预估出需要花多少时间，会有心虚感，而不比当时C++完成一个编译原理课设，知道自己几天完成，差不多就几天写完。那光学点基础的语法和一些包的应用，够吗？显然不行。那接下来还是像我当初熟练C++一样，先用python写数据结构与基本的算法练熟，再学习各种框架怎么写吧。</p><h2 id="2-python的一些基础小问题"><a href="#2-python的一些基础小问题" class="headerlink" title="2.python的一些基础小问题"></a>2.python的一些基础小问题</h2><p>基础语法里面也有一些和C++不同，传参当时确实坑了我一把<br>2.1 <a href="https://blog.csdn.net/xyl99520/article/details/125853623">python传参时避免参数改变</a><br>类属性和对象属性写在不同位置也是不一样的<br>2.2 <a href="https://blog.csdn.net/xyl99520/article/details/125854997">python构造类和对象</a></p><h2 id="3-写了两场简单的cf，更熟悉一点"><a href="#3-写了两场简单的cf，更熟悉一点" class="headerlink" title="3.写了两场简单的cf，更熟悉一点"></a>3.写了两场简单的cf，更熟悉一点</h2><p>3.1 <a href="https://blog.csdn.net/xyl99520/article/details/125831080">Codeforces Round #806 (Div. 4)A-E–python</a><br>3.2 <a href="https://blog.csdn.net/xyl99520/article/details/126216342">Codeforces Round #812 (Div. 2)A-C–python</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> python基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据结构与算法 </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
@@ -27,13 +139,21 @@
       <link href="/2022/08/08/python%E9%80%92%E5%BD%92%E4%B8%8E%E6%9F%A5%E6%89%BE/"/>
       <url>/2022/08/08/python%E9%80%92%E5%BD%92%E4%B8%8E%E6%9F%A5%E6%89%BE/</url>
       
-        <content type="html"><![CDATA[<h2 id="1-递归：汉诺塔问题"><a href="#1-递归：汉诺塔问题" class="headerlink" title="1.递归：汉诺塔问题"></a>1.递归：汉诺塔问题</h2><pre class=" language-hannuota.py"><code class="language-hannuota.py">import mathimport osimport collectionsimport sysdef hannuota(n, a, b, c):    if n > 0:        hannuota(n - 1, a, c, b)        print("%s->%s" % (a, c))        hannuota(n - 1, b, a, c)hannuota(3, 'A', 'B', 'C')</code></pre><p>移动次数转移方程 dp[n]=2*dp[n-1]+1   </p><h2 id="2-顺序查找"><a href="#2-顺序查找" class="headerlink" title="2.顺序查找"></a>2.顺序查找</h2><pre class=" language-line_search.py"><code class="language-line_search.py">import mathimport osimport collectionsimport sysdef line_search(li,val):    for i in range(len(li)):        if(li[i]==val):            return i    return Nonex=[2,7,1,6,4]index1=line_search(x,6)print(index1)    </code></pre><p>当然，也有内置的index函数</p><pre class=" language-indexfunc.py"><code class="language-indexfunc.py">aList = [123, 'xyz', 'runoob', 'abc']print("xyz 索引位置: ", aList.index('xyz'))print("runoob 索引位置 : ", aList.index('runoob', 1, 3))</code></pre><h2 id="3-二分查找"><a href="#3-二分查找" class="headerlink" title="3.二分查找"></a>3.二分查找</h2><p>下面两个函数分别能够查找最左边和最右边满足条件的<br>当然，二分查找前提需要数组有序</p><pre class=" language-erfen_search.py"><code class="language-erfen_search.py">import mathdef erfen_search1(li,val):    l,r=0,len(li)-1    while l<r:        mid=(l+r)>>1        if li[mid]>=val:            r=mid        else:            l=mid+1    if li[l]==val:        return l    else:        return -1def erfen_search2(li,val):    l,r=0,len(li)-1    while l<r:        mid=(l+r+1)>>1        if li[mid]<=val:            l=mid        else:            r=mid-1    if li[l]==val:        return l    else:        return -1x=[1,2,3,3,3,4,5,6,7,7]index1=erfen_search1(x,3)print("最左边等于3的数的下标%d" % index1)index2=erfen_search2(x,3)print("最右边等于3的数的下标%d" % index2)</code></pre><p>二分查找也有内置的函数，和lower_bound和upper_bound一样<br><a href="https://blog.csdn.net/YMWM_/article/details/122378152">参考链接</a></p><pre class=" language-bisect.py"><code class="language-bisect.py">import mathimport bisectx=[1,2,3,3,3,4,5,6,7,7]index1=bisect.bisect_left(x,3)index2=bisect.bisect_right(x,3)print("第一个大于等于3的数的下标%d" % index1)print("第一个大于3的数的下标%d" % index2)</code></pre>]]></content>
+        <content type="html"><![CDATA[<h2 id="1-递归：汉诺塔问题"><a href="#1-递归：汉诺塔问题" class="headerlink" title="1.递归：汉诺塔问题"></a>1.递归：汉诺塔问题</h2><pre class=" language-hannuota.py"><code class="language-hannuota.py">import mathimport osimport collectionsimport sysdef hannuota(n, a, b, c):    if n > 0:        hannuota(n - 1, a, c, b)        print("%s->%s" % (a, c))        hannuota(n - 1, b, a, c)hannuota(3, 'A', 'B', 'C')</code></pre><p>移动次数转移方程 dp[n]&#x3D;2*dp[n-1]+1   </p><h2 id="2-顺序查找"><a href="#2-顺序查找" class="headerlink" title="2.顺序查找"></a>2.顺序查找</h2><pre class=" language-line_search.py"><code class="language-line_search.py">import mathimport osimport collectionsimport sysdef line_search(li,val):    for i in range(len(li)):        if(li[i]==val):            return i    return Nonex=[2,7,1,6,4]index1=line_search(x,6)print(index1)    </code></pre><p>当然，也有内置的index函数</p><pre class=" language-indexfunc.py"><code class="language-indexfunc.py">aList = [123, 'xyz', 'runoob', 'abc']print("xyz 索引位置: ", aList.index('xyz'))print("runoob 索引位置 : ", aList.index('runoob', 1, 3))</code></pre><h2 id="3-二分查找"><a href="#3-二分查找" class="headerlink" title="3.二分查找"></a>3.二分查找</h2><p>下面两个函数分别能够查找最左边和最右边满足条件的<br>当然，二分查找前提需要数组有序</p><pre class=" language-erfen_search.py"><code class="language-erfen_search.py">import mathdef erfen_search1(li,val):    l,r=0,len(li)-1    while l<r:        mid=(l+r)>>1        if li[mid]>=val:            r=mid        else:            l=mid+1    if li[l]==val:        return l    else:        return -1def erfen_search2(li,val):    l,r=0,len(li)-1    while l<r:        mid=(l+r+1)>>1        if li[mid]<=val:            l=mid        else:            r=mid-1    if li[l]==val:        return l    else:        return -1x=[1,2,3,3,3,4,5,6,7,7]index1=erfen_search1(x,3)print("最左边等于3的数的下标%d" % index1)index2=erfen_search2(x,3)print("最右边等于3的数的下标%d" % index2)</code></pre><p>二分查找也有内置的函数，和lower_bound和upper_bound一样<br><a href="https://blog.csdn.net/YMWM_/article/details/122378152">参考链接</a></p><pre class=" language-bisect.py"><code class="language-bisect.py">import mathimport bisectx=[1,2,3,3,3,4,5,6,7,7]index1=bisect.bisect_left(x,3)index2=bisect.bisect_right(x,3)print("第一个大于等于3的数的下标%d" % index1)print("第一个大于3的数的下标%d" % index2)</code></pre>]]></content>
       
+      
+      <categories>
+          
+          <category> python基础 </category>
+          
+      </categories>
       
       
         <tags>
             
-            <tag> python数据结构与算法 </tag>
+            <tag> 数据结构与算法 </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
@@ -42,17 +162,23 @@
     
     
     <entry>
-      <title>机器学习数学基础</title>
-      <link href="/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
-      <url>/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/</url>
+      <title>机器学习数学基础之高数和微积分篇</title>
+      <link href="/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%AB%98%E6%95%B0%E5%92%8C%E5%BE%AE%E7%A7%AF%E5%88%86%E7%AF%87/"/>
+      <url>/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%AB%98%E6%95%B0%E5%92%8C%E5%BE%AE%E7%A7%AF%E5%88%86%E7%AF%87/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p>只记录比较重要或者不熟悉的知识点  </p><h2 id="1-高等数学"><a href="#1-高等数学" class="headerlink" title="1.高等数学"></a>1.高等数学</h2><h3 id="1-1极限"><a href="#1-1极限" class="headerlink" title="1.1极限"></a>1.1极限</h3><p>$$\lim_{x\rightarrow x_0}f(x)&#x3D;A的充要条件是\lim_{x\rightarrow x_0^-}f(x)&#x3D;\lim_{x\rightarrow x_0^+}f(x)&#x3D;A$$<br>即左右极限都存在且相等   </p><h3 id="1-2连续性"><a href="#1-2连续性" class="headerlink" title="1.2连续性"></a>1.2连续性</h3><p>连续的充要条件:<br>$$\lim_{\Delta x\rightarrow 0}\Delta y&#x3D;\lim_{\Delta x\rightarrow 0}\left[f(x_0+\Delta x)-f(x_0)\right]&#x3D;0$$<br>连续需要满足：<br><img src="https://s3.bmp.ovh/imgs/2022/08/09/60de2ec12558d7eb.jpg"><br>不连续就有间断点       </p><h3 id="1-3导数"><a href="#1-3导数" class="headerlink" title="1.3导数"></a>1.3导数</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/09/49d612c4e645ee0a.jpg">   </p><h3 id="1-4偏导数"><a href="#1-4偏导数" class="headerlink" title="1.4偏导数"></a>1.4偏导数</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/10/50b3dd1a5fd7ecd0.jpg">     </p><h3 id="1-5方向导数"><a href="#1-5方向导数" class="headerlink" title="1.5方向导数"></a>1.5方向导数</h3><p>以z&#x3D;f(x,y)为例，可以想到对x的偏导数是固定y轴，然后x的每个点都有一个切线，这个切线的斜率就是对x的偏导数<br>那现在不止x,y方向的偏导数，而是对x-y平面的任意方向（相当于一个向量可以是360°的任意值）都求一个偏导数<br><img src="https://s3.bmp.ovh/imgs/2022/08/10/28e4879fe6bcd238.png"><br>如上图，沿着红线方向，每个点都有一个导数<br>$$\left| \frac{\partial z}{\partial l}\right | &#x3D;\frac{\partial z}{\partial x}cos\theta +<br>\frac{\partial z}{\partial y}sin\theta \left(\theta是l与x方向的夹角\right)<br>$$</p><h3 id="1-6梯度"><a href="#1-6梯度" class="headerlink" title="1.6梯度"></a>1.6梯度</h3><p>某个点梯度方向与方向导数最大值的方向相同<br>首先梯度向量:<br>$$ grad(x,y)&#x3D;\frac{\partial z}{\partial x}\vec i +\frac{\partial z}{\partial y}\vec j$$<br>上面我们知道：<br>$$\begin{aligned}<br>\left| \frac{\partial z}{\partial l}\right| &amp; &#x3D;\frac{\partial z}{\partial x}cos\theta +<br>\frac{\partial z}{\partial y}sin\theta  \newline<br> &amp; &#x3D;grad(x,y)\cdot \vec e \ \left(\vec e&#x3D;\left(cos \theta , sin \theta \right),\vec e是方向L上的单位向量\right) \newline<br> &amp; &#x3D;\left|grad(x,y) \right|cos \beta \ \left(\beta&#x3D;\left&lt;grad(x,y),\vec e\right&gt;\right)<br>\end{aligned}$$<br>很明显，当$\beta$为0，即方向导数的方向和梯度方向相同时，方向导数值最大，当$\beta$为180°；即方向导数的方向和梯度方向相反时，方向导数值最小，为梯度下降的方向。</p><h2 id="2-微积分"><a href="#2-微积分" class="headerlink" title="2.微积分"></a>2.微积分</h2><ul><li><p>$<br>\int_{a}^{b}f(x)dx&#x3D;I&#x3D;\lim_{\lambda \rightarrow 0}\sum_{i&#x3D;1}^{n}f(\xi _i)\Delta x_i<br>$      </p></li><li><p>$\int_{a}^{b}f(x)dx&#x3D;F’(\xi)(b-a)&#x3D;F(b)-F(a)$</p></li></ul><h2 id="3-泰勒公式"><a href="#3-泰勒公式" class="headerlink" title="3.泰勒公式"></a>3.泰勒公式</h2><h3 id="3-1泰勒展开式"><a href="#3-1泰勒展开式" class="headerlink" title="3.1泰勒展开式"></a>3.1泰勒展开式</h3><p>$$\begin{aligned}<br>f(x)&#x3D;f(x_0)+\frac{f’(x_0)}{1!}{(x-x_0)}+\frac{f’’(x_0)}{2!}{(x-x_0)^2}+\cdots+\ \frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+R_n(x)<br>\end{aligned}$$</p><h3 id="3-2麦克劳林公式"><a href="#3-2麦克劳林公式" class="headerlink" title="3.2麦克劳林公式"></a>3.2麦克劳林公式</h3><p>$$\begin{aligned}<br>f(x)&#x3D;f(0)+f’(0){x}+\frac{f’’(0)}{2!}{x^2}+\cdots+\ \frac{f^{(n)}(0)}{n!}x^n+ \frac{f^{(n+1)}(\theta x)}{(n+1)!}x^{n+1}\ (0&lt;\theta&lt;1)<br>\end{aligned}$$</p><p>&amp;ensp; 我们来说说这个分母上的阶乘和多项式的阶数的意义。    </p><ul><li><p>阶数：阶数越高，在越偏右侧影响越大，比如$x^2$和$x^4$，在靠近0点，用$x^2$就可以近<br>似描述，当函数是一个凹函数时，越靠近右侧，$x^4$更大更陡峭，用它近似效果更好     </p></li><li><p>阶乘:我们想想$x^2$和$x^8$,如果分母无阶乘，那$x^2$的效果会被$x^8$覆盖，但是我们希望在靠近原点处尽量用$x^2$近似，在偏远处才用$x^8$,那偏近处就需要用阶乘限制$x^8$的<br>效果,$\frac{x^8}{8!}$在接近原点时，由于分母值大，被限制，较远处，它增长特别快，作用就明显</p></li></ul><h2 id="4-拉格朗日乘子法"><a href="#4-拉格朗日乘子法" class="headerlink" title="4.拉格朗日乘子法"></a>4.拉格朗日乘子法</h2><h3 id="4-1-引入"><a href="#4-1-引入" class="headerlink" title="4.1 引入"></a>4.1 引入</h3><p>我们想象一个凹平面，假设在某一点$(x,y)$存在极值，我们去切一条等高线$g(x,y)&#x3D;C$,会发现，极值点处的法向量与等高线的法向量共线，那就存在一个常数$\lambda$,使得$\triangledown  \left[f(x,y)+\lambda g(x,y)\right]&#x3D;0$成立。</p><h3 id="4-1-拉格朗日乘子解法"><a href="#4-1-拉格朗日乘子解法" class="headerlink" title="4.1 拉格朗日乘子解法"></a>4.1 拉格朗日乘子解法</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/11/5940c0b3db86af05.jpg"><br><img src="https://s3.bmp.ovh/imgs/2022/08/11/7c13e90a3696cc1b.jpg"><br><img src="https://s3.bmp.ovh/imgs/2022/08/11/0c78f1e4f7bb45cf.jpg"></p>]]></content>
       
+      
+      <categories>
+          
+          <category> 数学基础 </category>
+          
+      </categories>
       
       
         <tags>
             
-            <tag> 数学基础 </tag>
+            <tag> 高等数学 </tag>
             
         </tags>
       
@@ -67,6 +193,12 @@
       
         <content type="html"><![CDATA[<h2 id="1-路线"><a href="#1-路线" class="headerlink" title="1.路线"></a>1.路线</h2><p><img src="https://s3.bmp.ovh/imgs/2022/08/08/838008e089ea0cf5.png"></p><h2 id="2-深度学习与表示学习"><a href="#2-深度学习与表示学习" class="headerlink" title="2.深度学习与表示学习"></a>2.深度学习与表示学习</h2><p><img src="https://s3.bmp.ovh/imgs/2022/08/08/aacb3a4245fe8b54.png"></p><h2 id="3-语义表示（独热表示与分布式表示）"><a href="#3-语义表示（独热表示与分布式表示）" class="headerlink" title="3.语义表示（独热表示与分布式表示）"></a>3.语义表示（独热表示与分布式表示）</h2><p><img src="https://s3.bmp.ovh/imgs/2022/08/08/e79a201fef0a31ec.png"><br><img src="https://s3.bmp.ovh/imgs/2022/08/08/db0ddb1a6ab8315a.png"></p><h2 id="4-神经元模型"><a href="#4-神经元模型" class="headerlink" title="4.神经元模型"></a>4.神经元模型</h2><p>这个模型就是模仿大脑，接收其他神经元传来的刺激，每个都赋一个权值，然后和产生刺激的阈值比较<br><img src="https://s3.bmp.ovh/imgs/2022/08/08/f8b90f522c4f2c81.png"></p><h2 id="5-人工神经网络"><a href="#5-人工神经网络" class="headerlink" title="5.人工神经网络"></a>5.人工神经网络</h2><p><img src="https://s3.bmp.ovh/imgs/2022/08/08/6f86ebfa497af24d.png"><br>贡献度就可以用偏导数来表示，偏导值越大，贡献占比越大</p><h2 id="6-需要的数学基础"><a href="#6-需要的数学基础" class="headerlink" title="6.需要的数学基础"></a>6.需要的数学基础</h2><p><a href="https://www.bilibili.com/video/BV1Yg411X7gw?spm_id_from=333.337.search-card.all.click&vd_source=a647ee5114ce65eae6f65468f4ff0eb8">数学学习链接</a><br><a href="https://www.bilibili.com/video/BV1uA411N7c5?p=51&vd_source=a647ee5114ce65eae6f65468f4ff0eb8">python基础练习</a></p>]]></content>
       
+      
+      <categories>
+          
+          <category> 神经网络与深度学习 </category>
+          
+      </categories>
       
       
         <tags>
@@ -87,6 +219,12 @@
         <content type="html"><![CDATA[]]></content>
       
       
+      <categories>
+          
+          <category> 神经网络与深度学习 </category>
+          
+      </categories>
+      
       
         <tags>
             
@@ -100,16 +238,24 @@
     
     <entry>
       <title>fpga学习第一节（组合逻辑）.md</title>
-      <link href="/2022/08/05/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E8%8A%82/"/>
-      <url>/2022/08/05/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E8%8A%82/</url>
+      <link href="/2022/08/05/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E8%8A%82%EF%BC%88%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%EF%BC%89/"/>
+      <url>/2022/08/05/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E8%8A%82%EF%BC%88%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%EF%BC%89/</url>
       
-        <content type="html"><![CDATA[<h1 id="Xilinx-FPGA学习第一节"><a href="#Xilinx-FPGA学习第一节" class="headerlink" title="Xilinx FPGA学习第一节"></a>Xilinx FPGA学习第一节</h1><h2 id="1-FPGA开发流程"><a href="#1-FPGA开发流程" class="headerlink" title="1. FPGA开发流程"></a>1. FPGA开发流程</h2><ul><li>设计定义</li><li>设计输入</li><li>分析综合（EDA软件，得到逻辑门级别的电路内容）</li><li>功能仿真（modelsim）</li><li>布局布线（vivado、quartus）</li><li>分析性能（时序仿真modelsim或者静态时序分析vivado、quartus）</li><li>板级调试  </li></ul><h2 id="2-二选一多路选择器实现"><a href="#2-二选一多路选择器实现" class="headerlink" title="2. 二选一多路选择器实现"></a>2. 二选一多路选择器实现</h2><h3 id="2-1-设计"><a href="#2-1-设计" class="headerlink" title="2.1 设计"></a>2.1 设计</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/9edd1c31d1e7c1c3.jpg"></p><h3 id="2-2-编写设计代码mux2-v"><a href="#2-2-编写设计代码mux2-v" class="headerlink" title="2.2 编写设计代码mux2.v"></a>2.2 编写设计代码mux2.v</h3><pre class=" language-mux2.v"><code class="language-mux2.v">module mux2(    a,    b,    sel,    out);    input a;    input b;    input sel;    output out;        assign out = (sel==1)?a:b;endmodule</code></pre><h3 id="2-3-Run-Synthesis-分析综合"><a href="#2-3-Run-Synthesis-分析综合" class="headerlink" title="2.3 Run Synthesis 分析综合"></a>2.3 Run Synthesis 分析综合</h3><h3 id="2-4-功能仿真"><a href="#2-4-功能仿真" class="headerlink" title="2.4 功能仿真"></a>2.4 功能仿真</h3><h4 id="2-4-1-仿真原理图"><a href="#2-4-1-仿真原理图" class="headerlink" title="2.4.1 仿真原理图"></a>2.4.1 仿真原理图</h4><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/c70fa874be2dea65.jpg"></p><h4 id="2-4-2-编写仿真代码-mux2-tb-test-bench"><a href="#2-4-2-编写仿真代码-mux2-tb-test-bench" class="headerlink" title="2.4.2 编写仿真代码 mux2_tb(test_bench)"></a>2.4.2 编写仿真代码 mux2_tb(test_bench)</h4><pre class=" language-mux2_tb.v"><code class="language-mux2_tb.v">`timescale  1ns / 1ns//两个1ns含义不一样，第一个是以ns为单位，比如延时200ns:#200；//第二个ns是精度module mux2_tb();   reg s_a;   reg s_b;   reg s_sel;   wire out;      mux2 mux2_inst(  //mux2_inst相当于mux2的代号    .a(s_a),  //s_a是a连接的信号线    .b(s_b),    .sel(s_sel),    .out(out)   );      initial begin      s_a=0;s_b=0;s_sel=0;      #200;      s_a=0;s_b=0;s_sel=1;      #200;      s_a=0;s_b=1;s_sel=0;      #200;      s_a=0;s_b=1;s_sel=1;      #200;      s_a=1;s_b=0;s_sel=0;      #200;      s_a=1;s_b=0;s_sel=1;      #200;      s_a=1;s_b=1;s_sel=0;      #200;      s_a=1;s_b=1;s_sel=1;      #200;      $stop;   endendmodule</code></pre><h4 id="2-4-3-Run-simulation-点击第一个功能仿真"><a href="#2-4-3-Run-simulation-点击第一个功能仿真" class="headerlink" title="2.4.3 Run simulation 点击第一个功能仿真"></a>2.4.3 Run simulation 点击第一个功能仿真</h4><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/a316449d90350d67.jpg"></p><h3 id="2-5-布局布线"><a href="#2-5-布局布线" class="headerlink" title="2.5 布局布线"></a>2.5 布局布线</h3><h4 id="2-5-1-Run-Implementation"><a href="#2-5-1-Run-Implementation" class="headerlink" title="2.5.1 Run Implementation"></a>2.5.1 Run Implementation</h4><h4 id="2-5-2-时序仿真-Run-simulation-点击最后一个时序仿真"><a href="#2-5-2-时序仿真-Run-simulation-点击最后一个时序仿真" class="headerlink" title="2.5.2 时序仿真 Run simulation 点击最后一个时序仿真"></a>2.5.2 时序仿真 Run simulation 点击最后一个时序仿真</h4><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/c899b38b774395c7.jpg"><br>可以看到400ns时out还没变，而是400ns多一点才变的</p><h4 id="2-5-3-添加约束文件并保存"><a href="#2-5-3-添加约束文件并保存" class="headerlink" title="2.5.3 添加约束文件并保存"></a>2.5.3 添加约束文件并保存</h4><p>Layout I/O.Planning<br><img src="https://s3.bmp.ovh/imgs/2022/08/05/5cddea62898c1d4a.jpg"><br>xdc文件里面可查看</p><h3 id="2-6-板级调试"><a href="#2-6-板级调试" class="headerlink" title="2.6 板级调试"></a>2.6 板级调试</h3><p>1.产生比特流<br>2.点击Open Hardware Manager，然后点击Open target的Auto connect<br>3.program device<br>4.拨开关<br><img src="https://s3.bmp.ovh/imgs/2022/08/05/7e2e363616f951c3.jpg"><br>如上图，sw0代表a,sw1代表b,sw7代表sel,led0代表out<br>sw7上拨，sw0上拨，led就亮了</p><h2 id="3-3-8译码器"><a href="#3-3-8译码器" class="headerlink" title="3. 3-8译码器"></a>3. 3-8译码器</h2><h3 id="3-1-逻辑设计"><a href="#3-1-逻辑设计" class="headerlink" title="3.1 逻辑设计"></a>3.1 逻辑设计</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/f8055d5063fba239.jpg"></p><h3 id="3-2-设计输入-decoder-3-8-v"><a href="#3-2-设计输入-decoder-3-8-v" class="headerlink" title="3.2 设计输入 decoder_3_8.v"></a>3.2 设计输入 decoder_3_8.v</h3><pre class=" language-decoder_3_8.v"><code class="language-decoder_3_8.v">`timescale 1ns / 1ps//////////////////////////////////////////////////////////////////////////////////// Company: // Engineer: // // Create Date: 2022/08/06 11:28:17// Design Name: // Module Name: decoder_3_8// Project Name: // Target Devices: // Tool Versions: // Description: // // Dependencies: // // Revision:// Revision 0.01 - File Created// Additional Comments:// //////////////////////////////////////////////////////////////////////////////////module decoder_3_8(    a,    b,    c,    out    );    input a;    input b;    input c;    output reg[7:0] out;        //always或者initial的左值必须是reg类型    //assign左值类型是wire    //&#123;a,b,c&#125;是指三个一位拼接成一个三位    //比如 wire [3:0]d    // assign d=&#123;a,1'b0,b,c&#125;    always@(*)begin       case(&#123;a,b,c&#125;)           3'd0: out=8'b00000001;           3'd1: out=8'b00000010;           3'd2: out=8'b00000100;           3'd3: out=8'b00001000;           3'd4: out=8'b00010000;           3'd5: out=8'b00100000;           3'd6: out=8'b01000000;           3'd7: out=8'b10000000;       endcase    endendmodule</code></pre><h3 id="3-3-跑综合，语法没问题"><a href="#3-3-跑综合，语法没问题" class="headerlink" title="3.3 跑综合，语法没问题"></a>3.3 跑综合，语法没问题</h3><h3 id="3-4-写仿真文件-decoder-3-8-tb-v"><a href="#3-4-写仿真文件-decoder-3-8-tb-v" class="headerlink" title="3.4 写仿真文件 decoder_3_8_tb.v"></a>3.4 写仿真文件 decoder_3_8_tb.v</h3><pre class=" language-decoder_3_8_tb.v"><code class="language-decoder_3_8_tb.v">`timescale 1ns / 1psmodule decoder_3_8_tb();          reg s_a;     reg s_b;     reg s_c;     wire [7:0]out;     decoder_3_8 decoder_3_8_inst(        .a(s_a),        .b(s_b),        .c(s_c),        .out(out)    );        initial begin      s_a=0;s_b=0;s_c=0;      #200;      s_a=0;s_b=0;s_c=1;      #200;      s_a=0;s_b=1;s_c=0;      #200;      s_a=0;s_b=1;s_c=1;      #200;      s_a=1;s_b=0;s_c=0;      #200;      s_a=1;s_b=0;s_c=1;      #200;      s_a=1;s_b=1;s_c=0;      #200;      s_a=1;s_b=1;s_c=1;      #200;      $stop;    endendmodule</code></pre><h3 id="3-5-功能仿真"><a href="#3-5-功能仿真" class="headerlink" title="3.5 功能仿真"></a>3.5 功能仿真</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/06/a3fd636b6c80f3f2.jpg"><br>结果没问题</p><h3 id="3-6-布局布线，然后schematic"><a href="#3-6-布局布线，然后schematic" class="headerlink" title="3.6 布局布线，然后schematic"></a>3.6 布局布线，然后schematic</h3><h3 id="3-7-时序仿真（该程序比较简单，这个就不做了）"><a href="#3-7-时序仿真（该程序比较简单，这个就不做了）" class="headerlink" title="3.7 时序仿真（该程序比较简单，这个就不做了）"></a>3.7 时序仿真（该程序比较简单，这个就不做了）</h3><h3 id="3-8-设置引脚"><a href="#3-8-设置引脚" class="headerlink" title="3.8 设置引脚"></a>3.8 设置引脚</h3><h3 id="3-9-写比特流"><a href="#3-9-写比特流" class="headerlink" title="3.9 写比特流"></a>3.9 写比特流</h3><h3 id="3-10-板级调试"><a href="#3-10-板级调试" class="headerlink" title="3.10 板级调试"></a>3.10 板级调试</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/06/e27152cc7fac241f.jpg"></p><p>以前畏惧硬件，现在感觉还是蛮有意思^_^</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="Xilinx-FPGA学习第一节"><a href="#Xilinx-FPGA学习第一节" class="headerlink" title="Xilinx FPGA学习第一节"></a>Xilinx FPGA学习第一节</h1><h2 id="1-FPGA开发流程"><a href="#1-FPGA开发流程" class="headerlink" title="1. FPGA开发流程"></a>1. FPGA开发流程</h2><ul><li>设计定义</li><li>设计输入</li><li>分析综合（EDA软件，得到逻辑门级别的电路内容）</li><li>功能仿真（modelsim）</li><li>布局布线（vivado、quartus）</li><li>分析性能（时序仿真modelsim或者静态时序分析vivado、quartus）</li><li>板级调试</li></ul><h2 id="2-二选一多路选择器实现"><a href="#2-二选一多路选择器实现" class="headerlink" title="2. 二选一多路选择器实现"></a>2. 二选一多路选择器实现</h2><h3 id="2-1-设计"><a href="#2-1-设计" class="headerlink" title="2.1 设计"></a>2.1 设计</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/9edd1c31d1e7c1c3.jpg"></p><h3 id="2-2-编写设计代码mux2-v"><a href="#2-2-编写设计代码mux2-v" class="headerlink" title="2.2 编写设计代码mux2.v"></a>2.2 编写设计代码mux2.v</h3><pre class=" language-mux2.v"><code class="language-mux2.v">module mux2(    a,    b,    sel,    out);    input a;    input b;    input sel;    output out;        assign out = (sel==1)?a:b;endmodule</code></pre><h3 id="2-3-Run-Synthesis-分析综合"><a href="#2-3-Run-Synthesis-分析综合" class="headerlink" title="2.3 Run Synthesis 分析综合"></a>2.3 Run Synthesis 分析综合</h3><h3 id="2-4-功能仿真"><a href="#2-4-功能仿真" class="headerlink" title="2.4 功能仿真"></a>2.4 功能仿真</h3><h4 id="2-4-1-仿真原理图"><a href="#2-4-1-仿真原理图" class="headerlink" title="2.4.1 仿真原理图"></a>2.4.1 仿真原理图</h4><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/c70fa874be2dea65.jpg"></p><h4 id="2-4-2-编写仿真代码-mux2-tb-test-bench"><a href="#2-4-2-编写仿真代码-mux2-tb-test-bench" class="headerlink" title="2.4.2 编写仿真代码 mux2_tb(test_bench)"></a>2.4.2 编写仿真代码 mux2_tb(test_bench)</h4><pre class=" language-mux2_tb.v"><code class="language-mux2_tb.v">`timescale  1ns / 1ns//两个1ns含义不一样，第一个是以ns为单位，比如延时200ns:#200；//第二个ns是精度module mux2_tb();   reg s_a;   reg s_b;   reg s_sel;   wire out;      mux2 mux2_inst(  //mux2_inst相当于mux2的代号    .a(s_a),  //s_a是a连接的信号线    .b(s_b),    .sel(s_sel),    .out(out)   );      initial begin      s_a=0;s_b=0;s_sel=0;      #200;      s_a=0;s_b=0;s_sel=1;      #200;      s_a=0;s_b=1;s_sel=0;      #200;      s_a=0;s_b=1;s_sel=1;      #200;      s_a=1;s_b=0;s_sel=0;      #200;      s_a=1;s_b=0;s_sel=1;      #200;      s_a=1;s_b=1;s_sel=0;      #200;      s_a=1;s_b=1;s_sel=1;      #200;      $stop;   endendmodule</code></pre><h4 id="2-4-3-Run-simulation-点击第一个功能仿真"><a href="#2-4-3-Run-simulation-点击第一个功能仿真" class="headerlink" title="2.4.3 Run simulation 点击第一个功能仿真"></a>2.4.3 Run simulation 点击第一个功能仿真</h4><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/a316449d90350d67.jpg"></p><h3 id="2-5-布局布线"><a href="#2-5-布局布线" class="headerlink" title="2.5 布局布线"></a>2.5 布局布线</h3><h4 id="2-5-1-Run-Implementation"><a href="#2-5-1-Run-Implementation" class="headerlink" title="2.5.1 Run Implementation"></a>2.5.1 Run Implementation</h4><h4 id="2-5-2-时序仿真-Run-simulation-点击最后一个时序仿真"><a href="#2-5-2-时序仿真-Run-simulation-点击最后一个时序仿真" class="headerlink" title="2.5.2 时序仿真 Run simulation 点击最后一个时序仿真"></a>2.5.2 时序仿真 Run simulation 点击最后一个时序仿真</h4><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/c899b38b774395c7.jpg"><br>可以看到400ns时out还没变，而是400ns多一点才变的</p><h4 id="2-5-3-添加约束文件并保存"><a href="#2-5-3-添加约束文件并保存" class="headerlink" title="2.5.3 添加约束文件并保存"></a>2.5.3 添加约束文件并保存</h4><p>Layout I&#x2F;O.Planning<br><img src="https://s3.bmp.ovh/imgs/2022/08/05/5cddea62898c1d4a.jpg"><br>xdc文件里面可查看</p><h3 id="2-6-板级调试"><a href="#2-6-板级调试" class="headerlink" title="2.6 板级调试"></a>2.6 板级调试</h3><p>1.产生比特流<br>2.点击Open Hardware Manager，然后点击Open target的Auto connect<br>3.program device<br>4.拨开关<br><img src="https://s3.bmp.ovh/imgs/2022/08/05/7e2e363616f951c3.jpg"><br>如上图，sw0代表a,sw1代表b,sw7代表sel,led0代表out<br>sw7上拨，sw0上拨，led就亮了</p><h2 id="3-3-8译码器"><a href="#3-3-8译码器" class="headerlink" title="3. 3-8译码器"></a>3. 3-8译码器</h2><h3 id="3-1-逻辑设计"><a href="#3-1-逻辑设计" class="headerlink" title="3.1 逻辑设计"></a>3.1 逻辑设计</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/f8055d5063fba239.jpg"></p><h3 id="3-2-设计输入-decoder-3-8-v"><a href="#3-2-设计输入-decoder-3-8-v" class="headerlink" title="3.2 设计输入 decoder_3_8.v"></a>3.2 设计输入 decoder_3_8.v</h3><pre class=" language-decoder_3_8.v"><code class="language-decoder_3_8.v">`timescale 1ns / 1ps//////////////////////////////////////////////////////////////////////////////////// Company: // Engineer: // // Create Date: 2022/08/06 11:28:17// Design Name: // Module Name: decoder_3_8// Project Name: // Target Devices: // Tool Versions: // Description: // // Dependencies: // // Revision:// Revision 0.01 - File Created// Additional Comments:// //////////////////////////////////////////////////////////////////////////////////module decoder_3_8(    a,    b,    c,    out    );    input a;    input b;    input c;    output reg[7:0] out;        //always或者initial的左值必须是reg类型    //assign左值类型是wire    //&#123;a,b,c&#125;是指三个一位拼接成一个三位    //比如 wire [3:0]d    // assign d=&#123;a,1'b0,b,c&#125;    always@(*)begin       case(&#123;a,b,c&#125;)           3'd0: out=8'b00000001;           3'd1: out=8'b00000010;           3'd2: out=8'b00000100;           3'd3: out=8'b00001000;           3'd4: out=8'b00010000;           3'd5: out=8'b00100000;           3'd6: out=8'b01000000;           3'd7: out=8'b10000000;       endcase    endendmodule</code></pre><h3 id="3-3-跑综合，语法没问题"><a href="#3-3-跑综合，语法没问题" class="headerlink" title="3.3 跑综合，语法没问题"></a>3.3 跑综合，语法没问题</h3><h3 id="3-4-写仿真文件-decoder-3-8-tb-v"><a href="#3-4-写仿真文件-decoder-3-8-tb-v" class="headerlink" title="3.4 写仿真文件 decoder_3_8_tb.v"></a>3.4 写仿真文件 decoder_3_8_tb.v</h3><pre class=" language-decoder_3_8_tb.v"><code class="language-decoder_3_8_tb.v">`timescale 1ns / 1psmodule decoder_3_8_tb();          reg s_a;     reg s_b;     reg s_c;     wire [7:0]out;     decoder_3_8 decoder_3_8_inst(        .a(s_a),        .b(s_b),        .c(s_c),        .out(out)    );        initial begin      s_a=0;s_b=0;s_c=0;      #200;      s_a=0;s_b=0;s_c=1;      #200;      s_a=0;s_b=1;s_c=0;      #200;      s_a=0;s_b=1;s_c=1;      #200;      s_a=1;s_b=0;s_c=0;      #200;      s_a=1;s_b=0;s_c=1;      #200;      s_a=1;s_b=1;s_c=0;      #200;      s_a=1;s_b=1;s_c=1;      #200;      $stop;    endendmodule</code></pre><h3 id="3-5-功能仿真"><a href="#3-5-功能仿真" class="headerlink" title="3.5 功能仿真"></a>3.5 功能仿真</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/06/a3fd636b6c80f3f2.jpg"><br>结果没问题</p><h3 id="3-6-布局布线，然后schematic"><a href="#3-6-布局布线，然后schematic" class="headerlink" title="3.6 布局布线，然后schematic"></a>3.6 布局布线，然后schematic</h3><h3 id="3-7-时序仿真（该程序比较简单，这个就不做了）"><a href="#3-7-时序仿真（该程序比较简单，这个就不做了）" class="headerlink" title="3.7 时序仿真（该程序比较简单，这个就不做了）"></a>3.7 时序仿真（该程序比较简单，这个就不做了）</h3><h3 id="3-8-设置引脚"><a href="#3-8-设置引脚" class="headerlink" title="3.8 设置引脚"></a>3.8 设置引脚</h3><h3 id="3-9-写比特流"><a href="#3-9-写比特流" class="headerlink" title="3.9 写比特流"></a>3.9 写比特流</h3><h3 id="3-10-板级调试"><a href="#3-10-板级调试" class="headerlink" title="3.10 板级调试"></a>3.10 板级调试</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/06/e27152cc7fac241f.jpg"></p><p>以前畏惧硬件，现在感觉还是蛮有意思^_^</p>]]></content>
       
+      
+      <categories>
+          
+          <category> 硬件学习 </category>
+          
+      </categories>
       
       
         <tags>
             
-            <tag> fpga学习 </tag>
+            <tag> fpga </tag>
+            
+            <tag> verilog </tag>
             
         </tags>
       

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="contact, 谢东娜的博客">
+    <meta name="keywords" content="机器学习数学基础之高数和微积分篇, 谢东娜的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>contact | 谢东娜的博客</title>
+    <title>机器学习数学基础之高数和微积分篇 | 谢东娜的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,61 +311,439 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                清心斋
-                
-            </div>
+    
 
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: ['从来没有真正的绝境, 只有心灵的迷途','Never really desperate, only the lost of the soul'],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">机器学习数学基础之高数和微积分篇</h1>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 
-<script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
-</script>
 
 
-    </div>
-</div>
+<main class="post-container content">
 
-<main class="content">
-    <div id="contact" class="container chip-container">
-        <div class="card">
-            <div class="card-content">
-                <div class="tag-title center-align">
-                    <i class="fas fa-comments"></i>&nbsp;&nbsp;留言板
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/">
+                                <span class="chip bg-color">高等数学</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="post-category">
+                                数学基础
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-08-08
                 </div>
                 
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-08-11
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    914
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    4 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
         </div>
-        <div class="card">
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>只记录比较重要或者不熟悉的知识点  </p>
+<h2 id="1-高等数学"><a href="#1-高等数学" class="headerlink" title="1.高等数学"></a>1.高等数学</h2><h3 id="1-1极限"><a href="#1-1极限" class="headerlink" title="1.1极限"></a>1.1极限</h3><p>$$\lim_{x\rightarrow x_0}f(x)&#x3D;A的充要条件是\lim_{x\rightarrow x_0^-}f(x)&#x3D;\lim_{x\rightarrow x_0^+}f(x)&#x3D;A$$<br>即左右极限都存在且相等   </p>
+<h3 id="1-2连续性"><a href="#1-2连续性" class="headerlink" title="1.2连续性"></a>1.2连续性</h3><p>连续的充要条件:<br>$$\lim_{\Delta x\rightarrow 0}\Delta y&#x3D;\lim_{\Delta x\rightarrow 0}\left[f(x_0+\Delta x)-f(x_0)\right]&#x3D;0$$<br>连续需要满足：<br><img src="https://s3.bmp.ovh/imgs/2022/08/09/60de2ec12558d7eb.jpg"><br>不连续就有间断点       </p>
+<h3 id="1-3导数"><a href="#1-3导数" class="headerlink" title="1.3导数"></a>1.3导数</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/09/49d612c4e645ee0a.jpg">   </p>
+<h3 id="1-4偏导数"><a href="#1-4偏导数" class="headerlink" title="1.4偏导数"></a>1.4偏导数</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/10/50b3dd1a5fd7ecd0.jpg">     </p>
+<h3 id="1-5方向导数"><a href="#1-5方向导数" class="headerlink" title="1.5方向导数"></a>1.5方向导数</h3><p>以z&#x3D;f(x,y)为例，可以想到对x的偏导数是固定y轴，然后x的每个点都有一个切线，这个切线的斜率就是对x的偏导数<br>那现在不止x,y方向的偏导数，而是对x-y平面的任意方向（相当于一个向量可以是360°的任意值）都求一个偏导数<br><img src="https://s3.bmp.ovh/imgs/2022/08/10/28e4879fe6bcd238.png"><br>如上图，沿着红线方向，每个点都有一个导数<br>$$\left| \frac{\partial z}{\partial l}\right | &#x3D;\frac{\partial z}{\partial x}cos\theta +<br>\frac{\partial z}{\partial y}sin\theta \left(\theta是l与x方向的夹角\right)<br>$$</p>
+<h3 id="1-6梯度"><a href="#1-6梯度" class="headerlink" title="1.6梯度"></a>1.6梯度</h3><p>某个点梯度方向与方向导数最大值的方向相同<br>首先梯度向量:<br>$$ grad(x,y)&#x3D;\frac{\partial z}{\partial x}\vec i +\frac{\partial z}{\partial y}\vec j$$<br>上面我们知道：<br>$$\begin{aligned}<br>\left| \frac{\partial z}{\partial l}\right| &amp; &#x3D;\frac{\partial z}{\partial x}cos\theta +<br>\frac{\partial z}{\partial y}sin\theta  \newline<br> &amp; &#x3D;grad(x,y)\cdot \vec e \ \left(\vec e&#x3D;\left(cos \theta , sin \theta \right),\vec e是方向L上的单位向量\right) \newline<br> &amp; &#x3D;\left|grad(x,y) \right|cos \beta \ \left(\beta&#x3D;\left&lt;grad(x,y),\vec e\right&gt;\right)<br>\end{aligned}$$<br>很明显，当$\beta$为0，即方向导数的方向和梯度方向相同时，方向导数值最大，当$\beta$为180°；即方向导数的方向和梯度方向相反时，方向导数值最小，为梯度下降的方向。</p>
+<h2 id="2-微积分"><a href="#2-微积分" class="headerlink" title="2.微积分"></a>2.微积分</h2><ul>
+<li><p>$<br>\int_{a}^{b}f(x)dx&#x3D;I&#x3D;\lim_{\lambda \rightarrow 0}\sum_{i&#x3D;1}^{n}f(\xi _i)\Delta x_i<br>$      </p>
+</li>
+<li><p>$\int_{a}^{b}f(x)dx&#x3D;F’(\xi)(b-a)&#x3D;F(b)-F(a)$</p>
+</li>
+</ul>
+<h2 id="3-泰勒公式"><a href="#3-泰勒公式" class="headerlink" title="3.泰勒公式"></a>3.泰勒公式</h2><h3 id="3-1泰勒展开式"><a href="#3-1泰勒展开式" class="headerlink" title="3.1泰勒展开式"></a>3.1泰勒展开式</h3><p>$$\begin{aligned}<br>f(x)&#x3D;f(x_0)+\frac{f’(x_0)}{1!}{(x-x_0)}+\frac{f’’(x_0)}{2!}{(x-x_0)^2}+\cdots+\ \frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+R_n(x)<br>\end{aligned}$$</p>
+<h3 id="3-2麦克劳林公式"><a href="#3-2麦克劳林公式" class="headerlink" title="3.2麦克劳林公式"></a>3.2麦克劳林公式</h3><p>$$\begin{aligned}<br>f(x)&#x3D;f(0)+f’(0){x}+\frac{f’’(0)}{2!}{x^2}+\cdots+\ \frac{f^{(n)}(0)}{n!}x^n+ \frac{f^{(n+1)}(\theta x)}{(n+1)!}x^{n+1}\ (0&lt;\theta&lt;1)<br>\end{aligned}$$</p>
+<p>&amp;ensp; 我们来说说这个分母上的阶乘和多项式的阶数的意义。    </p>
+<ul>
+<li><p>阶数：阶数越高，在越偏右侧影响越大，比如$x^2$和$x^4$，在靠近0点，用$x^2$就可以近<br>似描述，当函数是一个凹函数时，越靠近右侧，$x^4$更大更陡峭，用它近似效果更好     </p>
+</li>
+<li><p>阶乘:我们想想$x^2$和$x^8$,如果分母无阶乘，那$x^2$的效果会被$x^8$覆盖，但是我们希望在靠近原点处尽量用$x^2$近似，在偏远处才用$x^8$,那偏近处就需要用阶乘限制$x^8$的<br>效果,$\frac{x^8}{8!}$在接近原点时，由于分母值大，被限制，较远处，它增长特别快，作用就明显</p>
+</li>
+</ul>
+<h2 id="4-拉格朗日乘子法"><a href="#4-拉格朗日乘子法" class="headerlink" title="4.拉格朗日乘子法"></a>4.拉格朗日乘子法</h2><h3 id="4-1-引入"><a href="#4-1-引入" class="headerlink" title="4.1 引入"></a>4.1 引入</h3><p>我们想象一个凹平面，假设在某一点$(x,y)$存在极值，我们去切一条等高线$g(x,y)&#x3D;C$,会发现，极值点处的法向量与等高线的法向量共线，那就存在一个常数$\lambda$,使得$\triangledown  \left[f(x,y)+\lambda g(x,y)\right]&#x3D;0$成立。</p>
+<h3 id="4-1-拉格朗日乘子解法"><a href="#4-1-拉格朗日乘子解法" class="headerlink" title="4.1 拉格朗日乘子解法"></a>4.1 拉格朗日乘子解法</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/11/5940c0b3db86af05.jpg"><br><img src="https://s3.bmp.ovh/imgs/2022/08/11/7c13e90a3696cc1b.jpg"><br><img src="https://s3.bmp.ovh/imgs/2022/08/11/0c78f1e4f7bb45cf.jpg"></p>
+
+                
+            </div>
+            <hr/>
+
             
-            <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">xdn</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://eee123xdn.github.io/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%AB%98%E6%95%B0%E5%92%8C%E5%BE%AE%E7%A7%AF%E5%88%86%E7%AF%87/">http://eee123xdn.github.io/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%AB%98%E6%95%B0%E5%92%8C%E5%BE%AE%E7%A7%AF%E5%88%86%E7%AF%87/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">xdn</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/">
+                                    <span class="chip bg-color">高等数学</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
 <link rel="stylesheet" href="/css/my-gitalk.css">
 
 <div class="card gitalk-card" data-aos="fade-up">
@@ -384,17 +762,17 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2022-07-19T12-12-30',
+        id: '2022-08-08T18-20-34',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
     gitalk.render('gitalk-container');
 </script>
 
-            
+    
 
-            
-            <link rel="stylesheet" href="/libs/gitment/gitment-default.css">
+    
+        <link rel="stylesheet" href="/libs/gitment/gitment-default.css">
 <link rel="stylesheet" href="/css/gitment.css">
 
 <div class="gitment-card card" data-aos="fade-up">
@@ -408,7 +786,7 @@
 <script src="/libs/gitment/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-    id: 'Tue Jul 19 2022 12:12:30 GMT+0800',
+    id: 'Mon Aug 08 2022 18:20:34 GMT+0800',
     owner: '',
     repo: '',
     oauth: {
@@ -420,10 +798,10 @@ var gitment = new Gitment({
 gitment.render('gitment-content');
 </script>
 
-            
+    
 
-            
-            <div class="disqus-card card" data-aos="fade-up">
+    
+        <div class="disqus-card card" data-aos="fade-up">
     <div id="disqus_thread" class="card-content">
         <noscript>Please enable JavaScript to view the
             <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
@@ -433,9 +811,9 @@ gitment.render('gitment-content');
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'http://eee123xdn.github.io/contact/index.html';
-        this.page.identifier = '/contact/index.html';
-        this.page.title = 'contact';
+        this.page.url = 'http://eee123xdn.github.io/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%AB%98%E6%95%B0%E5%92%8C%E5%BE%AE%E7%A7%AF%E5%88%86%E7%AF%87/';
+        this.page.identifier = '/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%AB%98%E6%95%B0%E5%92%8C%E5%BE%AE%E7%A7%AF%E5%88%86%E7%AF%87/';
+        this.page.title = '机器学习数学基础之高数和微积分篇';
     };
     let disqus_shortname = '';
 
@@ -448,10 +826,10 @@ gitment.render('gitment-content');
     })();
 </script>
 
-            
+    
 
-            
-            <div class="livere-card card" data-aos="fade-up">
+    
+    <div class="livere-card card" data-aos="fade-up">
     <!-- 来必力City版安装代码 -->
     <div id="lv-container" class="card-content" data-id="city" data-uid="">
         <script type="text/javascript">
@@ -472,10 +850,10 @@ gitment.render('gitment-content');
     </div>
     <!-- City版安装代码已完成 -->
 </div>
-            
+    
 
-            
-            <style>
+    
+        <style>
     .valine-card {
         margin: 1.5rem auto;
     }
@@ -737,10 +1115,10 @@ gitment.render('gitment-content');
     });
 </script>
 
-            
-			
-			
-            <style>
+    
+
+    
+        <style>
     .mvaline-card {
         margin: 1.5rem auto;
     }
@@ -785,13 +1163,244 @@ gitment.render('gitment-content');
     });
 </script>
 
-            
+    
 
-            
+    
 
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/08/08/python%E9%80%92%E5%BD%92%E4%B8%8E%E6%9F%A5%E6%89%BE/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="python递归与查找">
+                        
+                        <span class="card-title">python递归与查找</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-08
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/python%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    python基础
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">数据结构与算法</span>
+                    </a>
+                    
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/08/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BB%AA%E8%AE%BA/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="神经网络与深度学习绪论">
+                        
+                        <span class="card-title">神经网络与深度学习绪论</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    神经网络与深度学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">神经网络与深度学习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
         </div>
     </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
 </main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">

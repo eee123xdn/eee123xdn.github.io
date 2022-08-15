@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="contact, 谢东娜的博客">
+    <meta name="keywords" content="python排序算法, 谢东娜的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>contact | 谢东娜的博客</title>
+    <title>python排序算法 | 谢东娜的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,61 +311,555 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                清心斋
-                
-            </div>
+    
 
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: ['从来没有真正的绝境, 只有心灵的迷途','Never really desperate, only the lost of the soul'],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">python排序算法</h1>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 
-<script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
-</script>
 
 
-    </div>
-</div>
+<main class="post-container content">
 
-<main class="content">
-    <div id="contact" class="container chip-container">
-        <div class="card">
-            <div class="card-content">
-                <div class="tag-title center-align">
-                    <i class="fas fa-comments"></i>&nbsp;&nbsp;留言板
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">数据结构与算法</span>
+                            </a>
+                        
+                            <a href="/tags/python/">
+                                <span class="chip bg-color">python</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/python%E5%9F%BA%E7%A1%80/" class="post-category">
+                                python基础
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-08-10
                 </div>
                 
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-08-12
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    292
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    1 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
         </div>
-        <div class="card">
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>总结几个我经常用的就行了     </p>
+<h2 id="1-冒泡排序"><a href="#1-冒泡排序" class="headerlink" title="1.冒泡排序"></a>1.冒泡排序</h2><p>两两比较，每轮大的交换到后面</p>
+<pre class=" language-bubble.py"><code class="language-bubble.py">import random
+
+def bubble_sort(li):
+    for i in range(len(li)-1):  # 第i趟
+        for j in range(len(li) - 1 - i):
+            if li[j] > li[j + 1]:
+                li[j], li[j + 1] = li[j + 1], li[j]
+
+
+li = [random.randint(0, 10000) for i in range(10)]
+print(li)
+bubble_sort(li)
+print(li)
+</code></pre>
+<h2 id="2-选择排序"><a href="#2-选择排序" class="headerlink" title="2.选择排序"></a>2.选择排序</h2><p>每轮找出剩余元素最小的放在前面   </p>
+<pre class=" language-select_sort.py"><code class="language-select_sort.py">import random
+
+def select_sort(li):
+    for i in range(len(li) - 1):  # 第i趟
+        min_index = i
+        for j in range(i + 1, len(li)):
+            if li[j] < li[min_index]:
+                min_index = j
+        if min_index != i:
+            li[i], li[min_index] = li[min_index], li[i]
+
+
+li = [random.randint(0, 10000) for i in range(10)]
+print(li)
+select_sort(li)
+print(li)
+</code></pre>
+<h2 id="3-快速排序"><a href="#3-快速排序" class="headerlink" title="3.快速排序"></a>3.快速排序</h2><p>快读排序的思想是每次找一个元素，每一轮的操作要把它放在它最后应该放的位置并保证该轮操作后其左边的元素的值都比它小，右边的比它大</p>
+<pre class=" language-quick_sort.py"><code class="language-quick_sort.py">import random
+
+def part(li, left, right):
+    # 先随机一个指定元素
+    idx = random.randint(left, right - 1)
+    # 和最左元素交换
+    li[idx], li[left] = li[left], li[idx]
+    tmp = li[left]
+    while left < right:
+        while left < right and li[right] >= tmp:
+            right -= 1
+        li[left] = li[right]
+        while left < right and li[left] <= tmp:
+            left += 1
+        li[right] = li[left]
+    li[left] = tmp
+    return left
+
+def quick_sort(li, left, right):
+    if left < right:
+        mid = part(li, left, right)
+        quick_sort(li, left, mid - 1)
+        quick_sort(li, mid + 1, right)
+
+li = list(range(100))
+random.shuffle(li)
+print(li)
+quick_sort(li, 0, len(li) - 1)
+print(li)
+</code></pre>
+<p>我们为什么要随机一个指定元素，而不是每次把指定元素设置为最左边的呢?<br>因为把指定的元素设置为最左边的话，我们可以找到一个数组达到最坏复杂度$O(n^2)$的情况,随机以后虽然还是可能出现这种情况，但是我们无法直接构造出，也就是这种情况出现的几率很小。<br>这种情况就如：li&#x3D;[9,8,7,6,5,4,3,2,1],每轮操作相当于减少一个头或尾的元素，剩下n-1个元素递归处理，而不是分成两部分，这样每轮的复杂度就是$O(len(li))$,也就是总复杂度为$1+2+…+n&#x3D;O(n^2)$,随机处理下之后一般情况下都是$O(nlogn)$的复杂度。</p>
+<h2 id="4-堆排序"><a href="#4-堆排序" class="headerlink" title="4.堆排序"></a>4.堆排序</h2><h3 id="4-1-手动实现"><a href="#4-1-手动实现" class="headerlink" title="4.1 手动实现"></a>4.1 手动实现</h3><p>看了官方写法，迭代写的，个人感觉还是递归写好写一点<br>以小根堆为例，其思想就是先建堆，建堆的话是对前(n-1)&#x2F;2个节点（即有儿子节点的节点）倒序进行down操作，使每个子树满足小根堆；堆建好后，每次pop出最小元素，然后根节点用最后一个节点顶替，再把现在的根节点进行down操作，就又是一个小根堆了，再pop出最小元素，这样挨着pop出来的就是从小到大的关系。<br>其中down操作：找出父亲和两个儿子节点三个元素之间的最小值，如果不是父亲节点，那父亲节点和最小值儿子节点就要进行交换（小的值成为子树根节点），但是还没完，没有被交换的那个儿子节点的子树自然不变，但是被交换的儿子节点的子树可能还有变动，因此要递归修改。</p>
+<pre class=" language-heap_sort.py"><code class="language-heap_sort.py">import math
+import random
+
+#小根堆
+def down(li,i,n):
+    l=i*2
+    r=i*2+1
+    k=i
+    if l<=n and li[l]<li[k]:
+        k=l
+    if r<=n and li[r]<li[k]:
+        k=r
+    if k!=i:
+        li[k],li[i]=li[i],li[k]
+        down(li,k,n)
+
+def heap_sort(li):
+    n = len(li)-1
+    for i in range((n-1)//2,-1,-1):
+        down(li,i,n)
+    ans=[]
+    while n>=0:
+        ans.append(li[0])
+        li[0]=li[n]
+        n -= 1
+        down(li,0,n)
+    print(ans)
+
+li = [random.randint(0, 1000) for i in range(10)]
+print(li)
+heap_sort(li)
+</code></pre>
+<h3 id="4-2-python内置堆实现"><a href="#4-2-python内置堆实现" class="headerlink" title="4.2 python内置堆实现"></a>4.2 python内置堆实现</h3><pre class=" language-heap_func.py"><code class="language-heap_func.py">import heapq
+import math
+import random
+
+li = [random.randint(0, 1000) for i in range(10)]
+print(li)
+heapq.heapify(li)
+ans=[]
+while len(li)>0:
+    ans.append(heapq.heappop(li))
+print(ans)
+</code></pre>
+<h2 id="5-计数排序"><a href="#5-计数排序" class="headerlink" title="5.计数排序"></a>5.计数排序</h2><pre class=" language-count_sort.py"><code class="language-count_sort.py">import heapq
+import math
+import random
+
+
+def count_sort(li, max_num=100):
+    count = [0 for i in range(max_num + 1)]
+    for val in li:
+        count[val] += 1
+    li.clear()
+    for idx, val in enumerate(count):
+        for i in range(val):
+            li.append(idx)
+    print(li)
+
+
+li = [random.randint(0, 101) for i in range(20)]
+print(li)
+count_sort(li)
+</code></pre>
+<p>就先写这几个，后面想写其他的再补充~</p>
+
+                
+            </div>
+            <hr/>
+
             
-            <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">xdn</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://eee123xdn.github.io/2022/08/10/python%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">http://eee123xdn.github.io/2022/08/10/python%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">xdn</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">数据结构与算法</span>
+                                </a>
+                            
+                                <a href="/tags/python/">
+                                    <span class="chip bg-color">python</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
 <link rel="stylesheet" href="/css/my-gitalk.css">
 
 <div class="card gitalk-card" data-aos="fade-up">
@@ -384,17 +878,17 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2022-07-19T12-12-30',
+        id: '2022-08-10T22-44-15',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
     gitalk.render('gitalk-container');
 </script>
 
-            
+    
 
-            
-            <link rel="stylesheet" href="/libs/gitment/gitment-default.css">
+    
+        <link rel="stylesheet" href="/libs/gitment/gitment-default.css">
 <link rel="stylesheet" href="/css/gitment.css">
 
 <div class="gitment-card card" data-aos="fade-up">
@@ -408,7 +902,7 @@
 <script src="/libs/gitment/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-    id: 'Tue Jul 19 2022 12:12:30 GMT+0800',
+    id: 'Wed Aug 10 2022 22:44:15 GMT+0800',
     owner: '',
     repo: '',
     oauth: {
@@ -420,10 +914,10 @@ var gitment = new Gitment({
 gitment.render('gitment-content');
 </script>
 
-            
+    
 
-            
-            <div class="disqus-card card" data-aos="fade-up">
+    
+        <div class="disqus-card card" data-aos="fade-up">
     <div id="disqus_thread" class="card-content">
         <noscript>Please enable JavaScript to view the
             <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
@@ -433,9 +927,9 @@ gitment.render('gitment-content');
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'http://eee123xdn.github.io/contact/index.html';
-        this.page.identifier = '/contact/index.html';
-        this.page.title = 'contact';
+        this.page.url = 'http://eee123xdn.github.io/2022/08/10/python%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/';
+        this.page.identifier = '/2022/08/10/python%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/';
+        this.page.title = 'python排序算法';
     };
     let disqus_shortname = '';
 
@@ -448,10 +942,10 @@ gitment.render('gitment-content');
     })();
 </script>
 
-            
+    
 
-            
-            <div class="livere-card card" data-aos="fade-up">
+    
+    <div class="livere-card card" data-aos="fade-up">
     <!-- 来必力City版安装代码 -->
     <div id="lv-container" class="card-content" data-id="city" data-uid="">
         <script type="text/javascript">
@@ -472,10 +966,10 @@ gitment.render('gitment-content');
     </div>
     <!-- City版安装代码已完成 -->
 </div>
-            
+    
 
-            
-            <style>
+    
+        <style>
     .valine-card {
         margin: 1.5rem auto;
     }
@@ -737,10 +1231,10 @@ gitment.render('gitment-content');
     });
 </script>
 
-            
-			
-			
-            <style>
+    
+
+    
+        <style>
     .mvaline-card {
         margin: 1.5rem auto;
     }
@@ -785,13 +1279,244 @@ gitment.render('gitment-content');
     });
 </script>
 
-            
+    
 
-            
+    
 
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/08/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AF%87/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="机器学习数学基础之线性代数篇">
+                        
+                        <span class="card-title">机器学习数学基础之线性代数篇</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    数学基础
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
+                        <span class="chip bg-color">线性代数</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/08/09/python%E5%89%8D%E8%A8%80/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="python前言">
+                        
+                        <span class="card-title">python前言</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/python%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    python基础
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">数据结构与算法</span>
+                    </a>
+                    
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
         </div>
     </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
 </main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">

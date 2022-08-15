@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="机器学习数学基础, 谢东娜的博客">
+    <meta name="keywords" content="Codeforces Round 811 (Div.3), 谢东娜的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>机器学习数学基础 | 谢东娜的博客</title>
+    <title>Codeforces Round 811 (Div.3) | 谢东娜的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -29,7 +29,11 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="谢东娜的博客" type="application/atom+xml">
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="谢东娜的博客" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -311,12 +315,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">机器学习数学基础</h1>
+                    <h1 class="description center-align post-title">Codeforces Round 811 (Div.3)</h1>
                 </div>
             </div>
         </div>
@@ -432,14 +436,23 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">
-                                <span class="chip bg-color">数学基础</span>
+                            <a href="/tags/Codeforces/">
+                                <span class="chip bg-color">Codeforces</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/cf%E9%A2%98%E8%A7%A3/" class="post-category">
+                                cf题解
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -448,28 +461,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-08
+                    2022-08-14
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-09
+                    2022-08-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    659
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -489,7 +502,252 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <p><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1714">比赛链接</a>        </p>
+<h2 id="A-Everyone-Loves-to-Sleep"><a href="#A-Everyone-Loves-to-Sleep" class="headerlink" title="A. Everyone Loves to Sleep"></a>A. Everyone Loves to Sleep</h2><p>就是问下一个闹钟与当前时间的时间差，用24小时制表示出来就行，模拟一下   </p>
+<pre class=" language-811A.py"><code class="language-811A.py">import os
+import math
+
+T=int(input())
+for _ in range(T):
+    n,h,m=map(int,input().split())
+    tmp=h*60+m
+    f1=0
+    li1=[]
+    li2=[]
+    for i in range(n):
+        hi,mi=map(int,input().split())
+        tmp1=hi*60+mi
+        if tmp1==tmp:
+            f1=1
+        elif tmp1>tmp:
+            li1.append(tmp1)
+        else:
+            li2.append(tmp1)
+    # print(li1)
+    # print(li2)
+    if f1==1:
+        print("0 0")
+        continue
+    if len(li1)>0:
+        li1.sort()
+        ans=li1[0]
+        res=ans-tmp
+        print("%d %d" % (res/60,res%60))
+        continue
+    li2.sort()
+    ans1 = li2[0]
+    res1 = ans1 +24*60- tmp
+    print("%d %d" % (res1/60,res1%60))
+</code></pre>
+<h2 id="B-Remove-Prefix"><a href="#B-Remove-Prefix" class="headerlink" title="B. Remove Prefix"></a>B. Remove Prefix</h2><p>问删掉前几个可以使得后面的元素互不相同？倒着遍历判断一下就行    </p>
+<pre class=" language-811B.py"><code class="language-811B.py">import os
+import math
+
+T=int(input())
+for _ in range(T):
+    n=int(input())
+    a=list(map(int,input().split()))
+    s=set()
+    f=0
+    for i in range(len(a)-1,-1,-1):
+        if a[i] not in s:
+            s.add(a[i])
+        else:
+            f=i+1
+            break
+    print(f)
+</code></pre>
+<h2 id="C-Minimum-Varied-Number"><a href="#C-Minimum-Varied-Number" class="headerlink" title="C. Minimum Varied Number"></a>C. Minimum Varied Number</h2><p>给一个sum，问每一位互不相同的最小的数使得各位和为sum。从末尾9,8,7挨着放即可   </p>
+<pre class=" language-811C.py"><code class="language-811C.py">import os
+import math
+
+T=int(input())
+for _ in range(T):
+    s=int(input())
+    ans=[]
+    num=9
+    while s>0:
+        if num>=s:
+            ans.append(s)
+            s=0
+        else:
+            ans.append(num)
+            s-=num
+            num-=1
+    ans.reverse()
+    for i in range(len(ans)):
+        print(ans[i],end='')
+    print("\n")
+</code></pre>
+<h2 id="D-Color-with-Occurrences"><a href="#D-Color-with-Occurrences" class="headerlink" title="D. Color with Occurrences"></a>D. Color with Occurrences</h2><p>有一个长度在100之内的字符串$t$和n个长度在10之内的字符串$s_i$,每一步可以选一个$s_i$把字符串$t$的部分子串染成红色，问最少要多少步$t$能染成全红,并且输出每一步需要的字符串和开始染的下标。<br>这个题可以转换一下：相当于每一个字符串$s_i$可以染字符串$t$的一些连续区间，问最少多少个$s_i$可以把区间完全覆盖。这样就可以贪心地去做：对所有能操作的字符串区间进行排序，按照左端点升序排列（右端点如何排不要紧），只要后面的区间左端点小于等于上次区间的右端点，那就贪心选择右端点最大的区间。           </p>
+<pre class=" language-811D.py"><code class="language-811D.py">import bisect
+import os
+import math
+from functools import cmp_to_key
+
+class node(object):
+    def __init__(self,a,b,c):
+        self.l=a
+        self.r=b
+        self.id=c
+
+def check(pos,si,t):
+    for i in range(len(si)):
+        if si[i]!=t[i+pos]:
+            return False
+    return True
+
+def cmp(a,b):
+    if a.l<b.l:
+        return -1
+    else:
+        return 1
+
+li=[]
+T=int(input())
+for _ in range(T):
+    li.clear()
+    t=input()
+    t='?'+t
+    n=int(input())
+    for i in range(1,n+1):
+        si=input()
+        for j in range(len(t)):
+            if j+len(si)-1>=len(t):
+                break
+            if check(j, si, t):
+                tmp=node(j,j+len(si)-1,i)
+                li.append(tmp)
+
+    li.sort(key=cmp_to_key(cmp))
+    #for i in range(len(li)):
+     #   print("%d %d %d" % (li[i].l,li[i].r,li[i].id))
+    # print(len(li))
+    ans=[]
+    s=1
+    ed=len(t)-1
+    f=0
+    for i in range(len(li)):
+        j=i
+        r=int(-2e9)
+        tmpid=0
+        while j<len(li) and li[j].l<=s:
+            if li[j].r>r:
+                r=li[j].r
+                tmpid=j
+            j+=1
+        j-=1
+        if r<s:
+           f=0
+           break
+        ans.append((li[tmpid].id,li[tmpid].l))
+        if r>=ed:
+            f=1
+            break
+        s=r+1
+        i=j
+    if f==1:
+        print(len(ans))
+        for a, b in ans:
+            print("%d %d" % (a, b))
+    else:
+        print("-1")
+</code></pre>
+<h2 id="G-Path-Prefixes"><a href="#G-Path-Prefixes" class="headerlink" title="G. Path Prefixes"></a>G. Path Prefixes</h2><p>题意很简单，给一棵树，每条边有两条边权a,b,现在对于每一个节点，求该节点的一个值x,x代表从根节点开始到该节点的路径上的前x节点，这些节点的b值之和要小于等于根节点到该节点路径上的a值之和，求满足条件的x最大可能取多少。<br>一个dfs+二分的问题   </p>
+<pre class=" language-811G.py"><code class="language-811G.py">import bisect
+import os
+import math
+
+from types import GeneratorType
+
+
+def bootstrap(f, stack=[]):
+    def wrappedfunc(*args, **kwargs):
+        if stack:
+            return f(*args, **kwargs)
+        else:
+            to = f(*args, **kwargs)
+            while True:
+                if type(to) is GeneratorType:
+                    stack.append(to)
+                    to = next(to)
+                else:
+                    stack.pop()
+                    if not stack:
+                        break
+                    to = stack[-1].send(to)
+            return to
+
+    return wrappedfunc
+
+N = 200005
+head = [-1] * N
+to = [0] * N
+nex = [0] * N
+w1 = [0] * N
+w2 = [0] * N
+idx = 0
+sum1 = [0] * N
+sum2 = []
+ans = [0] * N
+
+
+def init():
+    global idx
+    # print("这次n是%d" % n),用的n就是input的n,只要接下来不需要修改n,不用加global
+    # list类型是不需要global申明的
+    idx = 0
+    for i in range(n + 5):
+        head[i] = -1
+        sum1[i] = 0
+        ans[i] = 0
+    sum2.clear()
+
+
+def add(u, v, e1, e2):
+    global idx
+    to[idx] = v
+    w1[idx] = e1
+    w2[idx] = e2
+    nex[idx] = head[u]
+    head[u] = idx
+    idx+=1
+
+@bootstrap
+def dfs(u, fa):
+    i = head[u]
+    while i != -1:
+        v = to[i]
+        if v == fa:
+            continue
+        sum1[v] = sum1[u] + w1[i]
+        if len(sum2) == 0:
+            sum2.append(w2[i])
+        else:
+            # sum2存的是b的前缀和数组
+            tmp = sum2[len(sum2) - 1]
+            tmp += w2[i]
+            sum2.append(tmp)
+        ans[v] = bisect.bisect_right(sum2, sum1[v])
+        yield dfs(v, u)
+        sum2.pop()
+        i = nex[i]
+    yield None
+
+T = int(input())
+for _ in range(T):
+    n = int(input())
+    init()
+    for i in range(2, n + 1):
+        p, a, b = map(int, input().split())
+        add(p, i, a, b)
+    dfs(1, 0)
+    for i in range(2, n + 1):
+        print(ans[i], end=' ')
+    print("\n")
+</code></pre>
+<p>开始一直runtime error,python递归可以用bootstrap：<br>[参考1]<a target="_blank" rel="noopener" href="https://pyrival.readthedocs.io/en/latest/bootstrap.html">https://pyrival.readthedocs.io/en/latest/bootstrap.html</a><br>[参考2]<a target="_blank" rel="noopener" href="https://flykiller.github.io/performance%20tricks/">https://flykiller.github.io/performance%20tricks/</a><br>这题也可以用class写成结构体数组类型，然后表达链式向前星，但是用上面这种写法简单一点             </p>
+
                 
             </div>
             <hr/>
@@ -515,7 +773,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://eee123xdn.github.io/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">http://eee123xdn.github.io/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/</a>
+                    <a href="http://eee123xdn.github.io/2022/08/14/Codeforces-Round-811-%EF%BC%88Div-3%EF%BC%89/">http://eee123xdn.github.io/2022/08/14/Codeforces-Round-811-%EF%BC%88Div-3%EF%BC%89/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -553,8 +811,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">
-                                    <span class="chip bg-color">数学基础</span>
+                                <a href="/tags/Codeforces/">
+                                    <span class="chip bg-color">Codeforces</span>
                                 </a>
                             
                         </div>
@@ -725,7 +983,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2022-08-08T18-20-34',
+        id: '2022-08-14T21-38-40',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -749,7 +1007,7 @@
 <script src="/libs/gitment/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-    id: 'Mon Aug 08 2022 18:20:34 GMT+0800',
+    id: 'Sun Aug 14 2022 21:38:40 GMT+0800',
     owner: '',
     repo: '',
     oauth: {
@@ -774,9 +1032,9 @@ gitment.render('gitment-content');
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'http://eee123xdn.github.io/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/';
-        this.page.identifier = '/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/';
-        this.page.title = '机器学习数学基础';
+        this.page.url = 'http://eee123xdn.github.io/2022/08/14/Codeforces-Round-811-%EF%BC%88Div-3%EF%BC%89/';
+        this.page.identifier = '/2022/08/14/Codeforces-Round-811-%EF%BC%88Div-3%EF%BC%89/';
+        this.page.title = 'Codeforces Round 811 (Div.3)';
     };
     let disqus_shortname = '';
 
@@ -1135,17 +1393,18 @@ gitment.render('gitment-content');
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/08/08/python%E9%80%92%E5%BD%92%E4%B8%8E%E6%9F%A5%E6%89%BE/">
+                <a href="/2022/08/14/Codeforces-Round-811-%EF%BC%88Div-3%EF%BC%89/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="python递归与查找">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Codeforces Round 811 (Div.3)">
                         
-                        <span class="card-title">python递归与查找</span>
+                        <span class="card-title">Codeforces Round 811 (Div.3)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1155,22 +1414,27 @@ gitment.render('gitment-content');
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-14
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            xdn
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/cf%E9%A2%98%E8%A7%A3/" class="post-category">
+                                    cf题解
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">python数据结构与算法</span>
+                    <a href="/tags/Codeforces/">
+                        <span class="chip bg-color">Codeforces</span>
                     </a>
                     
                 </div>
@@ -1184,13 +1448,13 @@ gitment.render('gitment-content');
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BB%AA%E8%AE%BA/">
+                <a href="/2022/08/11/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E8%8A%82%EF%BC%88%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%EF%BC%89/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="神经网络与深度学习绪论">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="fpga学习第二节（时序逻辑）">
                         
-                        <span class="card-title">神经网络与深度学习绪论</span>
+                        <span class="card-title">fpga学习第二节（时序逻辑）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1201,12 +1465,16 @@ gitment.render('gitment-content');
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-11
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            xdn
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%A1%AC%E4%BB%B6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    硬件学习
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -1214,8 +1482,12 @@ gitment.render('gitment-content');
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">神经网络与深度学习</span>
+                    <a href="/tags/fpga/">
+                        <span class="chip bg-color">fpga</span>
+                    </a>
+                    
+                    <a href="/tags/verilog/">
+                        <span class="chip bg-color">verilog</span>
                     </a>
                     
                 </div>
@@ -1244,8 +1516,6 @@ gitment.render('gitment-content');
 
 
 <!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
     </div>
@@ -1418,7 +1688,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">1.4k</span>&nbsp;字
+                class="white-color">3.8k</span>&nbsp;字
             
             
             
