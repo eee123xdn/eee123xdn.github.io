@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>机器学习数学基础之概率统计篇</title>
+      <link href="/2022/08/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E7%AF%87/"/>
+      <url>/2022/08/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E7%AF%87/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-随机变量"><a href="#1-随机变量" class="headerlink" title="1.随机变量"></a>1.随机变量</h2><h3 id="1-1-离散型随机变量"><a href="#1-1-离散型随机变量" class="headerlink" title="1.1 离散型随机变量"></a>1.1 离散型随机变量</h3><p>$$\begin{aligned}<br>概率函数：f(x_i)&#x3D;P(X&#x3D;x_i)<br>\end{aligned}$$<br>概率分布就是把每种$x_i$及其对应的$f(x_i)列出来$           </p><h3 id="1-2-连续型随机变量"><a href="#1-2-连续型随机变量" class="headerlink" title="1.2 连续型随机变量"></a>1.2 连续型随机变量</h3><p>对于连续型随机变量，我们是画不出那个分布表的，我们选择用密度来表示概率分布<br><img src="https://s3.bmp.ovh/imgs/2022/08/17/121e64688b6437db.jpg"><br>在频率分布直方图中，矩形的面积就是该区间的概率，那想象一下，整个区间分成无限多个小区间，就是一条非常光滑的曲线。举个例子，我们知道一个铁球的密度，也就是知道每个点的重量，这个重量非常小，近似于0，但是我们要求一块的重量，积分就可以得到一个比较大的值。同理，对这个概率密度函数进行积分，就可以得到某个区间的概率。        </p><p>X为连续随机变量，X在任意区间$\left(a,b \right]$上的概率可以表示为：<br>$$\begin{aligned}<br>P(a &lt; X \leq b)&#x3D;\int_{a}^{b}f(x)dx<br>\end{aligned}$$<br>$f(x)$就叫做$X$的概率密度函数，也可以简称为密度<br><img src="https://s3.bmp.ovh/imgs/2022/08/17/de44300e58364cc9.jpg"><br>单独分析一个点的概率密度是没有任何意义的，它必须要有区间作为参考和对比。<br>累积分布函数可以用概率密度函数的积分求出（概率是概率密度函数的区间积分）           </p><h3 id="1-3-简单随机抽样"><a href="#1-3-简单随机抽样" class="headerlink" title="1.3 简单随机抽样"></a>1.3 简单随机抽样</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/17/94e23e4c96b7e916.jpg">       </p><h2 id="2-似然函数"><a href="#2-似然函数" class="headerlink" title="2.似然函数"></a>2.似然函数</h2><h3 id="2-1-似然函数意义"><a href="#2-1-似然函数意义" class="headerlink" title="2.1 似然函数意义"></a>2.1 似然函数意义</h3><p>$$\begin{aligned}<br>L\left(\theta |x \right)&#x3D;f(x|\theta)<br>\end{aligned}$$<br>先解释一下这个式子： $f(x|\theta)$是指在给定参数$\theta$的条件下$X&#x3D;x$的概率，这个等号表明：已知$X&#x3D;x$的条件下，参数为$\theta$的可能性$L(\theta)$等于$f(x|\theta)$这个概率大小。   </p><h3 id="2-2-极大似然估计"><a href="#2-2-极大似然估计" class="headerlink" title="2.2 极大似然估计"></a>2.2 极大似然估计</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/17/66b21f63aa01f707.jpg"><br>我们现在有了结果$X(x_1,x_2,\cdots,x_n)$,想要知道参数$\theta$为多少时，这个结果出现的概率最大。<br>根据我们上面的式子，我们要求一个$\theta$使得$P(X|\theta)$最大,又因为$P(X|\theta)&#x3D;L(\theta|X)$,因此我们的目标转换为<br>$$\begin{aligned}<br>\max \limits_{\theta}L(\theta|X)&#x3D;\max \limits_{\theta}P(X|\theta)<br>\end{aligned}$$<br>左边为已知结果等于给定样本$X$,求一个$\theta$（它的可能性是最大的）<br>右边为求一个$\theta$,使得在这个参数的情况下，结果为给定样本的可能性最大。<br>那解决问题时，我们把$X(x_1,x_2,\cdots,x_n)$套入$P(X|\theta)$,就是已知样本的情况了，也就是说变成了式子$L(\theta|X)$,一个以$\theta$为变量的式子，然后我们对$\theta$求偏导，令偏导为0，求得的$\theta$就是结果。<br>因为极大似然不是针对一个个体的，而是针对整体的，所以$L(\theta)$等于一个连乘的式子，我们为了简化运算，$\max L$也就是$\max ln L$,右边的连乘变为连加，然后令<br>$$\begin{aligned} \frac{d\ LnL}{d \theta}&#x3D;0<br>\end{aligned}$$<br>解出来，就求得$\theta$的极大似然估计值。           </p><p>一个实例：<br><img src="https://s3.bmp.ovh/imgs/2022/08/17/5c82164c1ab3aa7a.jpg">         </p><h2 id="3-概率论基础"><a href="#3-概率论基础" class="headerlink" title="3.概率论基础"></a>3.概率论基础</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 概率统计 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Codeforces Round 811 (Div.3)</title>
       <link href="/2022/08/14/Codeforces-Round-811-%EF%BC%88Div-3%EF%BC%89/"/>
       <url>/2022/08/14/Codeforces-Round-811-%EF%BC%88Div-3%EF%BC%89/</url>
@@ -20,6 +45,10 @@
       
         <tags>
             
+            <tag> 数据结构与算法 </tag>
+            
+            <tag> python </tag>
+            
             <tag> Codeforces </tag>
             
         </tags>
@@ -33,7 +62,7 @@
       <link href="/2022/08/11/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E8%8A%82%EF%BC%88%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%EF%BC%89/"/>
       <url>/2022/08/11/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E8%8A%82%EF%BC%88%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%EF%BC%89/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="计数器（实现灯每隔1s亮一次）"><a href="#计数器（实现灯每隔1s亮一次）" class="headerlink" title="计数器（实现灯每隔1s亮一次）"></a>计数器（实现灯每隔1s亮一次）</h1><h2 id="1-逻辑设计"><a href="#1-逻辑设计" class="headerlink" title="1.逻辑设计"></a>1.逻辑设计</h2><p>灯每隔1s亮一次，就是亮500ms,灭500ms,时钟信号频率是50MHZ，也就是20ns一个周期，方波来看就是高电平10s,低电平10s，这样交替。D触发器使得在上升沿到来时计数加1，那20ns计数加1，500ms就需要计数到25000000，也就是说计数到25000000，led灯的状态就变一下。 （亮变灭，灭变亮）。<br><img src="https://s2.loli.net/2022/08/17/oqf6JQOu24GX8Ie.jpg"><br>这样我们就清楚了：输入信号是时钟信号clk,复位信号reset_n,输出信号是led。在这个过程中要设置一个计数值cnt,根据clk信号改变cnt,再根据cnt的值改变led。（reset的值也会改变cnt和led的状态）                </p><h2 id="2-设计输入"><a href="#2-设计输入" class="headerlink" title="2.设计输入"></a>2.设计输入</h2><p>要注意count是计数到25000000，led才改变吗？不是。<br>0-1<br>1-2<br>2-3<br>3-0 （此循环的周期是4）<br>因此计数到24999999即可</p><pre class=" language-led_flash.v"><code class="language-led_flash.v">`timescale 1ns / 1ps//////////////////////////////////////////////////////////////////////////////////// Company: // Engineer: // // Create Date: 2022/08/17 21:52:49// Design Name: // Module Name: led_flash// Project Name: // Target Devices: // Tool Versions: // Description: // // Dependencies: // // Revision:// Revision 0.01 - File Created// Additional Comments:// //////////////////////////////////////////////////////////////////////////////////module led_flash(    clk,    Reset_n,    led    );    input clk;    input Reset_n;    output reg led;        reg [24:0] count;        //一般时序电路使用非阻塞赋值，assign语句一般使用=阻塞赋值    always@(posedge clk or negedge Reset_n)begin      if (!Reset_n)           count<=0;      else if(count==24999999)           count <= 0;      else            count<= count+1'd1;    end         //分别写count和led改变的逻辑块    always@(posedge clk or negedge Reset_n)begin      if (!Reset_n)           led<=0;      else if(count==24999999)           led<=!led;    end     endmodule</code></pre><h2 id="3-Run-Synthesis跑综合，语法没问题"><a href="#3-Run-Synthesis跑综合，语法没问题" class="headerlink" title="3.Run Synthesis跑综合，语法没问题"></a>3.Run Synthesis跑综合，语法没问题</h2><h2 id="4-功能仿真"><a href="#4-功能仿真" class="headerlink" title="4.功能仿真"></a>4.功能仿真</h2><h3 id="4-1仿真设计"><a href="#4-1仿真设计" class="headerlink" title="4.1仿真设计"></a>4.1仿真设计</h3><p>输入clk,Reset都连相应的信号，并且设置信号改变的时间间隔           </p><h3 id="4-2-仿真代码"><a href="#4-2-仿真代码" class="headerlink" title="4.2 仿真代码"></a>4.2 仿真代码</h3><pre class=" language-led_flash_tb.v"><code class="language-led_flash_tb.v">`timescale 1ns / 1ns//////////////////////////////////////////////////////////////////////////////////// Company: // Engineer: // // Create Date: 2022/08/17 22:16:15// Design Name: // Module Name: led_flash_tb// Project Name: // Target Devices: // Tool Versions: // Description: // // Dependencies: // // Revision:// Revision 0.01 - File Created// Additional Comments:// //////////////////////////////////////////////////////////////////////////////////module led_flash_tb();    reg clk;    reg reset;    wire led;        led_flash led_flash_inst(    .clk(clk),    .Reset_n(reset),    .led(led)    );        initial clk=1;    always #10 clk=!clk;        initial begin      reset=0;      #201;      reset=1;      #2000000000; //跑2s看看      $stop;    endendmodule</code></pre><h3 id="4-3-功能仿真"><a href="#4-3-功能仿真" class="headerlink" title="4.3 功能仿真"></a>4.3 功能仿真</h3><p><img src="https://s2.loli.net/2022/08/17/ZF1casrYjkV92DC.jpg"><br>可以看到是间隔500ms一亮一灭</p><h2 id="5-布局布线，然后schematic"><a href="#5-布局布线，然后schematic" class="headerlink" title="5. 布局布线，然后schematic"></a>5. 布局布线，然后schematic</h2><p><img src="https://s2.loli.net/2022/08/17/ptMLcyVJGb1uxAe.jpg"></p><h2 id="6-时序仿真-略"><a href="#6-时序仿真-略" class="headerlink" title="6. 时序仿真 (略)"></a>6. 时序仿真 (略)</h2><h2 id="7-设置引脚"><a href="#7-设置引脚" class="headerlink" title="7. 设置引脚"></a>7. 设置引脚</h2><p>复位设置成按键sw4，led设置为led0,时钟信号就1个FPGA_GCLK1<br><img src="https://s2.loli.net/2022/08/17/pC7nPd3UV9lA1Sq.jpg"></p><h2 id="8-写比特流"><a href="#8-写比特流" class="headerlink" title="8. 写比特流"></a>8. 写比特流</h2><h2 id="9-板级调试"><a href="#9-板级调试" class="headerlink" title="9. 板级调试"></a>9. 板级调试</h2><p><img src="https://i.postimg.cc/wMmmth1b/1.gif"><br>1s闪一次（闪就是从暗到亮的那一瞬间）        </p>]]></content>
       
       
       <categories>
@@ -60,7 +89,7 @@
       <link href="/2022/08/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AF%87/"/>
       <url>/2022/08/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AF%87/</url>
       
-        <content type="html"><![CDATA[<h2 id="1-矩阵"><a href="#1-矩阵" class="headerlink" title="1.矩阵"></a>1.矩阵</h2><p>行列式求值用det函数就行，我们就不介绍了，知道行列式和矩阵意义不同就行了：矩阵是一种表示形式，一个矩阵包含了一组向量；行列式是一个数，其行数和列数相同，可以看成是多个行向量张成的几何体的面积或者体积。</p><h3 id="1-1矩阵性质"><a href="#1-1矩阵性质" class="headerlink" title="1.1矩阵性质"></a>1.1矩阵性质</h3><p>$$\begin{aligned}<br>AB &amp; \neq BA\newline<br>(AB)C &amp; &#x3D; A(BC)\newline<br>\lambda (AB) &amp; &#x3D; (\lambda A)B&#x3D;A (\lambda B)\newline<br>A(B+C) &amp; &#x3D; AB+AC \newline<br>(B+C)A &amp; &#x3D;BA+CA \newline<br>\end{aligned}$$</p><h3 id="1-2矩阵变换"><a href="#1-2矩阵变换" class="headerlink" title="1.2矩阵变换"></a>1.2矩阵变换</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/12/dc34b50b2c4f8561.jpg"></p><ul><li>矩阵转置<br><img src="https://s3.bmp.ovh/imgs/2022/08/12/a8f1e1639474b9eb.jpg">    </li><li>矩阵的逆<br><img src="https://s3.bmp.ovh/imgs/2022/08/12/798513fc39373815.jpg"></li></ul><h3 id="1-3矩阵的秩"><a href="#1-3矩阵的秩" class="headerlink" title="1.3矩阵的秩"></a>1.3矩阵的秩</h3><h3 id="1-3-1秩的解释"><a href="#1-3-1秩的解释" class="headerlink" title="1.3.1秩的解释"></a>1.3.1秩的解释</h3><ul><li>比如一个$4*4$的矩阵$A$，行向量分别为$\alpha_1,\alpha_2,\alpha_3,\alpha_4$,列向量分别为$\beta_1,\beta_2,\beta_3,\beta_4$。    </li><li>首先，线性相关就是指一个向量可以用另一个向量带一个系数表示出来，那如果三个向量$\alpha_1,\alpha_2,\alpha_3$，令$k_1\alpha_1+k_2\alpha_2+k_3\alpha_3&#x3D;0$,我们无法求得一个非零解，只存在一个零解$(k_1&#x3D;0,k_2&#x3D;0,k_3&#x3D;0)$能使得上式成立，那就说明$\alpha_1,\alpha_2,\alpha_3$线性无关，即任何一个向量都不能由其他向量组合表示。     </li><li>如果这个$4*4$的矩阵最多只能找到3个行向量是线性无关的，那就说矩阵的行秩为3,即$\ r(A)&#x3D;3$。    </li><li>矩阵的行秩&#x3D;列秩</li></ul><h4 id="1-3-2秩的几何意义"><a href="#1-3-2秩的几何意义" class="headerlink" title="1.3.2秩的几何意义"></a>1.3.2秩的几何意义</h4><p>三点：<br>1.「秩」是图像经过矩阵变换之后的空间维度<br>2.「秩」是列空间的维度  (列向量能张成的几何空间)<br>3.矩阵的变换目标是列空间<br><img src="https://s3.bmp.ovh/imgs/2022/08/13/e6c9f2e5ec69dafc.png"><br><a href="https://www.zhihu.com/question/21605094">讲得很清楚的一个参考链接</a>   </p><h2 id="2-向量"><a href="#2-向量" class="headerlink" title="2.向量"></a>2.向量</h2><h3 id="2-1向量的内积"><a href="#2-1向量的内积" class="headerlink" title="2.1向量的内积"></a>2.1向量的内积</h3><p>$n维列向量：X\cdot Y&#x3D;X^TY&#x3D;x_1y_1+x_2y_2+\cdots+x_ny_n \ (或者[X,Y]&#x3D;X^TY) $<br>性质：<br>1.对称性 $[X,Y]&#x3D;[Y,X]$<br>2.线性性质：<br>$$\begin{aligned}<br>\lambda[X,Y] &amp; &#x3D; [\lambda X,Y]\newline<br>[X+Y,Z] &amp; &#x3D; [X,Z]+[Y,Z]<br>\end{aligned}$$<br>3.三角不等式：<br>$$<br>\left | X+Y \right | \leq \left | X \right |+\left | Y \right |<br>$$</p><h3 id="2-2向量的正交"><a href="#2-2向量的正交" class="headerlink" title="2.2向量的正交"></a>2.2向量的正交</h3>]]></content>
+        <content type="html"><![CDATA[<h2 id="1-矩阵"><a href="#1-矩阵" class="headerlink" title="1.矩阵"></a>1.矩阵</h2><p>行列式求值用det函数就行，我们就不介绍了，知道行列式和矩阵意义不同就行了：矩阵是一种表示形式，一个矩阵包含了一组向量；行列式是一个数，其行数和列数相同，可以看成是多个行向量张成的几何体的面积或者体积。</p><h3 id="1-1矩阵性质"><a href="#1-1矩阵性质" class="headerlink" title="1.1矩阵性质"></a>1.1矩阵性质</h3><p>$$\begin{aligned}<br>AB &amp; \neq BA\newline<br>(AB)C &amp; &#x3D; A(BC)\newline<br>\lambda (AB) &amp; &#x3D; (\lambda A)B&#x3D;A (\lambda B)\newline<br>A(B+C) &amp; &#x3D; AB+AC \newline<br>(B+C)A &amp; &#x3D;BA+CA \newline<br>\end{aligned}$$</p><h3 id="1-2矩阵变换"><a href="#1-2矩阵变换" class="headerlink" title="1.2矩阵变换"></a>1.2矩阵变换</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/12/dc34b50b2c4f8561.jpg"></p><ul><li>矩阵转置<br><img src="https://s3.bmp.ovh/imgs/2022/08/12/a8f1e1639474b9eb.jpg">    </li><li>矩阵的逆<br><img src="https://s3.bmp.ovh/imgs/2022/08/12/798513fc39373815.jpg"></li></ul><h3 id="1-3矩阵的秩"><a href="#1-3矩阵的秩" class="headerlink" title="1.3矩阵的秩"></a>1.3矩阵的秩</h3><h3 id="1-3-1秩的解释"><a href="#1-3-1秩的解释" class="headerlink" title="1.3.1秩的解释"></a>1.3.1秩的解释</h3><ul><li>比如一个$4*4$的矩阵$A$，行向量分别为$\alpha_1,\alpha_2,\alpha_3,\alpha_4$,列向量分别为$\beta_1,\beta_2,\beta_3,\beta_4$。    </li><li>首先，线性相关就是指一个向量可以用另一个向量带一个系数表示出来，那如果三个向量$\alpha_1,\alpha_2,\alpha_3$，令$k_1\alpha_1+k_2\alpha_2+k_3\alpha_3&#x3D;0$,我们无法求得一个非零解，只存在一个零解$(k_1&#x3D;0,k_2&#x3D;0,k_3&#x3D;0)$能使得上式成立，那就说明$\alpha_1,\alpha_2,\alpha_3$线性无关，即任何一个向量都不能由其他向量组合表示。     </li><li>如果这个$4*4$的矩阵最多只能找到3个行向量是线性无关的，那就说矩阵的行秩为3,即$\ r(A)&#x3D;3$。    </li><li>矩阵的行秩&#x3D;列秩</li></ul><h4 id="1-3-2秩的几何意义"><a href="#1-3-2秩的几何意义" class="headerlink" title="1.3.2秩的几何意义"></a>1.3.2秩的几何意义</h4><p>三点：<br>1.「秩」是图像经过矩阵变换之后的空间维度<br>2.「秩」是列空间的维度  （列向量能张成的几何空间）<br>3.矩阵的变换目标是列空间<br><img src="https://s3.bmp.ovh/imgs/2022/08/13/e6c9f2e5ec69dafc.png"><br><a href="https://www.zhihu.com/question/21605094">讲得很清楚的一个参考链接</a>   </p><h2 id="2-向量"><a href="#2-向量" class="headerlink" title="2.向量"></a>2.向量</h2><h3 id="2-1向量的内积"><a href="#2-1向量的内积" class="headerlink" title="2.1向量的内积"></a>2.1向量的内积</h3><p>$n维列向量：X\cdot Y&#x3D;X^TY&#x3D;x_1y_1+x_2y_2+\cdots+x_ny_n \ (或者[X,Y]&#x3D;X^TY) $<br>性质：<br>1.对称性 $[X,Y]&#x3D;[Y,X]$<br>2.线性性质：<br>$$\begin{aligned}<br>\lambda[X,Y] &amp; &#x3D; [\lambda X,Y]\newline<br>[X+Y,Z] &amp; &#x3D; [X,Z]+[Y,Z]<br>\end{aligned}$$<br>3.三角不等式：<br>$$\begin{aligned}<br>\left | X+Y \right | \leq \left | X \right |+\left | Y \right |<br>\end{aligned}$$</p><h3 id="2-2向量的正交"><a href="#2-2向量的正交" class="headerlink" title="2.2向量的正交"></a>2.2向量的正交</h3><ul><li>正交的两个向量点积为零</li><li>两两正交的非零向量组成的向量组成为正交向量组     </li><li>若$\alpha_1,\alpha_2,\cdots,\alpha_r$是两两正交的非零向量，则$\alpha_1,\alpha_2,\cdots,\alpha_r$线性无关      </li><li>若$\alpha_3$与$\alpha_1,\alpha_2$都正交，那$\left[\alpha_1,\alpha_3 \right]&#x3D;0$,$\left[\alpha_2,\alpha_3 \right]&#x3D;0$. 即<br>$$\begin{bmatrix}<br>\alpha_1^T<br>\newline<br>\alpha_2^T<br>\end{bmatrix} \alpha_3&#x3D;<br>\begin{bmatrix}<br>0<br>\<br>0<br>\end{bmatrix}<br>$$</li><li>规范正交基<br><img src="https://s3.bmp.ovh/imgs/2022/08/16/c613e76a38976afa.jpg"></li></ul><h2 id="3-特征值与矩阵分解"><a href="#3-特征值与矩阵分解" class="headerlink" title="3.特征值与矩阵分解"></a>3.特征值与矩阵分解</h2><h3 id="3-1特征值与特征向量"><a href="#3-1特征值与特征向量" class="headerlink" title="3.1特征值与特征向量"></a>3.1特征值与特征向量</h3><ul><li>解释：特征值与特征向量是用来进行信息描述的，特征向量表示一个方向，特征值表示在该方向上的重要程度。比如拳击，有各个方向和该方向上的出拳的力度。            </li><li>数学描述：对于给定矩阵$A$,寻找一个常数$\lambda$和非零向量$x$,使得向量$x$被矩阵$A$作用后（即进行拉伸或者旋转变换）所得的向量$Ax$与原向量$x$平行，并满足$$\begin{aligned}<br>Ax&#x3D;\lambda x  \left(x就是特征向量，\lambda就是特征值 \right)<br>\end{aligned}$$<br><img src="https://s3.bmp.ovh/imgs/2022/08/16/5ddec2ca70ec1ff4.jpg">     </li><li>特征向量的应用：<br>既然特征值表达了重要程度和特征向量所对应，那么特征值大的就是主要信息了，基于这点我们可以提取各种有价值的信息。<br>比如，有一张图片，一个三维矩阵，[h,w,c]（h代表图高，w代表图宽，c代表通道数），特征值就是某一个点的某一个通道的灰度值，那原先特征向量有很多，我们取前10个特征值最大的（也就是前10个最重要的信息）也可以大致描述该图像，只不过比起原图，细节少了一些。</li></ul><h3 id="3-2-SVD矩阵分解"><a href="#3-2-SVD矩阵分解" class="headerlink" title="3.2 SVD矩阵分解"></a>3.2 SVD矩阵分解</h3><h4 id="3-2-1-为什么要分解"><a href="#3-2-1-为什么要分解" class="headerlink" title="3.2.1 为什么要分解"></a>3.2.1 为什么要分解</h4><p>举个例子，要统计100万个人购买商品的情况，商品有10万种，那矩阵的大小岂不是$100万\times 10万$，非常大的一个矩阵，不光计算量大，而且矩阵应该很稀疏（毕竟每个人应该只买10万种商品中的几种），这样原矩阵所用的空间时间都有很大的浪费，那我们可以把$100万\times 10万$的矩阵分解成$100万\times 10$的矩阵和$10\times 10万$的矩阵，这两个矩阵相乘仍然能够还原原矩阵，那这个10就表示挑出10个最重要的信息。                     </p><h4 id="3-2-2-SVD矩阵分解"><a href="#3-2-2-SVD矩阵分解" class="headerlink" title="3.2.2 SVD矩阵分解"></a>3.2.2 SVD矩阵分解</h4><ul><li><p>先了解一下特征值分解<br>$$\begin{aligned}<br>A &#x3D; U\Lambda U^{-1}<br>\end{aligned}$$<br>A必须是$N\times N$的方阵且有N个线性无关的特征向量<br>U矩阵里面包含特征向量，$\Lambda$ 包含特征值 ,但是原来 $N\times N$ 的矩阵A我们可以只取前$K$个重要的特征向量进行分解，就起到了近似、压缩的作用。     </p></li><li><p>SVD<br><img src="https://s3.bmp.ovh/imgs/2022/08/16/d530f37628737e0c.jpg"></p></li></ul>]]></content>
       
       
       <categories>
@@ -112,7 +141,7 @@
       <link href="/2022/08/09/python%E5%89%8D%E8%A8%80/"/>
       <url>/2022/08/09/python%E5%89%8D%E8%A8%80/</url>
       
-        <content type="html"><![CDATA[<h2 id="1-随便说点"><a href="#1-随便说点" class="headerlink" title="1.随便说点"></a>1.随便说点</h2><p>三年来大多数时间都花在写C++上，虽然之前做过java,python的小项目，但是过段时间不用，语法就忘了很多，而且一直以来并没有系统学过，导致一个问题:别人让写一个python的作业或者项目时，知道自己可以完成，但是无法预估出需要花多少时间，会有心虚感，而不比当时C++完成一个编译原理课设，知道自己几天完成，差不多就几天写完。那光学点基础的语法和一些包的应用，够吗？显然不行。那接下来还是像我当初熟练C++一样，先用python写数据结构与基本的算法练熟，再学习各种框架怎么写吧。</p><h2 id="2-python的一些基础小问题"><a href="#2-python的一些基础小问题" class="headerlink" title="2.python的一些基础小问题"></a>2.python的一些基础小问题</h2><p>基础语法里面也有一些和C++不同，传参当时确实坑了我一把<br>2.1 <a href="https://blog.csdn.net/xyl99520/article/details/125853623">python传参时避免参数改变</a><br>类属性和对象属性写在不同位置也是不一样的<br>2.2 <a href="https://blog.csdn.net/xyl99520/article/details/125854997">python构造类和对象</a></p><h2 id="3-写了两场简单的cf，更熟悉一点"><a href="#3-写了两场简单的cf，更熟悉一点" class="headerlink" title="3.写了两场简单的cf，更熟悉一点"></a>3.写了两场简单的cf，更熟悉一点</h2><p>3.1 <a href="https://blog.csdn.net/xyl99520/article/details/125831080">Codeforces Round #806 (Div. 4)A-E–python</a><br>3.2 <a href="https://blog.csdn.net/xyl99520/article/details/126216342">Codeforces Round #812 (Div. 2)A-C–python</a></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="1-随便说点"><a href="#1-随便说点" class="headerlink" title="1.随便说点"></a>1.随便说点</h2><p>三年来大多数时间都花在写C++上，虽然之前做过java,python的小项目，但是过段时间不用，语法就忘了很多，而且一直以来并没有系统学过，导致一个问题:别人让写一个python的作业或者项目时，知道自己可以完成，但是无法预估出需要花多少时间，会有心虚感，而不比当时C++完成一个编译原理课设，知道自己几天完成，差不多就几天写完。那光学点基础的语法和一些包的应用，够吗？显然不行。那接下来还是像我当初熟练C++一样，先用python写数据结构与基本的算法练熟，再学习各种框架怎么写吧。</p><h2 id="2-python的一些基础小问题"><a href="#2-python的一些基础小问题" class="headerlink" title="2.python的一些基础小问题"></a>2.python的一些基础小问题</h2><p>基础语法里面也有一些和C++不同，传参当时确实坑了我一把<br>2.1 <a href="https://blog.csdn.net/xyl99520/article/details/125853623">python传参时避免参数改变</a><br>类属性和对象属性写在不同位置也是不一样的<br>2.2 <a href="https://blog.csdn.net/xyl99520/article/details/125854997">python构造类和对象</a><br>2.3 <a href="https://blog.csdn.net/qq_52480906/article/details/120580305?ops_request_misc=&request_id=&biz_id=102&utm_term=python%E7%BB%93%E6%9E%84%E4%BD%93%E6%8E%92%E5%BA%8Fcmp&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-120580305.142%5Ev40%5Epc_rank_v36,185%5Ev2%5Econtrol&spm=1018.2226.3001.4187">python结构体与结构体排序</a><br>2.4 <a href="https://blog.csdn.net/qq_40458569/article/details/85209571?ops_request_misc=&request_id=&biz_id=102&utm_term=python%E7%BB%93%E6%9E%84%E4%BD%93%E6%8E%92%E5%BA%8Fcmp&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-3-85209571.142%5Ev40%5Epc_rank_v36,185%5Ev2%5Econtrol&spm=1018.2226.3001.4187">python结构体多个关键字排序</a></p><h2 id="3-写了两场简单的cf，更熟悉一点"><a href="#3-写了两场简单的cf，更熟悉一点" class="headerlink" title="3.写了两场简单的cf，更熟悉一点"></a>3.写了两场简单的cf，更熟悉一点</h2><p>3.1 <a href="https://blog.csdn.net/xyl99520/article/details/125831080">Codeforces Round #806 (Div. 4)A-E–python</a><br>3.2 <a href="https://blog.csdn.net/xyl99520/article/details/126216342">Codeforces Round #812 (Div. 2)A-C–python</a></p>]]></content>
       
       
       <categories>
@@ -204,31 +233,6 @@
         <tags>
             
             <tag> 神经网络与深度学习 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>机器学习概述</title>
-      <link href="/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%BF%B0/"/>
-      <url>/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%BF%B0/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 神经网络与深度学习 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 深度学习与神经网络 </tag>
             
         </tags>
       

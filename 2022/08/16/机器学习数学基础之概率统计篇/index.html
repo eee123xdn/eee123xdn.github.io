@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="机器学习概述, 谢东娜的博客">
+    <meta name="keywords" content="机器学习数学基础之概率统计篇, 谢东娜的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>机器学习概述 | 谢东娜的博客</title>
+    <title>机器学习数学基础之概率统计篇 | 谢东娜的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -315,12 +315,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">机器学习概述</h1>
+                    <h1 class="description center-align post-title">机器学习数学基础之概率统计篇</h1>
                 </div>
             </div>
         </div>
@@ -436,8 +436,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
-                                <span class="chip bg-color">深度学习与神经网络</span>
+                            <a href="/tags/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1/">
+                                <span class="chip bg-color">概率统计</span>
                             </a>
                         
                     </div>
@@ -448,8 +448,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                神经网络与深度学习
+                            <a href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="post-category">
+                                数学基础
                             </a>
                         
                     </div>
@@ -461,28 +461,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-08
+                    2022-08-16
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-10
+                    2022-08-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    799
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -502,7 +502,14 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="1-随机变量"><a href="#1-随机变量" class="headerlink" title="1.随机变量"></a>1.随机变量</h2><h3 id="1-1-离散型随机变量"><a href="#1-1-离散型随机变量" class="headerlink" title="1.1 离散型随机变量"></a>1.1 离散型随机变量</h3><p>$$\begin{aligned}<br>概率函数：f(x_i)&#x3D;P(X&#x3D;x_i)<br>\end{aligned}$$<br>概率分布就是把每种$x_i$及其对应的$f(x_i)列出来$           </p>
+<h3 id="1-2-连续型随机变量"><a href="#1-2-连续型随机变量" class="headerlink" title="1.2 连续型随机变量"></a>1.2 连续型随机变量</h3><p>对于连续型随机变量，我们是画不出那个分布表的，我们选择用密度来表示概率分布<br><img src="https://s3.bmp.ovh/imgs/2022/08/17/121e64688b6437db.jpg"><br>在频率分布直方图中，矩形的面积就是该区间的概率，那想象一下，整个区间分成无限多个小区间，就是一条非常光滑的曲线。举个例子，我们知道一个铁球的密度，也就是知道每个点的重量，这个重量非常小，近似于0，但是我们要求一块的重量，积分就可以得到一个比较大的值。同理，对这个概率密度函数进行积分，就可以得到某个区间的概率。        </p>
+<p>X为连续随机变量，X在任意区间$\left(a,b \right]$上的概率可以表示为：<br>$$\begin{aligned}<br>P(a &lt; X \leq b)&#x3D;\int_{a}^{b}f(x)dx<br>\end{aligned}$$<br>$f(x)$就叫做$X$的概率密度函数，也可以简称为密度<br><img src="https://s3.bmp.ovh/imgs/2022/08/17/de44300e58364cc9.jpg"><br>单独分析一个点的概率密度是没有任何意义的，它必须要有区间作为参考和对比。<br>累积分布函数可以用概率密度函数的积分求出（概率是概率密度函数的区间积分）           </p>
+<h3 id="1-3-简单随机抽样"><a href="#1-3-简单随机抽样" class="headerlink" title="1.3 简单随机抽样"></a>1.3 简单随机抽样</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/17/94e23e4c96b7e916.jpg">       </p>
+<h2 id="2-似然函数"><a href="#2-似然函数" class="headerlink" title="2.似然函数"></a>2.似然函数</h2><h3 id="2-1-似然函数意义"><a href="#2-1-似然函数意义" class="headerlink" title="2.1 似然函数意义"></a>2.1 似然函数意义</h3><p>$$\begin{aligned}<br>L\left(\theta |x \right)&#x3D;f(x|\theta)<br>\end{aligned}$$<br>先解释一下这个式子： $f(x|\theta)$是指在给定参数$\theta$的条件下$X&#x3D;x$的概率，这个等号表明：已知$X&#x3D;x$的条件下，参数为$\theta$的可能性$L(\theta)$等于$f(x|\theta)$这个概率大小。   </p>
+<h3 id="2-2-极大似然估计"><a href="#2-2-极大似然估计" class="headerlink" title="2.2 极大似然估计"></a>2.2 极大似然估计</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/17/66b21f63aa01f707.jpg"><br>我们现在有了结果$X(x_1,x_2,\cdots,x_n)$,想要知道参数$\theta$为多少时，这个结果出现的概率最大。<br>根据我们上面的式子，我们要求一个$\theta$使得$P(X|\theta)$最大,又因为$P(X|\theta)&#x3D;L(\theta|X)$,因此我们的目标转换为<br>$$\begin{aligned}<br>\max \limits_{\theta}L(\theta|X)&#x3D;\max \limits_{\theta}P(X|\theta)<br>\end{aligned}$$<br>左边为已知结果等于给定样本$X$,求一个$\theta$（它的可能性是最大的）<br>右边为求一个$\theta$,使得在这个参数的情况下，结果为给定样本的可能性最大。<br>那解决问题时，我们把$X(x_1,x_2,\cdots,x_n)$套入$P(X|\theta)$,就是已知样本的情况了，也就是说变成了式子$L(\theta|X)$,一个以$\theta$为变量的式子，然后我们对$\theta$求偏导，令偏导为0，求得的$\theta$就是结果。<br>因为极大似然不是针对一个个体的，而是针对整体的，所以$L(\theta)$等于一个连乘的式子，我们为了简化运算，$\max L$也就是$\max ln L$,右边的连乘变为连加，然后令<br>$$\begin{aligned} \frac{d\ LnL}{d \theta}&#x3D;0<br>\end{aligned}$$<br>解出来，就求得$\theta$的极大似然估计值。           </p>
+<p>一个实例：<br><img src="https://s3.bmp.ovh/imgs/2022/08/17/5c82164c1ab3aa7a.jpg">         </p>
+<h2 id="3-概率论基础"><a href="#3-概率论基础" class="headerlink" title="3.概率论基础"></a>3.概率论基础</h2>
                 
             </div>
             <hr/>
@@ -528,7 +535,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://eee123xdn.github.io/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%BF%B0/">http://eee123xdn.github.io/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%BF%B0/</a>
+                    <a href="http://eee123xdn.github.io/2022/08/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E7%AF%87/">http://eee123xdn.github.io/2022/08/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E7%AF%87/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -566,8 +573,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
-                                    <span class="chip bg-color">深度学习与神经网络</span>
+                                <a href="/tags/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1/">
+                                    <span class="chip bg-color">概率统计</span>
                                 </a>
                             
                         </div>
@@ -738,7 +745,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2022-08-08T17-45-11',
+        id: '2022-08-16T22-53-51',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -762,7 +769,7 @@
 <script src="/libs/gitment/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-    id: 'Mon Aug 08 2022 17:45:11 GMT+0800',
+    id: 'Tue Aug 16 2022 22:53:51 GMT+0800',
     owner: '',
     repo: '',
     oauth: {
@@ -787,9 +794,9 @@ gitment.render('gitment-content');
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'http://eee123xdn.github.io/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%BF%B0/';
-        this.page.identifier = '/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%BF%B0/';
-        this.page.title = '机器学习概述';
+        this.page.url = 'http://eee123xdn.github.io/2022/08/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E7%AF%87/';
+        this.page.identifier = '/2022/08/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E7%AF%87/';
+        this.page.title = '机器学习数学基础之概率统计篇';
     };
     let disqus_shortname = '';
 
@@ -1148,17 +1155,18 @@ gitment.render('gitment-content');
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/08/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BB%AA%E8%AE%BA/">
+                <a href="/2022/08/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E7%AF%87/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="神经网络与深度学习绪论">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="机器学习数学基础之概率统计篇">
                         
-                        <span class="card-title">神经网络与深度学习绪论</span>
+                        <span class="card-title">机器学习数学基础之概率统计篇</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1168,26 +1176,27 @@ gitment.render('gitment-content');
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    神经网络与深度学习
+                            <a href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    数学基础
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">神经网络与深度学习</span>
+                    <a href="/tags/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1/">
+                        <span class="chip bg-color">概率统计</span>
                     </a>
                     
                 </div>
@@ -1201,13 +1210,13 @@ gitment.render('gitment-content');
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/05/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E8%8A%82%EF%BC%88%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%EF%BC%89/">
+                <a href="/2022/08/14/Codeforces-Round-811-%EF%BC%88Div-3%EF%BC%89/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="fpga学习第一节（组合逻辑）.md">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Codeforces Round 811 (Div.3)">
                         
-                        <span class="card-title">fpga学习第一节（组合逻辑）.md</span>
+                        <span class="card-title">Codeforces Round 811 (Div.3)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1218,14 +1227,14 @@ gitment.render('gitment-content');
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-14
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%A1%AC%E4%BB%B6%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    硬件学习
+                            <a href="/categories/cf%E9%A2%98%E8%A7%A3/" class="post-category">
+                                    cf题解
                                 </a>
                             
                             
@@ -1235,12 +1244,16 @@ gitment.render('gitment-content');
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/fpga/">
-                        <span class="chip bg-color">fpga</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">数据结构与算法</span>
                     </a>
                     
-                    <a href="/tags/verilog/">
-                        <span class="chip bg-color">verilog</span>
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
+                    </a>
+                    
+                    <a href="/tags/Codeforces/">
+                        <span class="chip bg-color">Codeforces</span>
                     </a>
                     
                 </div>
@@ -1370,6 +1383,13 @@ gitment.render('gitment-content');
 </main>
 
 
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">
@@ -1441,7 +1461,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">3.8k</span>&nbsp;字
+                class="white-color">5.7k</span>&nbsp;字
             
             
             

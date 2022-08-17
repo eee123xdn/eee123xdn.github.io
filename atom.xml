@@ -6,7 +6,7 @@
   <link href="http://eee123xdn.github.io/atom.xml" rel="self"/>
   
   <link href="http://eee123xdn.github.io/"/>
-  <updated>2022-08-15T12:11:47.203Z</updated>
+  <updated>2022-08-17T15:55:55.929Z</updated>
   <id>http://eee123xdn.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>机器学习数学基础之概率统计篇</title>
+    <link href="http://eee123xdn.github.io/2022/08/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E7%AF%87/"/>
+    <id>http://eee123xdn.github.io/2022/08/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E7%AF%87/</id>
+    <published>2022-08-16T14:53:51.000Z</published>
+    <updated>2022-08-17T15:55:55.929Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-随机变量&quot;&gt;&lt;a href=&quot;#1-随机变量&quot; class=&quot;headerlink&quot; title=&quot;1.随机变量&quot;&gt;&lt;/a&gt;1.随机变量&lt;/h2&gt;&lt;h3 id=&quot;1-1-离散型随机变量&quot;&gt;&lt;a href=&quot;#1-1-离散型随机变量&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="数学基础" scheme="http://eee123xdn.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="概率统计" scheme="http://eee123xdn.github.io/tags/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Codeforces Round 811 (Div.3)</title>
     <link href="http://eee123xdn.github.io/2022/08/14/Codeforces-Round-811-%EF%BC%88Div-3%EF%BC%89/"/>
     <id>http://eee123xdn.github.io/2022/08/14/Codeforces-Round-811-%EF%BC%88Div-3%EF%BC%89/</id>
     <published>2022-08-14T13:38:40.000Z</published>
-    <updated>2022-08-15T12:11:47.203Z</updated>
+    <updated>2022-08-15T15:48:25.304Z</updated>
     
     
       
@@ -38,6 +63,10 @@
     <category term="cf题解" scheme="http://eee123xdn.github.io/categories/cf%E9%A2%98%E8%A7%A3/"/>
     
     
+    <category term="数据结构与算法" scheme="http://eee123xdn.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="python" scheme="http://eee123xdn.github.io/tags/python/"/>
+    
     <category term="Codeforces" scheme="http://eee123xdn.github.io/tags/Codeforces/"/>
     
   </entry>
@@ -47,8 +76,16 @@
     <link href="http://eee123xdn.github.io/2022/08/11/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E8%8A%82%EF%BC%88%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%EF%BC%89/"/>
     <id>http://eee123xdn.github.io/2022/08/11/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E8%8A%82%EF%BC%88%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%EF%BC%89/</id>
     <published>2022-08-11T11:00:00.000Z</published>
-    <updated>2022-08-11T11:00:24.794Z</updated>
+    <updated>2022-08-17T15:48:14.003Z</updated>
     
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;计数器（实现灯每隔1s亮一次）&quot;&gt;&lt;a href=&quot;#计数器（实现灯每隔1s亮一次）&quot; class=&quot;headerlink&quot; title=&quot;计数器（实现灯每隔1s亮一次）&quot;&gt;&lt;/a&gt;计数器（实现灯每隔1s亮一次）&lt;/h1&gt;&lt;h2 id=&quot;1-逻辑设计&quot;&gt;&lt;a</summary>
+        
+      
     
     
     
@@ -66,7 +103,7 @@
     <link href="http://eee123xdn.github.io/2022/08/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AF%87/"/>
     <id>http://eee123xdn.github.io/2022/08/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AF%87/</id>
     <published>2022-08-11T10:45:28.000Z</published>
-    <updated>2022-08-13T16:14:40.497Z</updated>
+    <updated>2022-08-17T16:04:09.995Z</updated>
     
     
       
@@ -120,7 +157,7 @@
     <link href="http://eee123xdn.github.io/2022/08/09/python%E5%89%8D%E8%A8%80/"/>
     <id>http://eee123xdn.github.io/2022/08/09/python%E5%89%8D%E8%A8%80/</id>
     <published>2022-08-09T08:34:59.000Z</published>
-    <updated>2022-08-15T05:31:15.138Z</updated>
+    <updated>2022-08-15T15:44:52.910Z</updated>
     
     
       
@@ -200,7 +237,7 @@
     <link href="http://eee123xdn.github.io/2022/08/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BB%AA%E8%AE%BA/"/>
     <id>http://eee123xdn.github.io/2022/08/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BB%AA%E8%AE%BA/</id>
     <published>2022-08-08T09:46:08.000Z</published>
-    <updated>2022-08-10T14:40:17.517Z</updated>
+    <updated>2022-08-10T14:42:05.588Z</updated>
     
     
       
@@ -217,23 +254,6 @@
     
     
     <category term="神经网络与深度学习" scheme="http://eee123xdn.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习概述</title>
-    <link href="http://eee123xdn.github.io/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%BF%B0/"/>
-    <id>http://eee123xdn.github.io/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%BF%B0/</id>
-    <published>2022-08-08T09:45:11.000Z</published>
-    <updated>2022-08-10T14:34:32.748Z</updated>
-    
-    
-    
-    
-    <category term="神经网络与深度学习" scheme="http://eee123xdn.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="深度学习与神经网络" scheme="http://eee123xdn.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
