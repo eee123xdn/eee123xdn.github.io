@@ -472,7 +472,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-19
+                    2022-08-23
                 </div>
                 
 
@@ -506,7 +506,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="1-栈"><a href="#1-栈" class="headerlink" title="1.栈"></a>1.栈</h1><pre class=" language-Stack.py"><code class="language-Stack.py">#栈可以用列表来实现
+                <h2 id="1-栈"><a href="#1-栈" class="headerlink" title="1.栈"></a>1.栈</h2><pre class=" language-Stack.py"><code class="language-Stack.py">#栈可以用列表来实现
 li=[]
 li.append(1)
 li.append(4)
@@ -558,7 +558,7 @@ print(ans2)
 print(ans3)
 print(ans4)
 </code></pre>
-<h1 id="2-队列"><a href="#2-队列" class="headerlink" title="2.队列"></a>2.队列</h1><h2 id="2-1-手动实现"><a href="#2-1-手动实现" class="headerlink" title="2.1 手动实现"></a>2.1 手动实现</h2><pre class=" language-Queue.py"><code class="language-Queue.py">
+<h2 id="2-队列"><a href="#2-队列" class="headerlink" title="2.队列"></a>2.队列</h2><h3 id="2-1-手动实现"><a href="#2-1-手动实现" class="headerlink" title="2.1 手动实现"></a>2.1 手动实现</h3><pre class=" language-Queue.py"><code class="language-Queue.py">
 class Queue:
     def __init__(self,size):
         self.que=[0 for _ in range(size)]
@@ -597,7 +597,7 @@ print(q.pop())
 print(q.que[(q.front+1)%q.size])
 print(q.que[q.rear])
 </code></pre>
-<h2 id="2-2-python内置函数"><a href="#2-2-python内置函数" class="headerlink" title="2.2 python内置函数"></a>2.2 python内置函数</h2><p>用双端队列deque来实现 </p>
+<h3 id="2-2-python内置函数"><a href="#2-2-python内置函数" class="headerlink" title="2.2 python内置函数"></a>2.2 python内置函数</h3><p>用双端队列deque来实现 </p>
 <pre class=" language-deque.py"><code class="language-deque.py">
 from collections import deque
 
@@ -1260,18 +1260,17 @@ gitment.render('gitment-content');
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/08/19/python%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/">
+                <a href="/2022/08/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%90%8E%E9%AA%8C%E6%A6%82%E7%8E%87%E4%BC%B0%E8%AE%A1%E4%B8%8E%E8%B4%9D%E5%8F%B6%E6%96%AF/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="python栈与队列">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="机器学习数学基础之后验概率估计与贝叶斯">
                         
-                        <span class="card-title">python栈与队列</span>
+                        <span class="card-title">机器学习数学基础之后验概率估计与贝叶斯</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1281,31 +1280,34 @@ gitment.render('gitment-content');
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-19
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-23
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python%E5%9F%BA%E7%A1%80/" class="post-category">
-                                    python基础
+                            <a href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    数学基础
+                                </a>
+                            
+                            <a href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">数据结构与算法</span>
+                    <a href="/tags/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1/">
+                        <span class="chip bg-color">概率统计</span>
                     </a>
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
                     </a>
                     
                 </div>
@@ -1346,6 +1348,10 @@ gitment.render('gitment-content');
                                     数学基础
                                 </a>
                             
+                            <a href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -1355,6 +1361,10 @@ gitment.render('gitment-content');
                     
                     <a href="/tags/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1/">
                         <span class="chip bg-color">概率统计</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
                     </a>
                     
                 </div>
@@ -1562,7 +1572,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">7.1k</span>&nbsp;字
+                class="white-color">8.4k</span>&nbsp;字
             
             
             

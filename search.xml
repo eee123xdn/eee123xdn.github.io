@@ -4,11 +4,40 @@
   
     
     <entry>
+      <title>机器学习数学基础之后验概率估计与贝叶斯</title>
+      <link href="/2022/08/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%90%8E%E9%AA%8C%E6%A6%82%E7%8E%87%E4%BC%B0%E8%AE%A1%E4%B8%8E%E8%B4%9D%E5%8F%B6%E6%96%AF/"/>
+      <url>/2022/08/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%90%8E%E9%AA%8C%E6%A6%82%E7%8E%87%E4%BC%B0%E8%AE%A1%E4%B8%8E%E8%B4%9D%E5%8F%B6%E6%96%AF/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-后验概率分布"><a href="#1-后验概率分布" class="headerlink" title="1.后验概率分布"></a>1.后验概率分布</h2><h3 id="1-1-后验概率分布与最大似然估计"><a href="#1-1-后验概率分布与最大似然估计" class="headerlink" title="1.1 后验概率分布与最大似然估计"></a>1.1 后验概率分布与最大似然估计</h3><p>后验概率分布和最大似然估计有想通之处，也有不同之处。<br>最大似然估计是找到最合适的参数使其满足<br>$$\begin{aligned}<br>\mathop{\arg\max}\limits_{\mu}P(\mu|X)&#x3D;\mathop{\arg\max}\limits_{\mu}P(X|\mu)&#x3D;\mathop{\arg\max}\limits_{\mu}log\ p(X|\mu)<br>\end{aligned}$$<br>求解就是这个含变量$\mu$的式子求偏导，然后令偏导为0，即可求出最合适的参数值。<br>后验概率分布与之不同的就是多了一个先验知识&#x2F;先验条件。<br>根据贝叶斯公式：<br>$$\begin{aligned}<br>\mathop{\arg\max}\limits_{\mu}p(\mu|X) &amp; &#x3D;\mathop{\arg\max}\limits_{\mu}\frac{p(X|\mu)\ p(\mu)}{p(X)} \newline<br>&amp; &#x3D;\mathop{\arg\max}\limits_{\mu}p(X|\mu)\ p(\mu)<br>\end{aligned}$$<br>$$\begin{aligned}<br>p(X|\mu)就是我们的似然，p(\mu)就是先验知识<br>\end{aligned}$$</p><h3 id="1-2-后验概率分布求解"><a href="#1-2-后验概率分布求解" class="headerlink" title="1.2 后验概率分布求解"></a>1.2 后验概率分布求解</h3><p>$$\begin{aligned}<br>\mathop{\arg\max}\limits_{\mu}Pr(\mu|X) &amp; &#x3D;<br>\mathop{\arg\max}\limits_{\mu}log\ Pr(\mu|X) \newline<br>&amp; &#x3D;\mathop{\arg\max}\limits_{\mu}log\ Pr(X|\mu)\ Pr(\mu) \newline<br>&amp; &#x3D;\mathop{\arg\max}\limits_{\mu}log\ \prod \limits_{x_i \in X}Pr(x_i|\mu)\ Pr(\mu) \newline<br>&amp; &#x3D;\mathop{\arg\max}\limits_{\mu}\sum \limits_{x_i \in X} \left[ log\ Pr(x_i|\mu)\ +log\ Pr(\mu)\right] \newline<br>\end{aligned}$$</p><ul><li>实例<br><img src="https://s2.loli.net/2022/08/24/NjBfzrlZFpOUPKw.jpg"><br>可以看到，$Pr(\mu)$，其实就是一个关于$\mu$的函数（当然，如果它本身是离散型的，应该可表达为$Pr(u&#x3D;u_k)&#x3D;p_k$）。<br>也就是说后验估计的表达式比最大似然多了一部分，这部分也是关于$\mu$的一个函数，那求最合适的参数$\mu$，方法一样，也是对等式右边求一个关于$\mu$偏导，然后令偏导为0，求得最合适的参数值。</li></ul><h2 id="2-应用实例"><a href="#2-应用实例" class="headerlink" title="2.应用实例"></a>2.应用实例</h2><h3 id="2-1-后验概率估计实例"><a href="#2-1-后验概率估计实例" class="headerlink" title="2.1 后验概率估计实例"></a>2.1 后验概率估计实例</h3><p>上面我们求一个最合适的$\mu$,这个$\mu$可以是任意一个实数，但在实际问题中，$\mu$的取值很多时候只能是几个类别之一，相当于只能取离散值中的一个，那求解式中的$Pr(\mu)$就可以按照$\mu$的不同取值$\mu_k$得到对应的值$Pr(\mu_k)$。这种问题我们就是比较不同的$\mu_k$,看哪个$Pr(u_k|X)$的值最大，就取哪个$\mu_k$。<br>举两个常用实例说明</p><h4 id="2-1-1-贝叶斯拼写纠错实例"><a href="#2-1-1-贝叶斯拼写纠错实例" class="headerlink" title="2.1.1 贝叶斯拼写纠错实例"></a>2.1.1 贝叶斯拼写纠错实例</h4><ul><li>问题<br>用户输入了一个不在词典库中的单词，比如$tha$,系统要猜测这个人到底想输入的单词是什么呢，是$the,that,或than?$ 那问题就是$P(我们猜测他想输入的单词|他实际输入的词)$</li><li>思考<br>设他实际输入的单词为$D$,我们要猜测的可能结果有$h1,h2,h3,\cdots$。我们就需要比较$P(h_1|D),P(h_2|D),\cdots$<br>我们知道$P(h|D)&#x3D;P(h)\times P(D|h)&#x2F;P(D)$。$P(D)$都是一样的,不用管它。<br>$P(h_1),P(h_2),\cdots$就是单词本身出现的可能性大小，我们可以由之前的统计结果得出。<br>$P(D|h_k)$就是单词$h_k$拼写成$D$的可能性大小，即这个猜测生成我们观测到的数据的可能性大小。我们可以通过预先设置一些指标去衡量，比如$h_k$与$D$的编辑距离，或者同时考虑到键盘上对应字母的位置远近。<br>这样$P(h_k|D)$就可以求出来了，然后把所有$h_k$的可能性进行比较选择最大的。</li></ul><h4 id="2-1-2-模型比较理论"><a href="#2-1-2-模型比较理论" class="headerlink" title="2.1.2 模型比较理论"></a>2.1.2 模型比较理论</h4><ul><li>最大似然：最符合观测数据（$P(D|h)$最大的）的最有优势</li><li>奥卡姆剃刀：$P(h)$较大（实际中出现概率大的）的模型最有优势<br>这就想到了N个点，我们可以用N-1阶拟合就让所有点完全出现在线上，现在是最满足训练样本数据的，但是可能出现过拟合。如果考虑先验条件，会发现越是高阶的多项式越是不常见，低阶拟合出现的概率大，就能帮助我们做一定的纠正。</li></ul><h4 id="2-1-3-垃圾邮件过滤实例"><a href="#2-1-3-垃圾邮件过滤实例" class="headerlink" title="2.1.3 垃圾邮件过滤实例"></a>2.1.3 垃圾邮件过滤实例</h4><ul><li>问题<br>给一封邮件D,里面包含N个单词，要判断这是否是垃圾邮件。我们用h+来表示垃圾邮件，h-来表示正常邮件。                 </li><li>思考<br>我们即要比较<br>$$\begin{aligned}<br>P(h+|D)&#x3D;P(h+)\times P(D|h+)&#x2F;P(D)\newline<br>P(h-|D)&#x3D;P(h-)\times P(D|h-)&#x2F;P(D)\newline<br>\end{aligned}$$<br>$P(D)$都是一样的，不管<br>先验概率$P(h+)、P(h-)$只需要统计邮件库里面垃圾邮件和正常邮件的比例即可求出<br>D里面由N个单词$d_1,d_2,d_3,\cdots$,因此<br>$$\begin{aligned}<br>P(D|h+)&amp; &#x3D; P(d_1,d_2,d_3,\cdots|h+)\newline<br>&amp; &#x3D;P(d_1|h+)* P(d_2|d_1,h+)* P(d_3|d_1,d_2,h+)*\cdots \newline<br>\end{aligned}$$    </li><li>朴素贝叶斯<br>朴素贝叶斯方法是在贝叶斯算法的基础上进行了相应的简化，即假定给定目标值时属性之间相互条件独立。在上式中假设$d_i$与$d_{i-1}$是完全条件无关的。<br>$$\begin{aligned}<br>P(D|h+)<br>&amp; &#x3D;P(d_1|h+)\ast P(d_2|d_1,h+)\ast P(d_3|d_1,d_2,h+)\ast \cdots \newline<br>&amp; &#x3D; P(d_1|h+)\ast P(d_2|h+)\ast P(d_3|h+)\ast \cdots \newline<br>&amp; 只要统计d_i这个单词在垃圾邮件中出现的频率即可<br>\end{aligned}$$</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学基础 </category>
+          
+          <category> 机器学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 概率统计 </tag>
+            
+            <tag> 机器学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>python栈与队列</title>
       <link href="/2022/08/19/python%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/"/>
       <url>/2022/08/19/python%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/</url>
       
-        <content type="html"><![CDATA[<h1 id="1-栈"><a href="#1-栈" class="headerlink" title="1.栈"></a>1.栈</h1><pre class=" language-Stack.py"><code class="language-Stack.py">#栈可以用列表来实现li=[]li.append(1)li.append(4)num1=li.pop()print(num1)num2=li[-1] #gettopprint(num2)#下面我们手动实现一下，写一个栈的类class stack:    def __init__(self):        self.stack=[]    def push(self,num):        self.stack.append(num)    def pop(self):        return  self.stack.pop()    def gettop(self):        if len(self.stack)>0:            return self.stack[-1]        else:            return None    def is_empty(self):        return len(self.stack)==0def brace_match(s):    match=&#123;')':'(','&#125;':'&#123;',']':'['&#125;    sta=stack()    for ch in s:        if ch in &#123;'(','&#123;','['&#125;:            sta.push(ch)        else:            if sta.is_empty():                return False            elif sta.gettop()==match[ch]:                sta.pop()            else:                return False    if sta.is_empty():        return True    else:        return Falseans1=brace_match('([])&#123;&#125;')ans2=brace_match('()[]&#123;()&#125;')ans3=brace_match('()[]&#123;()]')ans4=brace_match('(([')print(ans1)print(ans2)print(ans3)print(ans4)</code></pre><h1 id="2-队列"><a href="#2-队列" class="headerlink" title="2.队列"></a>2.队列</h1><h2 id="2-1-手动实现"><a href="#2-1-手动实现" class="headerlink" title="2.1 手动实现"></a>2.1 手动实现</h2><pre class=" language-Queue.py"><code class="language-Queue.py">class Queue:    def __init__(self,size):        self.que=[0 for _ in range(size)]        self.size=size        self.rear=0        # 第一个元素在front+1的位置        self.front=0    def push(self,element):        if not self.is_full():            self.rear=(self.rear+1)%self.size            self.que[self.rear]=element        else:            raise IndexError("Queue is full")    def pop(self):        if not self.is_empty():            self.front=(self.front+1)%self.size            return self.que[self.front]        else:            raise IndexError("Queue is empty")    def is_full(self):        tmp=(self.rear+1)%self.size        return tmp==self.front    def is_empty(self):        return self.rear==self.frontq=Queue(5)q.push(3)q.push(1)q.push(4)q.push(2)print(q.pop())print(q.que[(q.front+1)%q.size])print(q.que[q.rear])</code></pre><h2 id="2-2-python内置函数"><a href="#2-2-python内置函数" class="headerlink" title="2.2 python内置函数"></a>2.2 python内置函数</h2><p>用双端队列deque来实现 </p><pre class=" language-deque.py"><code class="language-deque.py">from collections import dequeq=deque([2,3,1])q.append(5)print(q.pop())print(q.popleft())q.appendleft(6)print(q.pop())print(q.popleft())print(q.pop())</code></pre>]]></content>
+        <content type="html"><![CDATA[<h2 id="1-栈"><a href="#1-栈" class="headerlink" title="1.栈"></a>1.栈</h2><pre class=" language-Stack.py"><code class="language-Stack.py">#栈可以用列表来实现li=[]li.append(1)li.append(4)num1=li.pop()print(num1)num2=li[-1] #gettopprint(num2)#下面我们手动实现一下，写一个栈的类class stack:    def __init__(self):        self.stack=[]    def push(self,num):        self.stack.append(num)    def pop(self):        return  self.stack.pop()    def gettop(self):        if len(self.stack)>0:            return self.stack[-1]        else:            return None    def is_empty(self):        return len(self.stack)==0def brace_match(s):    match=&#123;')':'(','&#125;':'&#123;',']':'['&#125;    sta=stack()    for ch in s:        if ch in &#123;'(','&#123;','['&#125;:            sta.push(ch)        else:            if sta.is_empty():                return False            elif sta.gettop()==match[ch]:                sta.pop()            else:                return False    if sta.is_empty():        return True    else:        return Falseans1=brace_match('([])&#123;&#125;')ans2=brace_match('()[]&#123;()&#125;')ans3=brace_match('()[]&#123;()]')ans4=brace_match('(([')print(ans1)print(ans2)print(ans3)print(ans4)</code></pre><h2 id="2-队列"><a href="#2-队列" class="headerlink" title="2.队列"></a>2.队列</h2><h3 id="2-1-手动实现"><a href="#2-1-手动实现" class="headerlink" title="2.1 手动实现"></a>2.1 手动实现</h3><pre class=" language-Queue.py"><code class="language-Queue.py">class Queue:    def __init__(self,size):        self.que=[0 for _ in range(size)]        self.size=size        self.rear=0        # 第一个元素在front+1的位置        self.front=0    def push(self,element):        if not self.is_full():            self.rear=(self.rear+1)%self.size            self.que[self.rear]=element        else:            raise IndexError("Queue is full")    def pop(self):        if not self.is_empty():            self.front=(self.front+1)%self.size            return self.que[self.front]        else:            raise IndexError("Queue is empty")    def is_full(self):        tmp=(self.rear+1)%self.size        return tmp==self.front    def is_empty(self):        return self.rear==self.frontq=Queue(5)q.push(3)q.push(1)q.push(4)q.push(2)print(q.pop())print(q.que[(q.front+1)%q.size])print(q.que[q.rear])</code></pre><h3 id="2-2-python内置函数"><a href="#2-2-python内置函数" class="headerlink" title="2.2 python内置函数"></a>2.2 python内置函数</h3><p>用双端队列deque来实现 </p><pre class=" language-deque.py"><code class="language-deque.py">from collections import dequeq=deque([2,3,1])q.append(5)print(q.pop())print(q.popleft())q.appendleft(6)print(q.pop())print(q.popleft())print(q.pop())</code></pre>]]></content>
       
       
       <categories>
@@ -42,12 +71,16 @@
           
           <category> 数学基础 </category>
           
+          <category> 机器学习 </category>
+          
       </categories>
       
       
         <tags>
             
             <tag> 概率统计 </tag>
+            
+            <tag> 机器学习 </tag>
             
         </tags>
       
@@ -123,12 +156,16 @@
           
           <category> 数学基础 </category>
           
+          <category> 机器学习 </category>
+          
       </categories>
       
       
         <tags>
             
             <tag> 线性代数 </tag>
+            
+            <tag> 机器学习 </tag>
             
         </tags>
       
@@ -229,12 +266,16 @@
           
           <category> 数学基础 </category>
           
+          <category> 机器学习 </category>
+          
       </categories>
       
       
         <tags>
             
             <tag> 高等数学 </tag>
+            
+            <tag> 机器学习 </tag>
             
         </tags>
       
@@ -260,6 +301,8 @@
         <tags>
             
             <tag> 神经网络与深度学习 </tag>
+            
+            <tag> 机器学习 </tag>
             
         </tags>
       
