@@ -479,7 +479,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    768
+                    779
                 </div>
                 
 
@@ -516,7 +516,7 @@
 <li>板级调试</li>
 </ul>
 <h2 id="2-二选一多路选择器实现"><a href="#2-二选一多路选择器实现" class="headerlink" title="2. 二选一多路选择器实现"></a>2. 二选一多路选择器实现</h2><h3 id="2-1-设计"><a href="#2-1-设计" class="headerlink" title="2.1 设计"></a>2.1 设计</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/9edd1c31d1e7c1c3.jpg"></p>
-<h3 id="2-2-编写设计代码mux2-v"><a href="#2-2-编写设计代码mux2-v" class="headerlink" title="2.2 编写设计代码mux2.v"></a>2.2 编写设计代码mux2.v</h3><pre class=" language-mux2.v"><code class="language-mux2.v">module mux2(
+<h3 id="2-2-编写设计代码mux2-v"><a href="#2-2-编写设计代码mux2-v" class="headerlink" title="2.2 编写设计代码mux2.v"></a>2.2 编写设计代码mux2.v</h3><pre class=" language-hljs mux2.v"><code class="language-hljs mux2.v">module mux2(
     a,
     b,
     sel,
@@ -529,10 +529,9 @@
     
     assign out = (sel==1)?a:b;
 
-endmodule
-</code></pre>
+endmodule</code></pre>
 <h3 id="2-3-Run-Synthesis-分析综合"><a href="#2-3-Run-Synthesis-分析综合" class="headerlink" title="2.3 Run Synthesis 分析综合"></a>2.3 Run Synthesis 分析综合</h3><h3 id="2-4-功能仿真"><a href="#2-4-功能仿真" class="headerlink" title="2.4 功能仿真"></a>2.4 功能仿真</h3><h4 id="2-4-1-仿真原理图"><a href="#2-4-1-仿真原理图" class="headerlink" title="2.4.1 仿真原理图"></a>2.4.1 仿真原理图</h4><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/c70fa874be2dea65.jpg"></p>
-<h4 id="2-4-2-编写仿真代码-mux2-tb-test-bench"><a href="#2-4-2-编写仿真代码-mux2-tb-test-bench" class="headerlink" title="2.4.2 编写仿真代码 mux2_tb(test_bench)"></a>2.4.2 编写仿真代码 mux2_tb(test_bench)</h4><pre class=" language-mux2_tb.v"><code class="language-mux2_tb.v">`timescale  1ns / 1ns
+<h4 id="2-4-2-编写仿真代码-mux2-tb-test-bench"><a href="#2-4-2-编写仿真代码-mux2-tb-test-bench" class="headerlink" title="2.4.2 编写仿真代码 mux2_tb(test_bench)"></a>2.4.2 编写仿真代码 mux2_tb(test_bench)</h4><pre class=" language-hljs mux2_tb.v"><code class="language-hljs mux2_tb.v">`timescale  1ns / 1ns
 //两个1ns含义不一样，第一个是以ns为单位，比如延时200ns:#200；
 //第二个ns是精度
 module mux2_tb();
@@ -568,14 +567,13 @@ module mux2_tb();
       #200;
       $stop;
    end
-endmodule
-</code></pre>
+endmodule</code></pre>
 <h4 id="2-4-3-Run-simulation-点击第一个功能仿真"><a href="#2-4-3-Run-simulation-点击第一个功能仿真" class="headerlink" title="2.4.3 Run simulation 点击第一个功能仿真"></a>2.4.3 Run simulation 点击第一个功能仿真</h4><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/a316449d90350d67.jpg"></p>
 <h3 id="2-5-布局布线"><a href="#2-5-布局布线" class="headerlink" title="2.5 布局布线"></a>2.5 布局布线</h3><h4 id="2-5-1-Run-Implementation"><a href="#2-5-1-Run-Implementation" class="headerlink" title="2.5.1 Run Implementation"></a>2.5.1 Run Implementation</h4><h4 id="2-5-2-时序仿真-Run-simulation-点击最后一个时序仿真"><a href="#2-5-2-时序仿真-Run-simulation-点击最后一个时序仿真" class="headerlink" title="2.5.2 时序仿真 Run simulation 点击最后一个时序仿真"></a>2.5.2 时序仿真 Run simulation 点击最后一个时序仿真</h4><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/c899b38b774395c7.jpg"><br>可以看到400ns时out还没变，而是400ns多一点才变的</p>
 <h4 id="2-5-3-添加约束文件并保存"><a href="#2-5-3-添加约束文件并保存" class="headerlink" title="2.5.3 添加约束文件并保存"></a>2.5.3 添加约束文件并保存</h4><p>Layout I&#x2F;O.Planning<br><img src="https://s3.bmp.ovh/imgs/2022/08/05/5cddea62898c1d4a.jpg"><br>xdc文件里面可查看</p>
 <h3 id="2-6-板级调试"><a href="#2-6-板级调试" class="headerlink" title="2.6 板级调试"></a>2.6 板级调试</h3><p>1.产生比特流<br>2.点击Open Hardware Manager，然后点击Open target的Auto connect<br>3.program device<br>4.拨开关<br><img src="https://s3.bmp.ovh/imgs/2022/08/05/7e2e363616f951c3.jpg"><br>如上图，sw0代表a,sw1代表b,sw7代表sel,led0代表out<br>sw7上拨，sw0上拨，led就亮了</p>
 <h2 id="3-3-8译码器"><a href="#3-3-8译码器" class="headerlink" title="3. 3-8译码器"></a>3. 3-8译码器</h2><h3 id="3-1-逻辑设计"><a href="#3-1-逻辑设计" class="headerlink" title="3.1 逻辑设计"></a>3.1 逻辑设计</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/05/f8055d5063fba239.jpg"></p>
-<h3 id="3-2-设计输入-decoder-3-8-v"><a href="#3-2-设计输入-decoder-3-8-v" class="headerlink" title="3.2 设计输入 decoder_3_8.v"></a>3.2 设计输入 decoder_3_8.v</h3><pre class=" language-decoder_3_8.v"><code class="language-decoder_3_8.v">`timescale 1ns / 1ps
+<h3 id="3-2-设计输入-decoder-3-8-v"><a href="#3-2-设计输入-decoder-3-8-v" class="headerlink" title="3.2 设计输入 decoder_3_8.v"></a>3.2 设计输入 decoder_3_8.v</h3><pre class=" language-hljs decoder_3_8.v"><code class="language-hljs decoder_3_8.v">`timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -610,24 +608,23 @@ module decoder_3_8(
     
     //always或者initial的左值必须是reg类型
     //assign左值类型是wire
-    //&#123;a,b,c&#125;是指三个一位拼接成一个三位
+    //{a,b,c}是指三个一位拼接成一个三位
     //比如 wire [3:0]d
-    // assign d=&#123;a,1'b0,b,c&#125;
+    // assign d={a,1&#x27;b0,b,c}
     always@(*)begin
-       case(&#123;a,b,c&#125;)
-           3'd0: out=8'b00000001;
-           3'd1: out=8'b00000010;
-           3'd2: out=8'b00000100;
-           3'd3: out=8'b00001000;
-           3'd4: out=8'b00010000;
-           3'd5: out=8'b00100000;
-           3'd6: out=8'b01000000;
-           3'd7: out=8'b10000000;
+       case({a,b,c})
+           3&#x27;d0: out=8&#x27;b00000001;
+           3&#x27;d1: out=8&#x27;b00000010;
+           3&#x27;d2: out=8&#x27;b00000100;
+           3&#x27;d3: out=8&#x27;b00001000;
+           3&#x27;d4: out=8&#x27;b00010000;
+           3&#x27;d5: out=8&#x27;b00100000;
+           3&#x27;d6: out=8&#x27;b01000000;
+           3&#x27;d7: out=8&#x27;b10000000;
        endcase
     end
-endmodule
-</code></pre>
-<h3 id="3-3-跑综合，语法没问题"><a href="#3-3-跑综合，语法没问题" class="headerlink" title="3.3 跑综合，语法没问题"></a>3.3 跑综合，语法没问题</h3><h3 id="3-4-写仿真文件-decoder-3-8-tb-v"><a href="#3-4-写仿真文件-decoder-3-8-tb-v" class="headerlink" title="3.4 写仿真文件 decoder_3_8_tb.v"></a>3.4 写仿真文件 decoder_3_8_tb.v</h3><pre class=" language-decoder_3_8_tb.v"><code class="language-decoder_3_8_tb.v">`timescale 1ns / 1ps
+endmodule</code></pre>
+<h3 id="3-3-跑综合，语法没问题"><a href="#3-3-跑综合，语法没问题" class="headerlink" title="3.3 跑综合，语法没问题"></a>3.3 跑综合，语法没问题</h3><h3 id="3-4-写仿真文件-decoder-3-8-tb-v"><a href="#3-4-写仿真文件-decoder-3-8-tb-v" class="headerlink" title="3.4 写仿真文件 decoder_3_8_tb.v"></a>3.4 写仿真文件 decoder_3_8_tb.v</h3><pre class=" language-hljs decoder_3_8_tb.v"><code class="language-hljs decoder_3_8_tb.v">`timescale 1ns / 1ps
 
 module decoder_3_8_tb();
      
@@ -661,8 +658,7 @@ module decoder_3_8_tb();
       #200;
       $stop;
     end
-endmodule
-</code></pre>
+endmodule</code></pre>
 <h3 id="3-5-功能仿真"><a href="#3-5-功能仿真" class="headerlink" title="3.5 功能仿真"></a>3.5 功能仿真</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/06/a3fd636b6c80f3f2.jpg"><br>结果没问题</p>
 <h3 id="3-6-布局布线，然后schematic"><a href="#3-6-布局布线，然后schematic" class="headerlink" title="3.6 布局布线，然后schematic"></a>3.6 布局布线，然后schematic</h3><h3 id="3-7-时序仿真（该程序比较简单，这个就不做了）"><a href="#3-7-时序仿真（该程序比较简单，这个就不做了）" class="headerlink" title="3.7 时序仿真（该程序比较简单，这个就不做了）"></a>3.7 时序仿真（该程序比较简单，这个就不做了）</h3><h3 id="3-8-设置引脚"><a href="#3-8-设置引脚" class="headerlink" title="3.8 设置引脚"></a>3.8 设置引脚</h3><h3 id="3-9-写比特流"><a href="#3-9-写比特流" class="headerlink" title="3.9 写比特流"></a>3.9 写比特流</h3><h3 id="3-10-板级调试"><a href="#3-10-板级调试" class="headerlink" title="3.10 板级调试"></a>3.10 板级调试</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/06/e27152cc7fac241f.jpg"></p>
 <p>以前畏惧硬件，现在感觉还是蛮有意思^_^</p>
@@ -1354,12 +1350,12 @@ gitment.render('gitment-content');
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">神经网络与深度学习</span>
-                    </a>
-                    
                     <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
                         <span class="chip bg-color">机器学习</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">神经网络与深度学习</span>
                     </a>
                     
                 </div>
@@ -1614,7 +1610,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">8.4k</span>&nbsp;字
+                class="white-color">9.7k</span>&nbsp;字
             
             
             

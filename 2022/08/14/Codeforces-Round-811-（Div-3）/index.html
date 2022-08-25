@@ -436,16 +436,16 @@
                     
                     <div class="article-tag">
                         
+                            <a href="/tags/Codeforces/">
+                                <span class="chip bg-color">Codeforces</span>
+                            </a>
+                        
                             <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
                                 <span class="chip bg-color">数据结构与算法</span>
                             </a>
                         
                             <a href="/tags/python/">
                                 <span class="chip bg-color">python</span>
-                            </a>
-                        
-                            <a href="/tags/Codeforces/">
-                                <span class="chip bg-color">Codeforces</span>
                             </a>
                         
                     </div>
@@ -483,7 +483,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    659
+                    661
                 </div>
                 
 
@@ -512,7 +512,7 @@
             <div id="articleContent">
                 <p><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1714">比赛链接</a>        </p>
 <h2 id="A-Everyone-Loves-to-Sleep"><a href="#A-Everyone-Loves-to-Sleep" class="headerlink" title="A. Everyone Loves to Sleep"></a>A. Everyone Loves to Sleep</h2><p>就是问下一个闹钟与当前时间的时间差，用24小时制表示出来就行，模拟一下   </p>
-<pre class=" language-811A.py"><code class="language-811A.py">import os
+<pre class=" language-hljs 811A.py"><code class="language-hljs 811A.py">import os
 import math
 
 T=int(input())
@@ -545,10 +545,9 @@ for _ in range(T):
     li2.sort()
     ans1 = li2[0]
     res1 = ans1 +24*60- tmp
-    print("%d %d" % (res1/60,res1%60))
-</code></pre>
+    print("%d %d" % (res1/60,res1%60))</code></pre>
 <h2 id="B-Remove-Prefix"><a href="#B-Remove-Prefix" class="headerlink" title="B. Remove Prefix"></a>B. Remove Prefix</h2><p>问删掉前几个可以使得后面的元素互不相同？倒着遍历判断一下就行    </p>
-<pre class=" language-811B.py"><code class="language-811B.py">import os
+<pre class=" language-hljs 811B.py"><code class="language-hljs 811B.py">import os
 import math
 
 T=int(input())
@@ -563,10 +562,9 @@ for _ in range(T):
         else:
             f=i+1
             break
-    print(f)
-</code></pre>
+    print(f)</code></pre>
 <h2 id="C-Minimum-Varied-Number"><a href="#C-Minimum-Varied-Number" class="headerlink" title="C. Minimum Varied Number"></a>C. Minimum Varied Number</h2><p>给一个sum，问每一位互不相同的最小的数使得各位和为sum。从末尾9,8,7挨着放即可   </p>
-<pre class=" language-811C.py"><code class="language-811C.py">import os
+<pre class=" language-hljs 811C.py"><code class="language-hljs 811C.py">import os
 import math
 
 T=int(input())
@@ -584,11 +582,10 @@ for _ in range(T):
             num-=1
     ans.reverse()
     for i in range(len(ans)):
-        print(ans[i],end='')
-    print("\n")
-</code></pre>
+        print(ans[i],end=&#x27;&#x27;)
+    print("\n")</code></pre>
 <h2 id="D-Color-with-Occurrences"><a href="#D-Color-with-Occurrences" class="headerlink" title="D. Color with Occurrences"></a>D. Color with Occurrences</h2><p>有一个长度在100之内的字符串$t$和n个长度在10之内的字符串$s_i$,每一步可以选一个$s_i$把字符串$t$的部分子串染成红色，问最少要多少步$t$能染成全红,并且输出每一步需要的字符串和开始染的下标。<br>这个题可以转换一下：相当于每一个字符串$s_i$可以染字符串$t$的一些连续区间，问最少多少个$s_i$可以把区间完全覆盖。这样就可以贪心地去做：对所有能操作的字符串区间进行排序，按照左端点升序排列（右端点如何排不要紧），只要后面的区间左端点小于等于上次区间的右端点，那就贪心选择右端点最大的区间。           </p>
-<pre class=" language-811D.py"><code class="language-811D.py">import bisect
+<pre class=" language-hljs 811D.py"><code class="language-hljs 811D.py">import bisect
 import os
 import math
 from functools import cmp_to_key
@@ -616,7 +613,7 @@ T=int(input())
 for _ in range(T):
     li.clear()
     t=input()
-    t='?'+t
+    t=&#x27;?&#x27;+t
     n=int(input())
     for i in range(1,n+1):
         si=input()
@@ -659,10 +656,12 @@ for _ in range(T):
         for a, b in ans:
             print("%d %d" % (a, b))
     else:
-        print("-1")
-</code></pre>
+        print("-1")</code></pre>
+
+
+
 <h2 id="G-Path-Prefixes"><a href="#G-Path-Prefixes" class="headerlink" title="G. Path Prefixes"></a>G. Path Prefixes</h2><p>题意很简单，给一棵树，每条边有两条边权a,b,现在对于每一个节点，求该节点的一个值x,x代表从根节点开始到该节点的路径上的前x节点，这些节点的b值之和要小于等于根节点到该节点路径上的a值之和，求满足条件的x最大可能取多少。<br>一个dfs+二分的问题   </p>
-<pre class=" language-811G.py"><code class="language-811G.py">import bisect
+<pre class=" language-hljs 811G.py"><code class="language-hljs 811G.py">import bisect
 import os
 import math
 
@@ -751,9 +750,8 @@ for _ in range(T):
         add(p, i, a, b)
     dfs(1, 0)
     for i in range(2, n + 1):
-        print(ans[i], end=' ')
-    print("\n")
-</code></pre>
+        print(ans[i], end=&#x27; &#x27;)
+    print("\n")</code></pre>
 <p>开始一直runtime error,python递归可以用bootstrap：<br>[参考1]<a target="_blank" rel="noopener" href="https://pyrival.readthedocs.io/en/latest/bootstrap.html">https://pyrival.readthedocs.io/en/latest/bootstrap.html</a><br>[参考2]<a target="_blank" rel="noopener" href="https://flykiller.github.io/performance%20tricks/">https://flykiller.github.io/performance%20tricks/</a><br>这题也可以用class写成结构体数组类型，然后表达链式向前星，但是用上面这种写法简单一点             </p>
 
                 
@@ -819,16 +817,16 @@ for _ in range(T):
                     
                         <div class="article-tag">
                             
+                                <a href="/tags/Codeforces/">
+                                    <span class="chip bg-color">Codeforces</span>
+                                </a>
+                            
                                 <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
                                     <span class="chip bg-color">数据结构与算法</span>
                                 </a>
                             
                                 <a href="/tags/python/">
                                     <span class="chip bg-color">python</span>
-                                </a>
-                            
-                                <a href="/tags/Codeforces/">
-                                    <span class="chip bg-color">Codeforces</span>
                                 </a>
                             
                         </div>
@@ -1639,7 +1637,7 @@ gitment.render('gitment-content');
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>
     MathJax.Hub.Config({
         tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
@@ -1717,7 +1715,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">8.4k</span>&nbsp;字
+                class="white-color">9.7k</span>&nbsp;字
             
             
             

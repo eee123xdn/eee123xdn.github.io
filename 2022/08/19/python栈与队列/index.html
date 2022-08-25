@@ -472,14 +472,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-23
+                    2022-08-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    349
+                    455
                 </div>
                 
 
@@ -506,7 +506,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-栈"><a href="#1-栈" class="headerlink" title="1.栈"></a>1.栈</h2><pre class=" language-Stack.py"><code class="language-Stack.py">#栈可以用列表来实现
+                <h2 id="1-栈"><a href="#1-栈" class="headerlink" title="1.栈"></a>1.栈</h2><pre class=" language-hljs Stack.py"><code class="language-hljs Stack.py">#栈可以用列表来实现
 li=[]
 li.append(1)
 li.append(4)
@@ -532,10 +532,10 @@ class stack:
         return len(self.stack)==0
 
 def brace_match(s):
-    match=&#123;')':'(','&#125;':'&#123;',']':'['&#125;
+    match={&#x27;)&#x27;:&#x27;(&#x27;,&#x27;}&#x27;:&#x27;{&#x27;,&#x27;]&#x27;:&#x27;[&#x27;}
     sta=stack()
     for ch in s:
-        if ch in &#123;'(','&#123;','['&#125;:
+        if ch in {&#x27;(&#x27;,&#x27;{&#x27;,&#x27;[&#x27;}:
             sta.push(ch)
         else:
             if sta.is_empty():
@@ -549,16 +549,16 @@ def brace_match(s):
     else:
         return False
 
-ans1=brace_match('([])&#123;&#125;')
-ans2=brace_match('()[]&#123;()&#125;')
-ans3=brace_match('()[]&#123;()]')
-ans4=brace_match('(([')
+ans1=brace_match(&#x27;([]){}&#x27;)
+ans2=brace_match(&#x27;()[]{()}&#x27;)
+ans3=brace_match(&#x27;()[]{()]&#x27;)
+ans4=brace_match(&#x27;(([&#x27;)
 print(ans1)
 print(ans2)
 print(ans3)
-print(ans4)
-</code></pre>
-<h2 id="2-队列"><a href="#2-队列" class="headerlink" title="2.队列"></a>2.队列</h2><h3 id="2-1-手动实现"><a href="#2-1-手动实现" class="headerlink" title="2.1 手动实现"></a>2.1 手动实现</h3><pre class=" language-Queue.py"><code class="language-Queue.py">
+print(ans4)</code></pre>
+
+<h2 id="2-队列"><a href="#2-队列" class="headerlink" title="2.队列"></a>2.队列</h2><h3 id="2-1-手动实现"><a href="#2-1-手动实现" class="headerlink" title="2.1 手动实现"></a>2.1 手动实现</h3><pre class=" language-hljs Queue.py"><code class="language-hljs Queue.py">
 class Queue:
     def __init__(self,size):
         self.que=[0 for _ in range(size)]
@@ -595,10 +595,9 @@ q.push(4)
 q.push(2)
 print(q.pop())
 print(q.que[(q.front+1)%q.size])
-print(q.que[q.rear])
-</code></pre>
-<h3 id="2-2-python内置函数"><a href="#2-2-python内置函数" class="headerlink" title="2.2 python内置函数"></a>2.2 python内置函数</h3><p>用双端队列deque来实现 </p>
-<pre class=" language-deque.py"><code class="language-deque.py">
+print(q.que[q.rear])</code></pre>
+
+<h3 id="2-2-python内置函数"><a href="#2-2-python内置函数" class="headerlink" title="2.2 python内置函数"></a>2.2 python内置函数</h3><h4 id="2-2-1-双端队列deque"><a href="#2-2-1-双端队列deque" class="headerlink" title="2.2.1 双端队列deque"></a>2.2.1 双端队列deque</h4><pre class=" language-hljs deque.py"><code class="language-hljs deque.py">
 from collections import deque
 
 q=deque([2,3,1])
@@ -609,8 +608,35 @@ q.appendleft(6)
 print(q.pop())
 print(q.popleft())
 print(q.pop())
-</code></pre>
+```                           
+#### 2.2.2 优先队列及其自定义排序           
+```PriorityQueue.py
+from queue import PriorityQueue
 
+
+class person(object):
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+
+    def __lt__(self, other):
+        return self.score > other.score
+
+
+p1 = person("张三", 15)
+p2 = person("李四", 23)
+p3 = person("王五", 12)
+p4 = person("朱五", 32)
+que = PriorityQueue()
+que.put(p1)
+que.put(p2)
+que.put(p4)
+que.put(p3)
+
+print(que.get().name)
+print(que.get().name)
+print(que.get().name)
+print(que.get().name)</code></pre>
                 
             </div>
             <hr/>
@@ -1494,7 +1520,7 @@ gitment.render('gitment-content');
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>
     MathJax.Hub.Config({
         tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
@@ -1572,7 +1598,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">8.4k</span>&nbsp;字
+                class="white-color">9.7k</span>&nbsp;字
             
             
             

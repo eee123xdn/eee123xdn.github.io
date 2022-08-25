@@ -508,7 +508,7 @@
             <div id="articleContent">
                 <h1 id="计数器（实现灯每隔1s亮一次）"><a href="#计数器（实现灯每隔1s亮一次）" class="headerlink" title="计数器（实现灯每隔1s亮一次）"></a>计数器（实现灯每隔1s亮一次）</h1><h2 id="1-逻辑设计"><a href="#1-逻辑设计" class="headerlink" title="1.逻辑设计"></a>1.逻辑设计</h2><p>灯每隔1s亮一次，就是亮500ms,灭500ms,时钟信号频率是50MHZ，也就是20ns一个周期，方波来看就是高电平10s,低电平10s，这样交替。D触发器使得在上升沿到来时计数加1，那20ns计数加1，500ms就需要计数到25000000，也就是说计数到25000000，led灯的状态就变一下。 （亮变灭，灭变亮）。<br><img src="https://s2.loli.net/2022/08/17/oqf6JQOu24GX8Ie.jpg"><br>这样我们就清楚了：输入信号是时钟信号clk,复位信号reset_n,输出信号是led。在这个过程中要设置一个计数值cnt,根据clk信号改变cnt,再根据cnt的值改变led。（reset的值也会改变cnt和led的状态）                </p>
 <h2 id="2-设计输入"><a href="#2-设计输入" class="headerlink" title="2.设计输入"></a>2.设计输入</h2><p>要注意count是计数到25000000，led才改变吗？不是。<br>0-1<br>1-2<br>2-3<br>3-0 （此循环的周期是4）<br>因此计数到24999999即可</p>
-<pre class=" language-led_flash.v"><code class="language-led_flash.v">`timescale 1ns / 1ps
+<pre class=" language-hljs led_flash.v"><code class="language-hljs led_flash.v">`timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -548,7 +548,7 @@ module led_flash(
       else if(count==24999999)
            count <= 0;
       else 
-           count<= count+1'd1;
+           count<= count+1&#x27;d1;
     end 
     
     //分别写count和led改变的逻辑块
@@ -559,10 +559,10 @@ module led_flash(
            led<=!led;
     end 
     
-endmodule
-</code></pre>
+endmodule</code></pre>
+
 <h2 id="3-Run-Synthesis跑综合，语法没问题"><a href="#3-Run-Synthesis跑综合，语法没问题" class="headerlink" title="3.Run Synthesis跑综合，语法没问题"></a>3.Run Synthesis跑综合，语法没问题</h2><h2 id="4-功能仿真"><a href="#4-功能仿真" class="headerlink" title="4.功能仿真"></a>4.功能仿真</h2><h3 id="4-1仿真设计"><a href="#4-1仿真设计" class="headerlink" title="4.1仿真设计"></a>4.1仿真设计</h3><p>输入clk,Reset都连相应的信号，并且设置信号改变的时间间隔           </p>
-<h3 id="4-2-仿真代码"><a href="#4-2-仿真代码" class="headerlink" title="4.2 仿真代码"></a>4.2 仿真代码</h3><pre class=" language-led_flash_tb.v"><code class="language-led_flash_tb.v">`timescale 1ns / 1ns
+<h3 id="4-2-仿真代码"><a href="#4-2-仿真代码" class="headerlink" title="4.2 仿真代码"></a>4.2 仿真代码</h3><pre class=" language-hljs led_flash_tb.v"><code class="language-hljs led_flash_tb.v">`timescale 1ns / 1ns
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -1299,16 +1299,16 @@ gitment.render('gitment-content');
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/tags/Codeforces/">
+                        <span class="chip bg-color">Codeforces</span>
+                    </a>
+                    
                     <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
                         <span class="chip bg-color">数据结构与算法</span>
                     </a>
                     
                     <a href="/tags/python/">
                         <span class="chip bg-color">python</span>
-                    </a>
-                    
-                    <a href="/tags/Codeforces/">
-                        <span class="chip bg-color">Codeforces</span>
                     </a>
                     
                 </div>
@@ -1360,12 +1360,12 @@ gitment.render('gitment-content');
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
-                        <span class="chip bg-color">线性代数</span>
-                    </a>
-                    
                     <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
                         <span class="chip bg-color">机器学习</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
+                        <span class="chip bg-color">线性代数</span>
                     </a>
                     
                 </div>
@@ -1566,7 +1566,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">8.4k</span>&nbsp;字
+                class="white-color">9.7k</span>&nbsp;字
             
             
             
