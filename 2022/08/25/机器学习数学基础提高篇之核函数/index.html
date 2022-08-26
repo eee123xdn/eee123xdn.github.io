@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="机器学习数学基础之高数和微积分篇, 谢东娜的博客">
+    <meta name="keywords" content="机器学习数学基础提高篇之核函数, 谢东娜的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>机器学习数学基础之高数和微积分篇 | 谢东娜的博客</title>
+    <title>机器学习数学基础提高篇之核函数 | 谢东娜的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -315,12 +315,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">机器学习数学基础之高数和微积分篇</h1>
+                    <h1 class="description center-align post-title">机器学习数学基础提高篇之核函数</h1>
                 </div>
             </div>
         </div>
@@ -440,8 +440,8 @@
                                 <span class="chip bg-color">机器学习</span>
                             </a>
                         
-                            <a href="/tags/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/">
-                                <span class="chip bg-color">高等数学</span>
+                            <a href="/tags/%E6%A0%B8%E5%87%BD%E6%95%B0/">
+                                <span class="chip bg-color">核函数</span>
                             </a>
                         
                     </div>
@@ -469,28 +469,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-08
+                    2022-08-25
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-23
+                    2022-08-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    914
+                    922
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    3 分
                 </div>
                 
 
@@ -510,30 +510,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>只记录比较重要或者不熟悉的知识点  </p>
-<h2 id="1-高等数学"><a href="#1-高等数学" class="headerlink" title="1.高等数学"></a>1.高等数学</h2><h3 id="1-1极限"><a href="#1-1极限" class="headerlink" title="1.1极限"></a>1.1极限</h3><p>$$\lim_{x\rightarrow x_0}f(x)&#x3D;A的充要条件是\lim_{x\rightarrow x_0^-}f(x)&#x3D;\lim_{x\rightarrow x_0^+}f(x)&#x3D;A$$<br>即左右极限都存在且相等   </p>
-<h3 id="1-2连续性"><a href="#1-2连续性" class="headerlink" title="1.2连续性"></a>1.2连续性</h3><p>连续的充要条件:<br>$$\lim_{\Delta x\rightarrow 0}\Delta y&#x3D;\lim_{\Delta x\rightarrow 0}\left[f(x_0+\Delta x)-f(x_0)\right]&#x3D;0$$<br>连续需要满足：<br><img src="https://s3.bmp.ovh/imgs/2022/08/09/60de2ec12558d7eb.jpg"><br>不连续就有间断点       </p>
-<h3 id="1-3导数"><a href="#1-3导数" class="headerlink" title="1.3导数"></a>1.3导数</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/09/49d612c4e645ee0a.jpg">   </p>
-<h3 id="1-4偏导数"><a href="#1-4偏导数" class="headerlink" title="1.4偏导数"></a>1.4偏导数</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/10/50b3dd1a5fd7ecd0.jpg">     </p>
-<h3 id="1-5方向导数"><a href="#1-5方向导数" class="headerlink" title="1.5方向导数"></a>1.5方向导数</h3><p>以z&#x3D;f(x,y)为例，可以想到对x的偏导数是固定y轴，然后x的每个点都有一个切线，这个切线的斜率就是对x的偏导数<br>那现在不止x,y方向的偏导数，而是对x-y平面的任意方向（相当于一个向量可以是360°的任意值）都求一个偏导数<br><img src="https://s3.bmp.ovh/imgs/2022/08/10/28e4879fe6bcd238.png"><br>如上图，沿着红线方向，每个点都有一个导数<br>$$\left| \frac{\partial z}{\partial l}\right | &#x3D;\frac{\partial z}{\partial x}cos\theta +<br>\frac{\partial z}{\partial y}sin\theta \left(\theta是l与x方向的夹角\right)<br>$$</p>
-<h3 id="1-6梯度"><a href="#1-6梯度" class="headerlink" title="1.6梯度"></a>1.6梯度</h3><p>某个点梯度方向与方向导数最大值的方向相同<br>首先梯度向量:<br>$$ grad(x,y)&#x3D;\frac{\partial z}{\partial x}\vec i +\frac{\partial z}{\partial y}\vec j$$<br>上面我们知道：<br>$$\begin{aligned}<br>\left| \frac{\partial z}{\partial l}\right| &amp; &#x3D;\frac{\partial z}{\partial x}cos\theta +<br>\frac{\partial z}{\partial y}sin\theta  \newline<br> &amp; &#x3D;grad(x,y)\cdot \vec e \ \left(\vec e&#x3D;\left(cos \theta , sin \theta \right),\vec e是方向L上的单位向量\right) \newline<br> &amp; &#x3D;\left|grad(x,y) \right|cos \beta \ \left(\beta&#x3D;\left&lt;grad(x,y),\vec e\right&gt;\right)<br>\end{aligned}$$<br>很明显，当$\beta$为0，即方向导数的方向和梯度方向相同时，方向导数值最大，当$\beta$为180°；即方向导数的方向和梯度方向相反时，方向导数值最小，为梯度下降的方向。</p>
-<h2 id="2-微积分"><a href="#2-微积分" class="headerlink" title="2.微积分"></a>2.微积分</h2><ul>
-<li><p>$<br>\int_{a}^{b}f(x)dx&#x3D;I&#x3D;\lim_{\lambda \rightarrow 0}\sum_{i&#x3D;1}^{n}f(\xi _i)\Delta x_i<br>$      </p>
-</li>
-<li><p>$\int_{a}^{b}f(x)dx&#x3D;F’(\xi)(b-a)&#x3D;F(b)-F(a)$</p>
-</li>
-</ul>
-<h2 id="3-泰勒公式"><a href="#3-泰勒公式" class="headerlink" title="3.泰勒公式"></a>3.泰勒公式</h2><h3 id="3-1泰勒展开式"><a href="#3-1泰勒展开式" class="headerlink" title="3.1泰勒展开式"></a>3.1泰勒展开式</h3><p>$$\begin{aligned}<br>f(x)&#x3D;f(x_0)+\frac{f’(x_0)}{1!}{(x-x_0)}+\frac{f’’(x_0)}{2!}{(x-x_0)^2}+\cdots+\ \frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+R_n(x)<br>\end{aligned}$$</p>
-<h3 id="3-2麦克劳林公式"><a href="#3-2麦克劳林公式" class="headerlink" title="3.2麦克劳林公式"></a>3.2麦克劳林公式</h3><p>$$\begin{aligned}<br>f(x)&#x3D;f(0)+f’(0){x}+\frac{f’’(0)}{2!}{x^2}+\cdots+\ \frac{f^{(n)}(0)}{n!}x^n+ \frac{f^{(n+1)}(\theta x)}{(n+1)!}x^{n+1}\ (0&lt;\theta&lt;1)<br>\end{aligned}$$</p>
-<p>&amp;ensp; 我们来说说这个分母上的阶乘和多项式的阶数的意义。    </p>
-<ul>
-<li><p>阶数：阶数越高，在越偏右侧影响越大，比如$x^2$和$x^4$，在靠近0点，用$x^2$就可以近<br>似描述，当函数是一个凹函数时，越靠近右侧，$x^4$更大更陡峭，用它近似效果更好     </p>
-</li>
-<li><p>阶乘:我们想想$x^2$和$x^8$,如果分母无阶乘，那$x^2$的效果会被$x^8$覆盖，但是我们希望在靠近原点处尽量用$x^2$近似，在偏远处才用$x^8$,那偏近处就需要用阶乘限制$x^8$的<br>效果,$\frac{x^8}{8!}$在接近原点时，由于分母值大，被限制，较远处，它增长特别快，作用就明显</p>
-</li>
-</ul>
-<h2 id="4-拉格朗日乘子法"><a href="#4-拉格朗日乘子法" class="headerlink" title="4.拉格朗日乘子法"></a>4.拉格朗日乘子法</h2><h3 id="4-1-引入"><a href="#4-1-引入" class="headerlink" title="4.1 引入"></a>4.1 引入</h3><p>我们想象一个凹平面，假设在某一点$(x,y)$存在极值，我们去切一条等高线$g(x,y)&#x3D;C$,会发现，极值点处的法向量与等高线的法向量共线，那就存在一个常数$\lambda$,使得$\triangledown  \left[f(x,y)+\lambda g(x,y)\right]&#x3D;0$成立。</p>
-<h3 id="4-1-拉格朗日乘子解法"><a href="#4-1-拉格朗日乘子解法" class="headerlink" title="4.1 拉格朗日乘子解法"></a>4.1 拉格朗日乘子解法</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/11/5940c0b3db86af05.jpg"><br><img src="https://s3.bmp.ovh/imgs/2022/08/11/7c13e90a3696cc1b.jpg"><br><img src="https://s3.bmp.ovh/imgs/2022/08/11/0c78f1e4f7bb45cf.jpg"></p>
+                <h2 id="1-核函数意义"><a href="#1-核函数意义" class="headerlink" title="1. 核函数意义"></a>1. 核函数意义</h2><p>我们先引入一下，低维空间线性不可分的我们需要把点都映射到高维空间就可以变成线性可分的。<br><img src="https://s2.loli.net/2022/08/26/ELP5Y7zM91pTObH.jpg"><br>首先，我们说明，两个点的相似度（similarity）可以用内积来衡量。很多说法认为核函数隐含了从低维空间到高维空间的映射关系。<br><img src="https://s2.loli.net/2022/08/26/c8dzTODoPIrGUN5.jpg"><br>比如上面说的这个核函数，它隐含着一种映射表达式，使得低维空间的两个点经过映射变换到高维空间，然后高维空间对应两点的内积可以通过低维空间的这两个点代入核函数求得。<br>其实呢，我更认同这种说法：<br>核函数和映射没有关系。核函数只是用来计算映射到高维空间之后的内积的一种简便方法。<br>不需要去关注这个映射本身是什么，只需要核函数可以简便地计算高维空间的内积就行。<br><img src="https://s2.loli.net/2022/08/26/sQ1w5BV4RFuatGn.jpg"> </p>
+<h2 id="2-线性核函数"><a href="#2-线性核函数" class="headerlink" title="2. 线性核函数"></a>2. 线性核函数</h2><p>映射过去的内积还是原来的形式，所以线性核函数对数据不做任何变换，不用升维。<br><img src="https://s2.loli.net/2022/08/26/AJtUegjqBOPi4fW.jpg">         </p>
+<h2 id="3-多项式核函数"><a href="#3-多项式核函数" class="headerlink" title="3. 多项式核函数"></a>3. 多项式核函数</h2><p>多项式核函数里面的几个参数都是自己定的，根据数据集本身的情况而定。<br>$\zeta$是常数项，我们一般先设为1，让它的影响不要那么大，$\gamma$对内积缩放，内积的影响大小由这个缩放系数决定，$Q$这个最高次项决定了拟合模型的复杂程度和计算量的大小。没必要把次数设得太高，可能会出现过拟合的问题。<br><img src="https://s2.loli.net/2022/08/26/wkoLQVUDbJWCvRr.jpg">          </p>
+<h2 id="4-高斯核函数"><a href="#4-高斯核函数" class="headerlink" title="4. 高斯核函数"></a>4. 高斯核函数</h2><h3 id="4-1-核函数公式"><a href="#4-1-核函数公式" class="headerlink" title="4.1 核函数公式"></a>4.1 核函数公式</h3><p><img src="https://s2.loli.net/2022/08/26/u3Lb7sMpaYPeJUO.jpg"><br>那我们的高斯核函数也和高斯函数是差不多的形式<br><img src="https://s2.loli.net/2022/08/26/xyRnF2gSVcfQYCD.jpg"><br>$|X-Y|$表达的两个点的差，再加一个平方，所以这个距离就可以用来衡量相似度。<br>我们思考一下，为什么要用这个高斯核函数。它究竟可以把原向量映射成几维的？<br><img src="https://s2.loli.net/2022/08/26/dqUYifWZNDvMSuG.jpg"><br>上式中<br>$$\begin{aligned}<br>\Phi(X)&#x3D;\exp(-x^2)\cdot \begin{bmatrix}<br>                        1<br>                        \newline<br>                        \sqrt{\frac{2}{1!}}X<br>                        \newline<br>                        \sqrt{\frac{2^2}{2!}}X^2<br>                        \newline<br>                        \cdots<br>                        \end{bmatrix}这样写更好些<br>\end{aligned}$$<br>可以看到$\Phi(X)$理论上是无穷多维的，所以为什么高斯核函数可以复杂化边界。<br>我们再来思考一下，假设低维空间中点是$10$维的，我们现在有$m$个样本点，那对于每个点，它与其它点都有一个$K(X,Y)$值，那对每个点，它都会产生$m$个特征值，这$m$个特征值形成点$X$的特征向量，所以实际问题中会映射为$m$维的。         </p>
+<h3 id="4-2-参数的影响"><a href="#4-2-参数的影响" class="headerlink" title="4.2 参数的影响"></a>4.2 参数的影响</h3><p>高斯核函数对参数$\sigma$是及其敏感的。<br>可以看到$\sigma$越小，越集中在期望值附近，也就是说$\sigma$越小，满足训练样本数据的可能性越大（越满足中间那一堆小样本数据，中间那一堆值越窄，概率越高）。那这样就可能产生过拟合的现象。<br><img src="https://s2.loli.net/2022/08/26/YPgU93NVfWxCHRI.jpg"><br><img src="https://s2.loli.net/2022/08/26/pKQHx43NjA9lzri.jpg">    </p>
+<h2 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. 总结</h2><p>核函数就是为了从低维映射到高维。低维线性不可分时，让决策边界更复杂（低维复杂的决策边界在高维变得简单）。<br>当样本特征丰富或者问题简单时，线性可分就先用线性函数，想做高维的话再去用高斯函数。高斯函数的$\sigma$值也会决定决策边界的复杂性，$\sigma$较小时，也可能出现过拟合，所以需要选择合适的参数。<br><img src="https://s2.loli.net/2022/08/26/zXduvFCL9wn6WR2.jpg"></p>
 
                 
             </div>
@@ -560,7 +542,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://eee123xdn.github.io/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%AB%98%E6%95%B0%E5%92%8C%E5%BE%AE%E7%A7%AF%E5%88%86%E7%AF%87/">http://eee123xdn.github.io/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%AB%98%E6%95%B0%E5%92%8C%E5%BE%AE%E7%A7%AF%E5%88%86%E7%AF%87/</a>
+                    <a href="http://eee123xdn.github.io/2022/08/25/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E6%8F%90%E9%AB%98%E7%AF%87%E4%B9%8B%E6%A0%B8%E5%87%BD%E6%95%B0/">http://eee123xdn.github.io/2022/08/25/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E6%8F%90%E9%AB%98%E7%AF%87%E4%B9%8B%E6%A0%B8%E5%87%BD%E6%95%B0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -602,8 +584,8 @@
                                     <span class="chip bg-color">机器学习</span>
                                 </a>
                             
-                                <a href="/tags/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/">
-                                    <span class="chip bg-color">高等数学</span>
+                                <a href="/tags/%E6%A0%B8%E5%87%BD%E6%95%B0/">
+                                    <span class="chip bg-color">核函数</span>
                                 </a>
                             
                         </div>
@@ -774,7 +756,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2022-08-08T18-20-34',
+        id: '2022-08-25T21-52-05',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -798,7 +780,7 @@
 <script src="/libs/gitment/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-    id: 'Mon Aug 08 2022 18:20:34 GMT+0800',
+    id: 'Thu Aug 25 2022 21:52:05 GMT+0800',
     owner: '',
     repo: '',
     oauth: {
@@ -823,9 +805,9 @@ gitment.render('gitment-content');
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'http://eee123xdn.github.io/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%AB%98%E6%95%B0%E5%92%8C%E5%BE%AE%E7%A7%AF%E5%88%86%E7%AF%87/';
-        this.page.identifier = '/2022/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%AB%98%E6%95%B0%E5%92%8C%E5%BE%AE%E7%A7%AF%E5%88%86%E7%AF%87/';
-        this.page.title = '机器学习数学基础之高数和微积分篇';
+        this.page.url = 'http://eee123xdn.github.io/2022/08/25/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E6%8F%90%E9%AB%98%E7%AF%87%E4%B9%8B%E6%A0%B8%E5%87%BD%E6%95%B0/';
+        this.page.identifier = '/2022/08/25/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E6%8F%90%E9%AB%98%E7%AF%87%E4%B9%8B%E6%A0%B8%E5%87%BD%E6%95%B0/';
+        this.page.title = '机器学习数学基础提高篇之核函数';
     };
     let disqus_shortname = '';
 
@@ -1184,17 +1166,18 @@ gitment.render('gitment-content');
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/08/08/python%E9%80%92%E5%BD%92%E4%B8%8E%E6%9F%A5%E6%89%BE/">
+                <a href="/2022/08/25/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E6%8F%90%E9%AB%98%E7%AF%87%E4%B9%8B%E6%A0%B8%E5%87%BD%E6%95%B0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="python递归与查找">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="机器学习数学基础提高篇之核函数">
                         
-                        <span class="card-title">python递归与查找</span>
+                        <span class="card-title">机器学习数学基础提高篇之核函数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1204,30 +1187,35 @@ gitment.render('gitment-content');
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python%E5%9F%BA%E7%A1%80/" class="post-category">
-                                    python基础
+                            <a href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    数学基础
+                                </a>
+                            
+                            <a href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">数据结构与算法</span>
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
                     </a>
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/%E6%A0%B8%E5%87%BD%E6%95%B0/">
+                        <span class="chip bg-color">核函数</span>
                     </a>
                     
                 </div>
@@ -1241,13 +1229,13 @@ gitment.render('gitment-content');
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BB%AA%E8%AE%BA/">
+                <a href="/2022/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="神经网络与深度学习绪论">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="机器学习数学基础之数据分布">
                         
-                        <span class="card-title">神经网络与深度学习绪论</span>
+                        <span class="card-title">机器学习数学基础之数据分布</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1258,14 +1246,18 @@ gitment.render('gitment-content');
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-24
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    神经网络与深度学习
+                            <a href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    数学基础
+                                </a>
+                            
+                            <a href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
                                 </a>
                             
                             
@@ -1275,12 +1267,12 @@ gitment.render('gitment-content');
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">机器学习</span>
+                    <a href="/tags/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1/">
+                        <span class="chip bg-color">概率统计</span>
                     </a>
                     
-                    <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">神经网络与深度学习</span>
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
                     </a>
                     
                 </div>

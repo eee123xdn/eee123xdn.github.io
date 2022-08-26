@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>机器学习数学基础提高篇之核函数</title>
+      <link href="/2022/08/25/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E6%8F%90%E9%AB%98%E7%AF%87%E4%B9%8B%E6%A0%B8%E5%87%BD%E6%95%B0/"/>
+      <url>/2022/08/25/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E6%8F%90%E9%AB%98%E7%AF%87%E4%B9%8B%E6%A0%B8%E5%87%BD%E6%95%B0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-核函数意义"><a href="#1-核函数意义" class="headerlink" title="1. 核函数意义"></a>1. 核函数意义</h2><p>我们先引入一下，低维空间线性不可分的我们需要把点都映射到高维空间就可以变成线性可分的。<br><img src="https://s2.loli.net/2022/08/26/ELP5Y7zM91pTObH.jpg"><br>首先，我们说明，两个点的相似度（similarity）可以用内积来衡量。很多说法认为核函数隐含了从低维空间到高维空间的映射关系。<br><img src="https://s2.loli.net/2022/08/26/c8dzTODoPIrGUN5.jpg"><br>比如上面说的这个核函数，它隐含着一种映射表达式，使得低维空间的两个点经过映射变换到高维空间，然后高维空间对应两点的内积可以通过低维空间的这两个点代入核函数求得。<br>其实呢，我更认同这种说法：<br>核函数和映射没有关系。核函数只是用来计算映射到高维空间之后的内积的一种简便方法。<br>不需要去关注这个映射本身是什么，只需要核函数可以简便地计算高维空间的内积就行。<br><img src="https://s2.loli.net/2022/08/26/sQ1w5BV4RFuatGn.jpg"> </p><h2 id="2-线性核函数"><a href="#2-线性核函数" class="headerlink" title="2. 线性核函数"></a>2. 线性核函数</h2><p>映射过去的内积还是原来的形式，所以线性核函数对数据不做任何变换，不用升维。<br><img src="https://s2.loli.net/2022/08/26/AJtUegjqBOPi4fW.jpg">         </p><h2 id="3-多项式核函数"><a href="#3-多项式核函数" class="headerlink" title="3. 多项式核函数"></a>3. 多项式核函数</h2><p>多项式核函数里面的几个参数都是自己定的，根据数据集本身的情况而定。<br>$\zeta$是常数项，我们一般先设为1，让它的影响不要那么大，$\gamma$对内积缩放，内积的影响大小由这个缩放系数决定，$Q$这个最高次项决定了拟合模型的复杂程度和计算量的大小。没必要把次数设得太高，可能会出现过拟合的问题。<br><img src="https://s2.loli.net/2022/08/26/wkoLQVUDbJWCvRr.jpg">          </p><h2 id="4-高斯核函数"><a href="#4-高斯核函数" class="headerlink" title="4. 高斯核函数"></a>4. 高斯核函数</h2><h3 id="4-1-核函数公式"><a href="#4-1-核函数公式" class="headerlink" title="4.1 核函数公式"></a>4.1 核函数公式</h3><p><img src="https://s2.loli.net/2022/08/26/u3Lb7sMpaYPeJUO.jpg"><br>那我们的高斯核函数也和高斯函数是差不多的形式<br><img src="https://s2.loli.net/2022/08/26/xyRnF2gSVcfQYCD.jpg"><br>$|X-Y|$表达的两个点的差，再加一个平方，所以这个距离就可以用来衡量相似度。<br>我们思考一下，为什么要用这个高斯核函数。它究竟可以把原向量映射成几维的？<br><img src="https://s2.loli.net/2022/08/26/dqUYifWZNDvMSuG.jpg"><br>上式中<br>$$\begin{aligned}<br>\Phi(X)&#x3D;\exp(-x^2)\cdot \begin{bmatrix}<br>                        1<br>                        \newline<br>                        \sqrt{\frac{2}{1!}}X<br>                        \newline<br>                        \sqrt{\frac{2^2}{2!}}X^2<br>                        \newline<br>                        \cdots<br>                        \end{bmatrix}这样写更好些<br>\end{aligned}$$<br>可以看到$\Phi(X)$理论上是无穷多维的，所以为什么高斯核函数可以复杂化边界。<br>我们再来思考一下，假设低维空间中点是$10$维的，我们现在有$m$个样本点，那对于每个点，它与其它点都有一个$K(X,Y)$值，那对每个点，它都会产生$m$个特征值，这$m$个特征值形成点$X$的特征向量，所以实际问题中会映射为$m$维的。         </p><h3 id="4-2-参数的影响"><a href="#4-2-参数的影响" class="headerlink" title="4.2 参数的影响"></a>4.2 参数的影响</h3><p>高斯核函数对参数$\sigma$是及其敏感的。<br>可以看到$\sigma$越小，越集中在期望值附近，也就是说$\sigma$越小，满足训练样本数据的可能性越大（越满足中间那一堆小样本数据，中间那一堆值越窄，概率越高）。那这样就可能产生过拟合的现象。<br><img src="https://s2.loli.net/2022/08/26/YPgU93NVfWxCHRI.jpg"><br><img src="https://s2.loli.net/2022/08/26/pKQHx43NjA9lzri.jpg">    </p><h2 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. 总结</h2><p>核函数就是为了从低维映射到高维。低维线性不可分时，让决策边界更复杂（低维复杂的决策边界在高维变得简单）。<br>当样本特征丰富或者问题简单时，线性可分就先用线性函数，想做高维的话再去用高斯函数。高斯函数的$\sigma$值也会决定决策边界的复杂性，$\sigma$较小时，也可能出现过拟合，所以需要选择合适的参数。<br><img src="https://s2.loli.net/2022/08/26/zXduvFCL9wn6WR2.jpg"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学基础 </category>
+          
+          <category> 机器学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 机器学习 </tag>
+            
+            <tag> 核函数 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>机器学习数学基础之数据分布</title>
       <link href="/2022/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83/"/>
       <url>/2022/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83/</url>
