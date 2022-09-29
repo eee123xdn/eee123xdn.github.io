@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="机器学习数学基础之概率统计篇, 谢东娜的博客">
+    <meta name="keywords" content="机器学习数学基础提高篇之激活函数, 谢东娜的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>机器学习数学基础之概率统计篇 | 谢东娜的博客</title>
+    <title>机器学习数学基础提高篇之激活函数 | 谢东娜的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -315,12 +315,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">机器学习数学基础之概率统计篇</h1>
+                    <h1 class="description center-align post-title">机器学习数学基础提高篇之激活函数</h1>
                 </div>
             </div>
         </div>
@@ -436,12 +436,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1/">
-                                <span class="chip bg-color">概率统计</span>
-                            </a>
-                        
                             <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
                                 <span class="chip bg-color">机器学习</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/">
+                                <span class="chip bg-color">激活函数</span>
                             </a>
                         
                     </div>
@@ -469,28 +469,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-16
+                    2022-08-28
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-23
+                    2022-08-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    51
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    1 分
                 </div>
                 
 
@@ -510,46 +510,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-随机变量"><a href="#1-随机变量" class="headerlink" title="1.随机变量"></a>1.随机变量</h2><h3 id="1-1-离散型随机变量"><a href="#1-1-离散型随机变量" class="headerlink" title="1.1 离散型随机变量"></a>1.1 离散型随机变量</h3><p>$$\begin{aligned}<br>概率函数：f(x_i)&#x3D;P(X&#x3D;x_i)<br>\end{aligned}$$<br>概率分布就是把每种$x_i$及其对应的$f(x_i)列出来$           </p>
-<h3 id="1-2-连续型随机变量"><a href="#1-2-连续型随机变量" class="headerlink" title="1.2 连续型随机变量"></a>1.2 连续型随机变量</h3><p>对于连续型随机变量，我们是画不出那个分布表的，我们选择用密度来表示概率分布<br><img src="https://s3.bmp.ovh/imgs/2022/08/17/121e64688b6437db.jpg"><br>在频率分布直方图中，矩形的面积就是该区间的概率，那想象一下，整个区间分成无限多个小区间，就是一条非常光滑的曲线。举个例子，我们知道一个铁球的密度，也就是知道每个点的重量，这个重量非常小，近似于0，但是我们要求一块的重量，积分就可以得到一个比较大的值。同理，对这个概率密度函数进行积分，就可以得到某个区间的概率。        </p>
-<p>X为连续随机变量，X在任意区间$\left(a,b \right]$上的概率可以表示为：<br>$$\begin{aligned}<br>P(a &lt; X \leq b)&#x3D;\int_{a}^{b}f(x)dx<br>\end{aligned}$$<br>$f(x)$就叫做$X$的概率密度函数，也可以简称为密度<br><img src="https://s3.bmp.ovh/imgs/2022/08/17/de44300e58364cc9.jpg"><br>单独分析一个点的概率密度是没有任何意义的，它必须要有区间作为参考和对比。<br>累积分布函数可以用概率密度函数的积分求出（概率是概率密度函数的区间积分）           </p>
-<h3 id="1-3-简单随机抽样"><a href="#1-3-简单随机抽样" class="headerlink" title="1.3 简单随机抽样"></a>1.3 简单随机抽样</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/17/94e23e4c96b7e916.jpg">       </p>
-<h2 id="2-似然函数"><a href="#2-似然函数" class="headerlink" title="2.似然函数"></a>2.似然函数</h2><h3 id="2-1-似然函数意义"><a href="#2-1-似然函数意义" class="headerlink" title="2.1 似然函数意义"></a>2.1 似然函数意义</h3><p>$$\begin{aligned}<br>L\left(\theta |x \right)&#x3D;f(x|\theta)<br>\end{aligned}$$<br>先解释一下这个式子： $f(x|\theta)$是指在给定参数$\theta$的条件下$X&#x3D;x$的概率，这个等号表明：已知$X&#x3D;x$的条件下，参数为$\theta$的可能性$L(\theta)$等于$f(x|\theta)$这个概率大小。   </p>
-<h3 id="2-2-极大似然估计"><a href="#2-2-极大似然估计" class="headerlink" title="2.2 极大似然估计"></a>2.2 极大似然估计</h3><p><img src="https://s3.bmp.ovh/imgs/2022/08/17/66b21f63aa01f707.jpg"><br>我们现在有了结果$X(x_1,x_2,\cdots,x_n)$,想要知道参数$\theta$为多少时，这个结果出现的概率最大。<br>根据我们上面的式子，我们要求一个$\theta$使得$P(X|\theta)$最大,又因为$P(X|\theta)&#x3D;L(\theta|X)$,因此我们的目标转换为<br>$$\begin{aligned}<br>\max \limits_{\theta}L(\theta|X)&#x3D;\max \limits_{\theta}P(X|\theta)<br>\end{aligned}$$<br>左边为已知结果等于给定样本$X$,求一个$\theta$（它的可能性是最大的）<br>右边为求一个$\theta$,使得在这个参数的情况下，结果为给定样本的可能性最大。<br>那解决问题时，我们把$X(x_1,x_2,\cdots,x_n)$套入$P(X|\theta)$,就是已知样本的情况了，也就是说变成了式子$L(\theta|X)$,一个以$\theta$为变量的式子，然后我们对$\theta$求偏导，令偏导为0，求得的$\theta$就是结果。<br>因为极大似然不是针对一个个体的，而是针对整体的，所以$L(\theta)$等于一个连乘的式子，我们为了简化运算，$\max L$也就是$\max ln L$,右边的连乘变为连加，然后令<br>$$\begin{aligned} \frac{d\ LnL}{d \theta}&#x3D;0<br>\end{aligned}$$<br>解出来，就求得$\theta$的极大似然估计值。           </p>
-<p>一个实例：<br><img src="https://s3.bmp.ovh/imgs/2022/08/17/5c82164c1ab3aa7a.jpg">         </p>
-<h2 id="3-概率论基础"><a href="#3-概率论基础" class="headerlink" title="3.概率论基础"></a>3.概率论基础</h2><h3 id="3-1-古典概型"><a href="#3-1-古典概型" class="headerlink" title="3.1 古典概型"></a>3.1 古典概型</h3><p>试验E中样本点是有限的，出现每一样本点的概率都相同。<br>$$\begin{aligned}<br>P(A)&#x3D;\frac{事件A所包含的样本点数}{样本空间S包含的样本点数}<br>\end{aligned}$$</p>
-<h3 id="3-2-条件概率"><a href="#3-2-条件概率" class="headerlink" title="3.2 条件概率"></a>3.2 条件概率</h3><p>$$\begin{aligned}<br>P(B|A) &amp; &#x3D; \frac{n(AB)}{n(A)} \ （样本空间不是\Omega,是A）\newline<br>&amp; &#x3D;\frac{n(AB)&#x2F;n(\Omega)}{n(A)&#x2F;n(\Omega)} \newline<br>&amp; &#x3D;\frac{P(AB)}{P(A)}<br>\end{aligned}$$</p>
-<h3 id="3-3-独立性"><a href="#3-3-独立性" class="headerlink" title="3.3 独立性"></a>3.3 独立性</h3><h4 id="3-3-1-随机事件相互独立"><a href="#3-3-1-随机事件相互独立" class="headerlink" title="3.3.1 随机事件相互独立"></a>3.3.1 随机事件相互独立</h4><ul>
-<li>若$P(A|B)&#x3D;P(A)$,或者$P(B|A)&#x3D;P(B)$,都可以说$A、B$是相互独立的,有$P(AB)&#x3D;P(A)\times P(B)$</li>
-<li>若有n个随机事件$A_1,A_2,\cdots,A_n$相互独立，有<br>$$\begin{aligned}<br>P(A_1A_2\cdots A_n)&#x3D;\prod \limits_{i&#x3D;1}^{n}P(A_i)<br>\end{aligned}$$</li>
-<li>相互独立一定两两独立，但是两两独立不一定相互独立。如两两独立$P(ABC)&#x3D;P(A|BC)\times P(BC)&#x3D;P(A|BC)\times P(B)\times P(C)$，但是相互独立需要$P(ABC)&#x3D;P(A)\times P(B) \times P(C)$。<br>两两独立意味着任意两个事件之间，一个发生与否对另一个没影响。<br>而相互独立意味着其中任意数量的事件之间，某一些（其中任意一些）发生对另一个没影响。</li>
-</ul>
-<h4 id="3-3-2-n-重伯努利试验（是独立试验）"><a href="#3-3-2-n-重伯努利试验（是独立试验）" class="headerlink" title="3.3.2 $n$重伯努利试验（是独立试验）"></a>3.3.2 $n$重伯努利试验（是独立试验）</h4><p>如果每次试验中事件A发生的概率为<br>$$\begin{aligned}<br>p(0 &lt; p &lt; 1)<br>\end{aligned}$$<br>则在n次伯努利试验中事件A恰好发生k次的概率为<br>$$\begin{aligned}<br>P_n(k)&#x3D;C_{n}^{k}p^{k}q^{n-k} （其中，k&#x3D;0,1,2,\cdots,n ； q&#x3D;1-p）<br>\end{aligned}$$                 </p>
-<h3 id="3-3-二维离散型随机变量"><a href="#3-3-二维离散型随机变量" class="headerlink" title="3.3 二维离散型随机变量"></a>3.3 二维离散型随机变量</h3><p>在x,y的共同条件下的概率<br><img src="https://s2.loli.net/2022/08/22/jzoLbt9nDe8VcIg.jpg"><br><img src="https://s2.loli.net/2022/08/22/FvdkUxhtMgcG76Z.jpg"><br>离散型是可以列出概率分布的<br><img src="https://s2.loli.net/2022/08/22/j5WQVg9Dz28UJIn.jpg"></p>
-<h3 id="3-4-二维连续型随机变量"><a href="#3-4-二维连续型随机变量" class="headerlink" title="3.4 二维连续型随机变量"></a>3.4 二维连续型随机变量</h3><ul>
-<li>二维随机变量（X,Y)的分布函数<br>$$\begin{aligned}<br>F(x,y)&#x3D;\int_{-\infty }^{y}\int_{-\infty }^{x}f(u,v)dudv \newline<br>(f(x,y)为概率密度)<br>\end{aligned}$$</li>
-<li>边缘分布函数<br>$$\begin{aligned}<br>F_X(x)&#x3D;P(X\leq x,Y&lt;+\infty)&#x3D;F(x,+\infty) \newline<br>F_Y(y)&#x3D;P(X&lt;+\infty,Y\leq y)&#x3D;F(+\infty,y) \newline<br>\end{aligned}$$  </li>
-<li>边缘概率密度<br>$$\begin{aligned}<br>f_X(x)&#x3D;\int_{-\infty}^{+\infty}f(x,y)dy \newline<br>f_Y(y)&#x3D;\int_{-\infty}^{+\infty}f(x,y)dx \newline<br>\end{aligned}$$<br>$$\begin{aligned}<br>F_X(x) &amp; &#x3D; \int_{-\infty }^{x}\int_{-\infty }^{+\infty}f(t,y)dydt \newline<br>&amp; &#x3D; \int_{-\infty }^{x}f_X(t)dt \newline<br>F_Y(y) &amp; &#x3D; \int_{-\infty }^{y}\int_{-\infty }^{+\infty}f(x,t)dxdt \newline<br>&amp; &#x3D; \int_{-\infty }^{y}f_Y(t)dt \newline<br>\end{aligned}$$</li>
-</ul>
-<h3 id="3-5-期望"><a href="#3-5-期望" class="headerlink" title="3.5 期望"></a>3.5 期望</h3><h4 id="3-5-1-一维"><a href="#3-5-1-一维" class="headerlink" title="3.5.1 一维"></a>3.5.1 一维</h4><ul>
-<li>离散型<br>离散型随机变量的分布律为$P(X&#x3D;x_k)&#x3D;p_k,k&#x3D;1,2,\cdots,E(X)&#x3D;\sum \limits_{k&#x3D;1}^{+\infty}x_kp_k$          </li>
-<li>连续型<br>连续型随机变量X的概率密度为$f(x)$<br>$$\begin{aligned}<br>E(X)&amp; &#x3D;\int_{-\infty}^{+\infty}xf(x)dx\newline<br>E(g(X))&amp; &#x3D;\int_{-\infty}^{+\infty}g(x)f(x)dx<br>\end{aligned}$$</li>
-</ul>
-<h4 id="3-5-2-二维"><a href="#3-5-2-二维" class="headerlink" title="3.5.2 二维"></a>3.5.2 二维</h4><ul>
-<li>离散型<br>若$(X,Y)\sim P(X&#x3D;x_i,Y&#x3D;y_i)&#x3D;p_{ij}~ (i,j&#x3D;1,2,\cdots)$,则<br>$$\begin{aligned}<br>E(Z)&#x3D;E(g(X,Y))&#x3D;\sum \limits_{i&#x3D;1}^{\infty}\sum \limits_{j&#x3D;1}^{\infty}g(x_i,y_j)p_{ij}<br>\end{aligned}$$ </li>
-<li>连续型<br>若二维连续型随机变量$(X,Y)$的概率密度为$f(x,y)$<br>$$\begin{aligned}<br>E(Z)&#x3D;E(g(X,Y))&#x3D;\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}g(x,y)f(x,y)dxdy<br>\end{aligned}$$</li>
-</ul>
-<h4 id="3-5-3-期望的性质"><a href="#3-5-3-期望的性质" class="headerlink" title="3.5.3 期望的性质"></a>3.5.3 期望的性质</h4><p><img src="https://s2.loli.net/2022/08/23/Rz1jNDeJxQhTiwq.jpg"></p>
-<ul>
-<li>实例<br><img src="https://s2.loli.net/2022/08/23/ATw23KVmjFO8DHv.jpg"></li>
-</ul>
-<h4 id="3-5-4-方差"><a href="#3-5-4-方差" class="headerlink" title="3.5.4 方差"></a>3.5.4 方差</h4><p>方差反映一个样本的分散程度<br>$$\begin{aligned}<br>D(X)&#x3D;E[X-E(X)]^2&#x3D;E[X^2-2XE(X)+E(X)^2]&#x3D;E(X^2)-[E(X)]^2<br>\end{aligned}$$ </p>
-<h3 id="3-6-马尔科夫不等式"><a href="#3-6-马尔科夫不等式" class="headerlink" title="3.6 马尔科夫不等式"></a>3.6 马尔科夫不等式</h3><p>$$\begin{aligned}<br>P(X\geq a)\leq \frac {E(X)}{a}~~ (X\geq0,a&gt;0)<br>\end{aligned}$$          </p>
-<h3 id="3-7-切比雪夫不等式"><a href="#3-7-切比雪夫不等式" class="headerlink" title="3.7 切比雪夫不等式"></a>3.7 切比雪夫不等式</h3><p><img src="https://s2.loli.net/2022/08/23/hxwmBMWSGYcgyev.jpg"><br><img src="https://s2.loli.net/2022/08/23/CzKYmHbdD2JLynR.jpg"></p>
-<ul>
-<li>应用<br><img src="https://s2.loli.net/2022/08/23/8vZ12A6egbjX7Wm.jpg"></li>
-</ul>
-<h3 id="3-7-中心极限定理"><a href="#3-7-中心极限定理" class="headerlink" title="3.7 中心极限定理"></a>3.7 中心极限定理</h3><p>不管总体是什么类型的分布，样本的平均值都会围绕在总体的平均值周围，并且呈正态分布。<br>在实际生活当中，我们不能知道我们想要研究的对象的平均值，标准差之类的统计参数。中心极限定理在理论上保证了我们可以用只抽样一部分的方法，达到推测研究对象统计参数的目的。<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/25241653">中心极限定理通俗介绍</a>     </p>
+                <p>这个还是等仔细学了神经网络之后再补充吧<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1qB4y1e7GJ?spm_id_from=333.337.search-card.all.click&vd_source=a647ee5114ce65eae6f65468f4ff0eb8">参考链接1</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/172254089">参考链接2</a><br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/22334626/answer/147543436">参考链接3</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/32824193">参考链接4</a><br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yg411X7gw?p=65&vd_source=a647ee5114ce65eae6f65468f4ff0eb8">参考链接5</a><br>参考链接1、2是讲得最好的                </p>
 
                 
             </div>
@@ -576,7 +537,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://eee123xdn.github.io/2022/08/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E7%AF%87/">http://eee123xdn.github.io/2022/08/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E7%AF%87/</a>
+                    <a href="http://eee123xdn.github.io/2022/08/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E6%8F%90%E9%AB%98%E7%AF%87%E4%B9%8B%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/">http://eee123xdn.github.io/2022/08/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E6%8F%90%E9%AB%98%E7%AF%87%E4%B9%8B%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -614,12 +575,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1/">
-                                    <span class="chip bg-color">概率统计</span>
-                                </a>
-                            
                                 <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
                                     <span class="chip bg-color">机器学习</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/">
+                                    <span class="chip bg-color">激活函数</span>
                                 </a>
                             
                         </div>
@@ -790,7 +751,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2022-08-16T22-53-51',
+        id: '2022-08-28T18-15-04',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -814,7 +775,7 @@
 <script src="/libs/gitment/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-    id: 'Tue Aug 16 2022 22:53:51 GMT+0800',
+    id: 'Sun Aug 28 2022 18:15:04 GMT+0800',
     owner: '',
     repo: '',
     oauth: {
@@ -839,9 +800,9 @@ gitment.render('gitment-content');
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'http://eee123xdn.github.io/2022/08/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E7%AF%87/';
-        this.page.identifier = '/2022/08/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E7%AF%87/';
-        this.page.title = '机器学习数学基础之概率统计篇';
+        this.page.url = 'http://eee123xdn.github.io/2022/08/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E6%8F%90%E9%AB%98%E7%AF%87%E4%B9%8B%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/';
+        this.page.identifier = '/2022/08/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E6%8F%90%E9%AB%98%E7%AF%87%E4%B9%8B%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/';
+        this.page.title = '机器学习数学基础提高篇之激活函数';
     };
     let disqus_shortname = '';
 
@@ -1204,13 +1165,13 @@ gitment.render('gitment-content');
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/08/19/python%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/">
+                <a href="/2022/08/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E6%8F%90%E9%AB%98%E7%AF%87%E4%B9%8B%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="python栈与队列">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="机器学习数学基础提高篇之回归分析">
                         
-                        <span class="card-title">python栈与队列</span>
+                        <span class="card-title">机器学习数学基础提高篇之回归分析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1221,14 +1182,18 @@ gitment.render('gitment-content');
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-19
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-28
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python%E5%9F%BA%E7%A1%80/" class="post-category">
-                                    python基础
+                            <a href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    数学基础
+                                </a>
+                            
+                            <a href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
                                 </a>
                             
                             
@@ -1238,12 +1203,12 @@ gitment.render('gitment-content');
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">数据结构与算法</span>
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
                     </a>
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/">
+                        <span class="chip bg-color">回归分析</span>
                     </a>
                     
                 </div>
@@ -1257,13 +1222,13 @@ gitment.render('gitment-content');
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/14/Codeforces-Round-811-%EF%BC%88Div-3%EF%BC%89/">
+                <a href="/2022/08/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E6%8F%90%E9%AB%98%E7%AF%87%E4%B9%8B%E7%86%B5/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Codeforces Round 811 (Div.3)">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="机器学习数学基础提高篇之熵">
                         
-                        <span class="card-title">Codeforces Round 811 (Div.3)</span>
+                        <span class="card-title">机器学习数学基础提高篇之熵</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1274,14 +1239,18 @@ gitment.render('gitment-content');
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-26
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/cf%E9%A2%98%E8%A7%A3/" class="post-category">
-                                    cf题解
+                            <a href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    数学基础
+                                </a>
+                            
+                            <a href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
                                 </a>
                             
                             
@@ -1291,16 +1260,8 @@ gitment.render('gitment-content');
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Codeforces/">
-                        <span class="chip bg-color">Codeforces</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">数据结构与算法</span>
-                    </a>
-                    
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
                     </a>
                     
                 </div>

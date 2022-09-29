@@ -4,6 +4,91 @@
   
     
     <entry>
+      <title>机器学习数学基础提高篇之回归分析</title>
+      <link href="/2022/08/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E6%8F%90%E9%AB%98%E7%AF%87%E4%B9%8B%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/"/>
+      <url>/2022/08/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E6%8F%90%E9%AB%98%E7%AF%87%E4%B9%8B%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-回归分析概述"><a href="#1-回归分析概述" class="headerlink" title="1. 回归分析概述"></a>1. 回归分析概述</h2><p>回归分析是寻找存在相关关系的变量间的数学表达式，并进行统计推断的一种统计方法<br><img src="https://s2.loli.net/2022/08/28/8uPjOWnhCyle5iR.jpg"></p><h2 id="2-误差项定义"><a href="#2-误差项定义" class="headerlink" title="2. 误差项定义"></a>2. 误差项定义</h2><p>对于一元线性回归，拟合的式子是：<br>$$\begin{equation}<br>h_{\theta}(x)&#x3D;\theta_0+\theta_1x \tag{1}<br>\end{equation}$$<br>对于二元线性回归，拟合的式子是：<br>$$\begin{equation}<br>h_{\theta}(x)&#x3D;\theta_0+\theta_1x_1+\theta_2x_2 \tag{2}<br>\end{equation}$$<br>整合一下,对于$n$维的：<br>$$\begin{equation}<br>h_{\theta}(x)&#x3D;\sum \limits_{i&#x3D;0}^{n}\theta_i x_i&#x3D;\theta^Tx \tag{3}<br>\end{equation}$$</p><p>我们要估计$\theta$使得所有$\theta^Tx^{(i)}$与$y^{(i)}$尽可能接近<br>真实值$y^{(i)}$和预测值$\hat{y^{(i)}}&#x3D;\theta^Tx^{(i)}$肯定是存在差异的，我们用$\varepsilon$来表示，即对于每个样本：<br>$$\begin{equation}<br>y^{(i)}&#x3D;\theta^Tx^{(i)}+\varepsilon^{(i)} \tag{4}<br>\end{equation}$$<br><strong>误差是独立并且具有相同的分布，并且服从均值为0，方差为$\sigma^2$的高斯分布</strong><br><img src="https://s2.loli.net/2022/08/28/qRw1UtIjXSbeAyc.jpg">         </p><p>由于误差服从高斯分布，因此有：<br>$$\begin{equation}<br>p(\varepsilon^{(i)})&#x3D;\frac {1}{\sqrt{2\pi}\sigma}\exp {(-\frac{(\varepsilon^{(i)})^2}{2\sigma^2})} \tag{5}<br>\end{equation}$$ </p><h2 id="3-最小二乘法推导与求解"><a href="#3-最小二乘法推导与求解" class="headerlink" title="3. 最小二乘法推导与求解"></a>3. 最小二乘法推导与求解</h2><p>以下推导都假设样本数据有$m$个。                         </p><h3 id="3-1-最小二乘法推导"><a href="#3-1-最小二乘法推导" class="headerlink" title="3.1 最小二乘法推导"></a>3.1 最小二乘法推导</h3><p>其实就是最大似然估计<br>$$\begin{equation}<br>L(\theta)&#x3D;\prod \limits_{i&#x3D;1}^{m} p(y^{(i)}|\varepsilon^{(i)},\theta)&#x3D;<br>\prod \limits_{i&#x3D;1}^{m} p(\varepsilon^{(i)}|y^{(i)},\theta)&#x3D;<br>\prod \limits_{i&#x3D;1}^{m} \frac {1}{\sqrt{2\pi}\sigma}\exp {(-\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\sigma^2})} \tag{6}<br>\end{equation}$$<br>对数似然<br>$$\begin{split}<br>log\ L(\theta) &amp; &#x3D; log<br>\prod \limits_{i&#x3D;1}^{m} \frac {1}{\sqrt{2\pi}\sigma}\exp {(-\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\sigma^2})} \newline &amp; &#x3D;<br>\sum \limits_{i&#x3D;1}^{m} log<br>\frac {1}{\sqrt{2\pi}\sigma}\exp {(-\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\sigma^2})} \newline<br>&amp; &#x3D; mlog\ \frac {1}{\sqrt{2\pi}\sigma}+\frac {1}{2\sigma^2} \sum \limits_{i&#x3D;1}^{m} (y^{(i)}-\theta^T x^{(i)})^2<br>\end{split}\tag{7} $$<br>我们要使得似然值最大，抛开所有常数不看，其实就变成了<br>$$\begin{equation}<br>J(\theta)&#x3D;\frac {1}{2} \sum \limits_{i&#x3D;1}^{m} (y^{(i)}-\theta^T x^{(i)})^2  \ \ （最小二乘法）\tag{8}<br>\end{equation}$$</p><h3 id="3-2-最小二乘法求解"><a href="#3-2-最小二乘法求解" class="headerlink" title="3.2 最小二乘法求解"></a>3.2 最小二乘法求解</h3><p>对于一元线性回归，我们做一个求解的推导<br><img src="https://s2.loli.net/2022/08/29/OMi93FpZoILAgxc.jpg"><br>所以拟合的回归方程$\hat{y}&#x3D;\hat{\beta_1}x+\hat{\beta_0}\ $我们就得知了  </p><h2 id="4-回归直线的拟合优度"><a href="#4-回归直线的拟合优度" class="headerlink" title="4. 回归直线的拟合优度"></a>4. 回归直线的拟合优度</h2><p>主要线性回归拟合优度判定和线性回归的显著性检验<br><a href="https://blog.csdn.net/yuxiaosmd/article/details/112131088?ops_request_misc=&request_id=&biz_id=102&utm_term=%E5%9B%9E%E5%BD%92%E7%9B%B4%E7%BA%BF%E6%8B%9F%E5%90%88%E4%BC%98%E5%BA%A6&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-4-112131088.142%5Ev42%5Econtrol,185%5Ev2%5Econtrol&spm=1018.2226.3001.4187">参考资料</a></p><h2 id="5-多元线性回归"><a href="#5-多元线性回归" class="headerlink" title="5. 多元线性回归"></a>5. 多元线性回归</h2><p>首先，我们铺垫一点基础知识。                   </p><h3 id="5-1-方程组与矩阵"><a href="#5-1-方程组与矩阵" class="headerlink" title="5.1 方程组与矩阵"></a>5.1 方程组与矩阵</h3><p>我们都知道对于一个方程组，如果系数组成的列向量都是线性无关的，那如果变量数和方程个数相同，就有唯一解；如果变量数&gt;方程数，那解的数量就是无穷多组；如果变量数&lt;方程数，那就无解。<br>因此可以用系数组成的矩阵是否满秩来判断方程组是否有唯一解。<br>判断矩阵是否满秩有两种方法</p><h4 id="矩阵满秩（对于矩阵-A-n-times-n-）"><a href="#矩阵满秩（对于矩阵-A-n-times-n-）" class="headerlink" title="矩阵满秩（对于矩阵$A_{n\times n}$）"></a>矩阵满秩（对于矩阵$A_{n\times n}$）</h4><ul><li><code> np.linalg.matrix_rank(A)</code>,如果答案$ans&#x3D;n$,则矩阵满秩    </li><li><code> np.linalg.det(A)</code>,如果行列式的值$ans\neq0$,则矩阵满秩<br>（满秩矩阵是有逆矩阵的）</li></ul><h3 id="5-2-矩阵求导定义法"><a href="#5-2-矩阵求导定义法" class="headerlink" title="5.2 矩阵求导定义法"></a>5.2 矩阵求导定义法</h3><p>这个数学基础还是蛮重要的<br>我们来看一个多元变量的函数，$f(x_1,x_2)&#x3D;2x_1+x_2$,有$\frac {\partial f(x)}{\partial x_1}&#x3D;2,\frac {\partial f(x)}{\partial x_2}&#x3D;1$,因此，可以这样表示<br>$$\begin{aligned}<br>&amp; \frac {\partial f(x)}{\partial x} &#x3D;\begin{bmatrix}2\newline 1\end{bmatrix}\newline<br>&amp; \left[\frac {\partial f}{\partial x}\right]^T\cdot x &#x3D;f \newline<br>&amp; 令A &#x3D;\frac {\partial f}{\partial x} \newline<br>&amp; 则有，\frac {\partial (A^T\cdot x)}{\partial x} &#x3D;A<br>\end{aligned}$$<br>那我们再扩展到$n$个变量<br>$$\begin{aligned}<br>&amp; x&#x3D;[x_1,x_2,\cdots,x_n]^T \newline<br>&amp; \frac {\partial f}{\partial x}&#x3D;[\frac {\partial f}{\partial x_1},\frac {\partial f}{\partial x_2},\cdots,\frac {\partial f}{\partial x_n}]^T \newline<br>&amp; \frac {\partial f(x)}{\partial x}也可以表示为\bigtriangledown _xf(x)<br>\end{aligned}$$</p><h3 id="5-2-矩阵求导常用公式"><a href="#5-2-矩阵求导常用公式" class="headerlink" title="5.2 矩阵求导常用公式"></a>5.2 矩阵求导常用公式</h3><ul><li><p>$\frac {\partial a}{\partial X}&#x3D;[0,0,\cdots,0]^T$ （a是常量）   </p></li><li><p>$\frac {\partial (X^T\cdot A)}{\partial X}&#x3D;\frac {\partial (A^T\cdot X)}{\partial X}&#x3D;A$                </p></li><li><p>$$\begin{aligned}<br>\frac {\partial (X^T\cdot X)}{\partial X} &amp; &#x3D; \frac {\partial (x_1^2+x_2^2+\cdots+x_n^2)}{X} \newline \newline<br>&amp; &#x3D; \begin{bmatrix}2x_1 \newline 2x_2 \newline \vdots \newline 2x_n<br>\end{bmatrix} \newline \newline<br>&amp; &#x3D; 2\begin{bmatrix}x_1 \newline x_2 \newline \vdots \newline x_n<br>\end{bmatrix} \newline \newline<br>&amp; &#x3D; 2X<br>\end{aligned}$$</p></li><li><p><img src="https://s2.loli.net/2022/09/29/jOgeSKdxhkwL5TP.jpg"></p></li></ul><h3 id="5-3-多元线性回归"><a href="#5-3-多元线性回归" class="headerlink" title="5.3 多元线性回归"></a>5.3 多元线性回归</h3><p>定义样本（m个样本，每个样本有n个特征）<br>$$\begin{aligned}<br>&amp; X &#x3D;\begin{bmatrix}(x^{(1)})^T \newline (x^{(2)})^T \newline \vdots \newline (x^{(m)})^T<br>\end{bmatrix} \newline \newline<br>&amp; 其中x^{(i)} &#x3D;\begin{bmatrix}1 \newline x_{i1} \newline \vdots \newline x_{in}<br>\end{bmatrix} \newline \newline<br>&amp; Y &#x3D;\begin{bmatrix}y^{(1)} \newline y^{(2)} \newline \vdots \newline y^{(m)}<br>\end{bmatrix} ,\theta&#x3D;\begin{bmatrix}\theta_0 \newline \theta_1 \newline \vdots \newline \theta_n<br>\end{bmatrix}<br>\newline \newline<br>&amp; \Rightarrow h_{\theta}(X) &#x3D;X\theta&#x3D;\begin{bmatrix}(x^{(1)})^T\theta \newline (x^{(2)})^T\theta \newline \vdots \newline (x^{(m)})^T\theta<br>\end{bmatrix} &#x3D; \begin{bmatrix}h_{\theta}(x^{(1)}) \newline h_{\theta}(x^{(2)}) \newline \vdots \newline h_{\theta}(x^{(m)})<br>\end{bmatrix} \newline \newline<br>\end{aligned}$$<br>最小均方差（LMS）代价函数为<br>$$\begin{equation}<br>J(\theta)&#x3D;\frac {1}{2} \sum \limits_{i&#x3D;1}^{m} (y^{(i)}-\theta^T x^{(i)})^2  &#x3D;\frac {1}{2}(X\theta-Y)^T(X\theta-Y) \tag{9}<br>\end{equation}$$<br>然后我们求解梯度表达，<br>$$\begin{aligned}<br>\bigtriangledown_\theta J(\theta) &amp;&#x3D; \bigtriangledown_\theta \frac {1}{2}(X\theta-Y)^T(X\theta-Y) \newline<br>&amp; &#x3D; \frac {1}{2} \bigtriangledown_\theta(\theta^TX^TX\theta-\theta^TX^TY-Y^TX\theta+Y^TY)\newline<br>&amp; &#x3D;\frac {1}{2} (X^TX\theta+(X^TX)^T\theta-X^TY-X^TY) \newline<br>&amp; &#x3D;X^TX\theta-X^TY<br>\end{aligned}$$<br>然后令梯度等于零获得闭式解，即<br>$$\begin{aligned}<br>&amp; X^TX\theta-X^TY&#x3D;0 \newline<br>&amp; \Rightarrow X^TX\theta&#x3D;X^TY \newline<br>&amp; \Rightarrow \theta^{*}&#x3D;(X^TX)^{(-1)}X^TY<br>\end{aligned}$$              </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学基础 </category>
+          
+          <category> 机器学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 机器学习 </tag>
+            
+            <tag> 回归分析 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>机器学习数学基础提高篇之激活函数</title>
+      <link href="/2022/08/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E6%8F%90%E9%AB%98%E7%AF%87%E4%B9%8B%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/"/>
+      <url>/2022/08/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E6%8F%90%E9%AB%98%E7%AF%87%E4%B9%8B%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/</url>
+      
+        <content type="html"><![CDATA[<p>这个还是等仔细学了神经网络之后再补充吧<br><a href="https://www.bilibili.com/video/BV1qB4y1e7GJ?spm_id_from=333.337.search-card.all.click&vd_source=a647ee5114ce65eae6f65468f4ff0eb8">参考链接1</a><br><a href="https://zhuanlan.zhihu.com/p/172254089">参考链接2</a><br><a href="https://www.zhihu.com/question/22334626/answer/147543436">参考链接3</a><br><a href="https://zhuanlan.zhihu.com/p/32824193">参考链接4</a><br><a href="https://www.bilibili.com/video/BV1Yg411X7gw?p=65&vd_source=a647ee5114ce65eae6f65468f4ff0eb8">参考链接5</a><br>参考链接1、2是讲得最好的                </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学基础 </category>
+          
+          <category> 机器学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 机器学习 </tag>
+            
+            <tag> 激活函数 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>机器学习数学基础提高篇之熵</title>
+      <link href="/2022/08/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E6%8F%90%E9%AB%98%E7%AF%87%E4%B9%8B%E7%86%B5/"/>
+      <url>/2022/08/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E6%8F%90%E9%AB%98%E7%AF%87%E4%B9%8B%E7%86%B5/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-熵"><a href="#1-熵" class="headerlink" title="1.熵"></a>1.熵</h2><h3 id="1-1-熵的意义"><a href="#1-1-熵的意义" class="headerlink" title="1.1 熵的意义"></a>1.1 熵的意义</h3><p>在物理学中，熵是指物体内部的混乱程度；在机器学习里面，熵指的是一件事发生的不确定性，熵值越大，不确定性越大。<br>公式：<br>$$\begin{equation}<br>H(X)&#x3D;-\sum_{x \in X}p(x)log\ p(x) \tag {1}<br>\end{equation}$$<br>我们先想象一下，一个杂货店和一个专卖店，杂货店的每件物品的概率$p(x)$都比较小，$-log\ p(x)$就比较大；而专卖店只有一种物品，每个$p(x)&#x3D;1,-log\ p(x)&#x3D;0$；因此专卖店的熵值小于杂货店，不确定性就更小。                      </p><h3 id="1-2-信息熵"><a href="#1-2-信息熵" class="headerlink" title="1.2 信息熵"></a>1.2 信息熵</h3><h4 id="1-2-1-信息熵公式解释"><a href="#1-2-1-信息熵公式解释" class="headerlink" title="1.2.1 信息熵公式解释"></a>1.2.1 信息熵公式解释</h4><p>公式$(1)$其实是信息熵的公式，下面我们来解释一下为什么是这样的形式。<br>上面说到信息熵反映事件发生的不确定性，在一个随机事件中，某个事件发生的不确定度越大，熵也就越大，那我们要搞清楚所需要的信息量越大。            </p><p><strong>在我们生活中，信息的大小跟随机事件的概率有关。越小概率的事情发生了产生的信息量越大，如地震了；越大概率的事情发生了产生的信息量越小，如太阳从东边升起来了。</strong>    </p><p>假设随机变量X和Y是独立的，比如小明今天买书和剪头发。独立事件同时发生的概率满足<br>$$\begin{equation}<br>P(X,Y)&#x3D;P(X)P(Y) \tag {2}<br>\end{equation}$$<br>但是知道两件事情同时发生的信息量是等于单独知道一件一件发生的信息量的和的。<br>即<br>$$\begin{equation}<br>H(X,Y)&#x3D;H(X)+H(Y) \tag {3}<br>\end{equation}$$<br>所以，我们现在就想给这个信息量一个公式定义，要满足以下条件：<br>1.当一个事件发生的概率$p(x)$为1并且它发生了，那我们得到的信息量是$h(x)&#x3D;0$<br>2.当一个事件发生的概率$p(x)$为0并且它发生了，那我们得到的信息可能是无限大<br>3.$h(x)$随$p(x)$单调递增<br>4.$p(x,y)&#x3D;p(x)p(y)$<br>5.$h(x,y)&#x3D;h(x)+h(y)$<br>6.信息量$h(x)$反比于$p(x)$<br>7.信息量是非负的</p><p>因此，就找到一个函数<br>$$\begin{equation}<br>h(x)&#x3D;-log\ p(x) \tag {4} 来表示事件X&#x3D;x发生得到的信息量<br>\end{equation}$$<br>现在,$X可能&#x3D;x_1,x_2,x_3,\cdots \ P(X&#x3D;x_k)&#x3D;p_k$<br>所以这个事件$X$发生得到的信息量的期望值就是：<br>$$<br>\begin{split}<br>H(X) &amp; &#x3D;-\ p(X&#x3D;x_1)log_2(p(X&#x3D;x_1))-p(X&#x3D;x_2)log_2(p(X&#x3D;x_2))-\cdots \newline<br>&amp; &#x3D; -\sum_{x\in X}p(x)log\ p(x)<br>\end{split}\tag{5}<br>$$        </p><h4 id="1-2-2-信息熵本质"><a href="#1-2-2-信息熵本质" class="headerlink" title="1.2.2 信息熵本质"></a>1.2.2 信息熵本质</h4><p>信息熵本质是我要获得某些信息的代价，当信息的稀有度越高，得到这个信息需要付出的代价越高。        </p><p>举个例子，小明在一道选择题的A,B,C,D中选出答案，A对的概率为1&#x2F;2，B对的概率变成了1&#x2F;4，C和D则分别是1&#x2F;8。小明要猜多少次才能得到正确答案呢？求次数的期望值。<br>小明根据概率值肯定先猜A，A不对再猜B，B不对再猜C、D。<br>$E(X)&#x3D;\frac{1}{2}\times 1+\frac{1}{4}\times 2+\frac{1}{8}\times 3+\frac{1}{8}\times 3 &#x3D; 1.75次$<br>信息熵：<br>$H(X) &#x3D; - \frac{1}{2}\times log_2(\frac{1}{2})-\frac{1}{4}\times log_2(\frac{1}{4}) - \frac{1}{8}\times log_2(\frac{1}{8})- \frac{1}{8}\times log_2(\frac{1}{8}) &#x3D; 1.75\ bits$<br>所以为什么有的书上写的是： 对于离散概率分布，熵是记录一次该概率分布下事件发生所需要的平均比特数。<br><a href="https://zhuanlan.zhihu.com/p/30854084">参考链接</a>          </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学基础 </category>
+          
+          <category> 机器学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 机器学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>机器学习数学基础提高篇之核函数</title>
       <link href="/2022/08/25/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E6%8F%90%E9%AB%98%E7%AF%87%E4%B9%8B%E6%A0%B8%E5%87%BD%E6%95%B0/"/>
       <url>/2022/08/25/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E6%8F%90%E9%AB%98%E7%AF%87%E4%B9%8B%E6%A0%B8%E5%87%BD%E6%95%B0/</url>
