@@ -476,21 +476,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-29
+                    2022-10-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    8 分
                 </div>
                 
 
@@ -525,7 +525,7 @@
 <li><code> np.linalg.det(A)</code>,如果行列式的值$ans\neq0$,则矩阵满秩<br>（满秩矩阵是有逆矩阵的）</li>
 </ul>
 <h3 id="5-2-矩阵求导定义法"><a href="#5-2-矩阵求导定义法" class="headerlink" title="5.2 矩阵求导定义法"></a>5.2 矩阵求导定义法</h3><p>这个数学基础还是蛮重要的<br>我们来看一个多元变量的函数，$f(x_1,x_2)&#x3D;2x_1+x_2$,有$\frac {\partial f(x)}{\partial x_1}&#x3D;2,\frac {\partial f(x)}{\partial x_2}&#x3D;1$,因此，可以这样表示<br>$$\begin{aligned}<br>&amp; \frac {\partial f(x)}{\partial x} &#x3D;\begin{bmatrix}2\newline 1\end{bmatrix}\newline<br>&amp; \left[\frac {\partial f}{\partial x}\right]^T\cdot x &#x3D;f \newline<br>&amp; 令A &#x3D;\frac {\partial f}{\partial x} \newline<br>&amp; 则有，\frac {\partial (A^T\cdot x)}{\partial x} &#x3D;A<br>\end{aligned}$$<br>那我们再扩展到$n$个变量<br>$$\begin{aligned}<br>&amp; x&#x3D;[x_1,x_2,\cdots,x_n]^T \newline<br>&amp; \frac {\partial f}{\partial x}&#x3D;[\frac {\partial f}{\partial x_1},\frac {\partial f}{\partial x_2},\cdots,\frac {\partial f}{\partial x_n}]^T \newline<br>&amp; \frac {\partial f(x)}{\partial x}也可以表示为\bigtriangledown _xf(x)<br>\end{aligned}$$</p>
-<h3 id="5-2-矩阵求导常用公式"><a href="#5-2-矩阵求导常用公式" class="headerlink" title="5.2 矩阵求导常用公式"></a>5.2 矩阵求导常用公式</h3><ul>
+<h3 id="5-3-矩阵求导常用公式"><a href="#5-3-矩阵求导常用公式" class="headerlink" title="5.3 矩阵求导常用公式"></a>5.3 矩阵求导常用公式</h3><ul>
 <li><p>$\frac {\partial a}{\partial X}&#x3D;[0,0,\cdots,0]^T$ （a是常量）   </p>
 </li>
 <li><p>$\frac {\partial (X^T\cdot A)}{\partial X}&#x3D;\frac {\partial (A^T\cdot X)}{\partial X}&#x3D;A$                </p>
@@ -536,6 +536,68 @@
 </li>
 </ul>
 <h3 id="5-3-多元线性回归"><a href="#5-3-多元线性回归" class="headerlink" title="5.3 多元线性回归"></a>5.3 多元线性回归</h3><p>定义样本（m个样本，每个样本有n个特征）<br>$$\begin{aligned}<br>&amp; X &#x3D;\begin{bmatrix}(x^{(1)})^T \newline (x^{(2)})^T \newline \vdots \newline (x^{(m)})^T<br>\end{bmatrix} \newline \newline<br>&amp; 其中x^{(i)} &#x3D;\begin{bmatrix}1 \newline x_{i1} \newline \vdots \newline x_{in}<br>\end{bmatrix} \newline \newline<br>&amp; Y &#x3D;\begin{bmatrix}y^{(1)} \newline y^{(2)} \newline \vdots \newline y^{(m)}<br>\end{bmatrix} ,\theta&#x3D;\begin{bmatrix}\theta_0 \newline \theta_1 \newline \vdots \newline \theta_n<br>\end{bmatrix}<br>\newline \newline<br>&amp; \Rightarrow h_{\theta}(X) &#x3D;X\theta&#x3D;\begin{bmatrix}(x^{(1)})^T\theta \newline (x^{(2)})^T\theta \newline \vdots \newline (x^{(m)})^T\theta<br>\end{bmatrix} &#x3D; \begin{bmatrix}h_{\theta}(x^{(1)}) \newline h_{\theta}(x^{(2)}) \newline \vdots \newline h_{\theta}(x^{(m)})<br>\end{bmatrix} \newline \newline<br>\end{aligned}$$<br>最小均方差（LMS）代价函数为<br>$$\begin{equation}<br>J(\theta)&#x3D;\frac {1}{2} \sum \limits_{i&#x3D;1}^{m} (y^{(i)}-\theta^T x^{(i)})^2  &#x3D;\frac {1}{2}(X\theta-Y)^T(X\theta-Y) \tag{9}<br>\end{equation}$$<br>然后我们求解梯度表达，<br>$$\begin{aligned}<br>\bigtriangledown_\theta J(\theta) &amp;&#x3D; \bigtriangledown_\theta \frac {1}{2}(X\theta-Y)^T(X\theta-Y) \newline<br>&amp; &#x3D; \frac {1}{2} \bigtriangledown_\theta(\theta^TX^TX\theta-\theta^TX^TY-Y^TX\theta+Y^TY)\newline<br>&amp; &#x3D;\frac {1}{2} (X^TX\theta+(X^TX)^T\theta-X^TY-X^TY) \newline<br>&amp; &#x3D;X^TX\theta-X^TY<br>\end{aligned}$$<br>然后令梯度等于零获得闭式解，即<br>$$\begin{aligned}<br>&amp; X^TX\theta-X^TY&#x3D;0 \newline<br>&amp; \Rightarrow X^TX\theta&#x3D;X^TY \newline<br>&amp; \Rightarrow \theta^{*}&#x3D;(X^TX)^{(-1)}X^TY<br>\end{aligned}$$              </p>
+<h2 id="6-python工具包"><a href="#6-python工具包" class="headerlink" title="6. python工具包"></a>6. python工具包</h2><p>可以在<a target="_blank" rel="noopener" href="https://www.statsmodels.org/stable/examples/index.html">statsmodels</a>和<a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/auto_examples/index.html">scikit-learn</a>官网查看examples，然后学习用法                            </p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/doubleguy/article/details/121566140?ops_request_misc=&request_id=&biz_id=102&utm_term=numpy%E5%88%97%E5%90%91%E9%87%8F&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-121566140.142%5Ev51%5Econtrol,201%5Ev3%5Eadd_ask&spm=1018.2226.3001.4187">numpy行向量和列向量的了解</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43186282/article/details/121513266?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166460048416800184139198%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=166460048416800184139198&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-4-121513266-null-null.142%5Ev51%5Econtrol,201%5Ev3%5Eadd_ask&utm_term=plt.legend()%E7%9A%84%E7%94%A8%E6%B3%95&spm=1018.2226.3001.4187">plt.plot()，plt.scatter()，plt.legend函数</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/zou_albert/article/details/114887347?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166460344316800180617045%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=166460344316800180617045&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_click~default-3-114887347-null-null.142%5Ev51%5Econtrol,201%5Ev3%5Eadd_ask&utm_term=plt.subplots&spm=1018.2226.3001.4187">plt子图</a>                              </p>
+<h3 id="6-1-statsmodels回归分析"><a href="#6-1-statsmodels回归分析" class="headerlink" title="6.1 statsmodels回归分析"></a>6.1 statsmodels回归分析</h3><pre class=" language-hljs OLS.py"><code class="language-hljs OLS.py">import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import statsmodels.api as sm
+
+nsample=20
+x=np.linspace(0,10,nsample)
+X=sm.add_constant(x)
+print(X)
+beta=np.array([2,5])
+e=np.random.normal(size=nsample)
+print(e)
+#造的数据点
+Y=np.dot(X,beta)+e
+print(Y)
+#最小二乘法估计
+model=sm.OLS(Y,X)
+results=model.fit()
+print(results.params)
+print(results.summary())
+#拟合直线的预测结果
+Y_=results.fittedvalues
+print(Y_)
+fig, ax = plt.subplots(figsize=(8, 6))
+ax.plot(x, Y, "bo", label="data")
+ax.plot(x,Y_,&#x27;r--&#x27;,label=&#x27;OLS&#x27;)
+ax.legend(loc="best")
+plt.show()</code></pre>
+<p><img src="https://s2.loli.net/2022/10/01/rCFcW5anTVZDwy6.png">]</p>
+<h3 id="6-2-高阶回归"><a href="#6-2-高阶回归" class="headerlink" title="6.2 高阶回归"></a>6.2 高阶回归</h3><p>这个只需要在上面的基础上做一点小小的修改         </p>
+<pre class=" language-hljs OLS_.py"><code class="language-hljs OLS_.py">import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import statsmodels.api as sm
+
+nsample=50
+x=np.linspace(0,10,nsample)
+X = np.column_stack((x, x ** 2))
+X=sm.add_constant(X)
+print(X)
+beta=np.array([3,2,5])
+e=np.random.normal(size=nsample)
+print(e)
+#造的数据点
+Y=np.dot(X,beta)+e
+print(Y)
+#最小二乘法估计
+model=sm.OLS(Y,X)
+results=model.fit()
+print(results.params)
+print(results.summary())
+#拟合直线的预测结果
+Y_=results.fittedvalues
+print(Y_)
+fig, ax = plt.subplots(figsize=(8, 6))
+ax.plot(x, Y, "bo", label="data")
+ax.plot(x,Y_,&#x27;r--&#x27;,label=&#x27;OLS&#x27;)
+ax.legend(loc="best")
+plt.show()</code></pre>
+<p><img src="https://s2.loli.net/2022/10/01/upKIMYEA3UQgVL6.png"></p>
 
                 
             </div>
@@ -1186,18 +1248,17 @@ gitment.render('gitment-content');
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/08/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E6%8F%90%E9%AB%98%E7%AF%87%E4%B9%8B%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/">
+                <a href="/2022/10/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E4%BE%8B%E4%B9%8B%E6%B1%BD%E8%BD%A6%E4%BB%B7%E6%A0%BC%E9%A2%84%E6%B5%8B%E4%BB%BB%E5%8A%A1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="机器学习数学基础提高篇之回归分析">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="机器学习实例之汽车价格预测任务">
                         
-                        <span class="card-title">机器学习数学基础提高篇之回归分析</span>
+                        <span class="card-title">机器学习实例之汽车价格预测任务</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1207,18 +1268,14 @@ gitment.render('gitment-content');
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-28
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-03
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="post-category">
-                                    数学基础
-                                </a>
-                            
-                            <a href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
                                     机器学习
                                 </a>
                             
@@ -1226,7 +1283,6 @@ gitment.render('gitment-content');
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1500,7 +1556,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">13.1k</span>&nbsp;字
+                class="white-color">16.4k</span>&nbsp;字
             
             
             

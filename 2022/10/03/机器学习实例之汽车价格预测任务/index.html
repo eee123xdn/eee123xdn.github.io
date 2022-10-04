@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="fpga学习第二节（时序逻辑）, 谢东娜的博客">
+    <meta name="keywords" content="机器学习实例之汽车价格预测任务, 谢东娜的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>fpga学习第二节（时序逻辑） | 谢东娜的博客</title>
+    <title>机器学习实例之汽车价格预测任务 | 谢东娜的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -315,12 +315,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">fpga学习第二节（时序逻辑）</h1>
+                    <h1 class="description center-align post-title">机器学习实例之汽车价格预测任务</h1>
                 </div>
             </div>
         </div>
@@ -436,12 +436,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/fpga/">
-                                <span class="chip bg-color">fpga</span>
+                            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">机器学习</span>
                             </a>
                         
-                            <a href="/tags/verilog/">
-                                <span class="chip bg-color">verilog</span>
+                            <a href="/tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/">
+                                <span class="chip bg-color">回归分析</span>
                             </a>
                         
                     </div>
@@ -452,8 +452,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%A1%AC%E4%BB%B6%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                硬件学习
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                机器学习
                             </a>
                         
                     </div>
@@ -465,28 +465,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-11
+                    2022-10-03
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-17
+                    2022-10-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    310
+                    3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    12 分
                 </div>
                 
 
@@ -506,111 +506,251 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="计数器（实现灯每隔1s亮一次）"><a href="#计数器（实现灯每隔1s亮一次）" class="headerlink" title="计数器（实现灯每隔1s亮一次）"></a>计数器（实现灯每隔1s亮一次）</h1><h2 id="1-逻辑设计"><a href="#1-逻辑设计" class="headerlink" title="1.逻辑设计"></a>1.逻辑设计</h2><p>灯每隔1s亮一次，就是亮500ms,灭500ms,时钟信号频率是50MHZ，也就是20ns一个周期，方波来看就是高电平10s,低电平10s，这样交替。D触发器使得在上升沿到来时计数加1，那20ns计数加1，500ms就需要计数到25000000，也就是说计数到25000000，led灯的状态就变一下。 （亮变灭，灭变亮）。<br><img src="https://s2.loli.net/2022/08/17/oqf6JQOu24GX8Ie.jpg"><br>这样我们就清楚了：输入信号是时钟信号clk,复位信号reset_n,输出信号是led。在这个过程中要设置一个计数值cnt,根据clk信号改变cnt,再根据cnt的值改变led。（reset的值也会改变cnt和led的状态）                </p>
-<h2 id="2-设计输入"><a href="#2-设计输入" class="headerlink" title="2.设计输入"></a>2.设计输入</h2><p>要注意count是计数到25000000，led才改变吗？不是。<br>0-1<br>1-2<br>2-3<br>3-0 （此循环的周期是4）<br>因此计数到24999999即可</p>
-<pre class=" language-hljs led_flash.v"><code class="language-hljs led_flash.v">`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 2022/08/17 21:52:49
-// Design Name: 
-// Module Name: led_flash
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
+                <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1. 问题描述"></a>1. 问题描述</h2><p>一家中国汽车公司计划在美国设立生产部门并在当地生产汽车，进入美国市场。因此，他们希望了解汽车定价所依赖的因素。他们想了解影响美国市场汽车定价的主要因素，因为这些因素可能与中国市场有很大不同。<br>具体来说，该公司想知道：</p>
+<ul>
+<li>哪些变量与汽车定价关系密切？</li>
+<li>如何根据汽车指标变量指导定价？</li>
+</ul>
+<p>这是一个多元线性回归的问题，一个因变量受多个自变量的影响。其中自变量有连续型指标的自变量，也有分类变量。那我们要实现的两个任务就是（1）找出对因变量结果影响比较大的几个自变量（2）根据数据集进行训练，然后找出回归模型，使得有了自变量数据后能够对因变量进行预测，并对回归模型进行评估。 </p>
+<h2 id="2-数据集简介"><a href="#2-数据集简介" class="headerlink" title="2. 数据集简介"></a>2. 数据集简介</h2><p>数据中有分类变量也有连续变量，主要包括3类指标:</p>
+<ol>
+<li>汽车的各种特性.</li>
+<li>保险风险评级symboling：(-3, -2, -1, 0, 1, 2, 3).<pre class=" language-hljs data.txt"><code class="language-hljs data.txt">类别属性
+- CarName: 汽车的商标（奥迪，宝马。。。）
+- fueltype: 汽油还是天然气
+- aspiration: 涡轮
+- doornumber: 两门还是四门
+- carbody: 硬顶车、轿车、掀背车、敞篷车
+- drivewheel: 驱动轮
+- enginelocation: 发动机位置
+- enginetype: 发动机类型
+- cylindernumber: 几个气缸
+- fuelsystem: 燃油系统
+
+连续指标
+- boreratio: continuous from 2.54 to 3.94.
+- stroke: continuous from 2.07 to 4.17.
+- compressionratio: continuous from 7 to 23.
+- horsepower: continuous from 48 to 288.
+- peakrpm: continuous from 4150 to 6600.
+- citympg: continuous from 13 to 49.
+- highwaympg: continuous from 16 to 54.
+- price: continuous from 5118 to 45400.</code></pre></li>
+</ol>
+<h2 id="3-实现流程"><a href="#3-实现流程" class="headerlink" title="3. 实现流程"></a>3. 实现流程</h2><p><a target="_blank" rel="noopener" href="https://www.kaggle.com/datasets/hellbuoy/car-price-prediction">数据集</a> </p>
+<h3 id="3-1-导入包"><a href="#3-1-导入包" class="headerlink" title="3.1 导入包"></a>3.1 导入包</h3><pre class=" language-hljs 1.py"><code class="language-hljs 1.py">import matplotlib
+import numpy as np
+import pandas as pd
+import datetime
+
+# data visualization and missing values
+import matplotlib.pyplot as plt
+import seaborn as sns
+import missingno as msno
+
+# stats
+from statsmodels.distributions.empirical_distribution import ECDF
+from sklearn.metrics import mean_squared_error, r2_score
+
+# machine learning
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import Lasso, LassoCV
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.ensemble import RandomForestRegressor
+
+seed = 123  # 设置一个随机种子，不会每次随机抽样的结果不同</code></pre>
+<h3 id="3-2-数据读取与分析"><a href="#3-2-数据读取与分析" class="headerlink" title="3.2 数据读取与分析"></a>3.2 数据读取与分析</h3><pre class=" language-hljs 2.py"><code class="language-hljs 2.py">data = pd.read_csv("CarPrice_Assignment.csv", na_values=&#x27;?&#x27;)  # 把表格或者数据里面为&#x27;?&#x27;，看做缺失</code></pre>
+<p>查看数据信息</p>
+<pre class=" language-hljs 3.py"><code class="language-hljs 3.py">print(data.columns)  # 查看每列列名
+print(data.dtypes)  # 查看字符类型</code></pre>
+<p><img src="https://s2.loli.net/2022/10/03/2UEy6KpJ3FCVZmT.jpg"></p>
+<p>数据内容                        </p>
+<pre class=" language-hljs 4.py"><code class="language-hljs 4.py">print(data.shape)  # 查看数据有几行几列
+print(data.head(5))  # 查看前面5行内容</code></pre>
+<p>(205, 25)</p>
+<pre class=" language-hljs 5.py"><code class="language-hljs 5.py">print(data.describe())  # 数据描述，比如均值，标准差什么的</code></pre>
+<p><img src="https://s2.loli.net/2022/10/03/pP8cAUzFkofMZOy.jpg"></p>
+<h3 id="3-3-数据预处理"><a href="#3-3-数据预处理" class="headerlink" title="3.3 数据预处理"></a>3.3 数据预处理</h3><h4 id="3-3-1-缺失数据填充"><a href="#3-3-1-缺失数据填充" class="headerlink" title="3.3.1 缺失数据填充"></a>3.3.1 缺失数据填充</h4><pre class=" language-hljs 6.py"><code class="language-hljs 6.py"># 缺失值处理 （missingno缺失值可视化）
+sns.set(style="ticks")  # 指定风格
+msno.matrix(data)  # 画图
+plt.show()</code></pre>
+<p><img src="https://s2.loli.net/2022/10/03/otln9QLGav4zRCI.png"> </p>
+<p>我并未下载到一个有normalized losses数据项的数据集（我也不知道为什么呜呜），然后那个数据集里面normalized losses这一项有很多缺失值，导致如果直接删除缺失值所在的行，就会对结果产生较大误差。那样的话就需要对normalized losses缺失值所在的行进行缺失值的填充，这个填充方法最好根据数据的特征来，有可能用平均数，也有可能用中位数或者其他填充。<br>在有normalized losses项的那个例子里面，直接用中位数或者平均数来填充缺失值可能不够精确，损失支付normalized losses与风险等级相关性很强，因此它采用了按照风险等级来划分组，再使用每组的平均数来填充normalized losses的缺失值的方法。<br>（<a target="_blank" rel="noopener" href="https://blog.csdn.net/WHYbeHERE/article/details/111293495">缺失数据填充参考博客</a><code>先画出数据的累积分布分析一下，再考虑数据特征，进行分组填充</code>）          </p>
+<p>我下载的数据是完整的，就随便删掉了几个值，先走个流程。                   </p>
+<pre class=" language-hljs 7.py"><code class="language-hljs 7.py">data = data.dropna(subset = [&#x27;price&#x27;, &#x27;boreratio&#x27;, &#x27;stroke&#x27;, &#x27;peakrpm&#x27;, &#x27;horsepower&#x27;, &#x27;doornumber&#x27;]) #对于缺失值少的几列，直接删掉缺失值
+print(&#x27;In total:&#x27;, data.shape)</code></pre>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/dss_dssssd/article/details/82814673">删掉缺失值行或列</a>                                       </p>
+<h4 id="3-3-2-对异常值的分析处理"><a href="#3-3-2-对异常值的分析处理" class="headerlink" title="3.3.2 对异常值的分析处理"></a>3.3.2 对异常值的分析处理</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_46310648/article/details/117386013">对异常值的分析处理参考资料（正态分布法，箱型图法）</a>                  </p>
+<h4 id="3-3-3-根据特征相关性抛弃一些数据项，消除多重共线性"><a href="#3-3-3-根据特征相关性抛弃一些数据项，消除多重共线性" class="headerlink" title="3.3.3 根据特征相关性抛弃一些数据项，消除多重共线性"></a>3.3.3 根据特征相关性抛弃一些数据项，消除多重共线性</h4><p>首先，我们说说为什么要消除多重共线性<br>我们想想，研究一个变量对结果的影响时，需要控制其他变量不变，然后增加或者减少这个自变量来看结果的变化。但是实际情况下，很多变量是相互关联的，且相关性很强，一个变量变化，另一个自变量仍然会被牵扯着改变，这样就会导致这个自变量所带的因素对结果影响的占比重复计算。<br>换句话说，由于存在太多的重叠，因此所有用来解释因变量的特征变量功效都会被放大。如果一个部分出现错误，很可能会通过重叠，将错误延伸到其他部分。<br><a target="_blank" rel="noopener" href="https://martechcareer.com/advice/2020/09/14-mmm">学习参考</a><br>因此我们需要根据自变量之间的相关性抛弃一些多余的变量，消除多重共线性。</p>
+<pre class=" language-hljs 8.py"><code class="language-hljs 8.py"># 使用corr()计算数据的相关性，返回的仍是dataframe类型数据，可以直接引用
+# 相关系数的取值范围为[-1, 1],当接近1时，表示两者具有强烈的正相关性，
+# 比如‘s’和‘x’；当接近-1时，表示有强烈的的负相关性，比如‘s’和‘c’，
+# 而若值接近0，则表示相关性很低
+# cormatrix #查看结果,是一个对称矩阵
+cormatrix = data.corr()
+
+# 不同的展现格式
+cormatrix *= np.tri(*cormatrix.values.shape, k=-1).T  # 返回函数的上三角矩阵，把对角线上的置0，让他们不是最高的。
+cormatrix = cormatrix.stack()  # 某一指标与其他指标的关系
+
+# 找出前十个最相关的特征
+cormatrix = cormatrix.reindex(cormatrix.abs().sort_values(ascending=False).index).reset_index()
+cormatrix.columns = ["FirstVariable", "SecondVariable", "Correlation"]
+print(cormatrix.head(10))</code></pre>
+<p><img src="https://s2.loli.net/2022/10/03/5gSUe7i4HvVujkI.jpg">       </p>
+<ul>
+<li>第一行中，citympg 和 highwaympg 两个特征的相关性高达0.97，需要删除掉其中一个。                    </li>
+<li>对于数据中长宽高，他们应该存在某种配对关系，可以让这几个特征组合成一个新特征。</li>
+</ul>
+<pre class=" language-hljs 9.py"><code class="language-hljs 9.py">data[&#x27;volume&#x27;] = data.carwidth*data.carlength*data.carheight
+
+data.drop([&#x27;carwidth&#x27;, &#x27;carlength&#x27;, &#x27;carheight&#x27;,
+           &#x27;curbweight&#x27;, &#x27;citympg&#x27;],
+          axis = 1, # 1 for columns
+          inplace = True)</code></pre>
+<p>一些学习参考：<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yanshw/p/15428673.html">对称矩阵化为三角矩阵</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42874547/article/details/89056000?ops_request_misc=&request_id=&biz_id=102&utm_term=pandas%20stack%20unstack&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-89056000.142%5Ev51%5Econtrol,201%5Ev3%5Eadd_ask&spm=1018.2226.3001.4187">Pandas之stack()和unstack()用法</a>            </p>
+<p>热力图展示        </p>
+<pre class=" language-hljs 10.py"><code class="language-hljs 10.py">corr_all = data.corr()
+# 热力图展示
+# Generate a mask for the upper triangle
+mask = np.zeros_like(corr_all, dtype = np.bool_)
+mask[np.triu_indices_from(mask)] = True
+
+# Set up the matplotlib figure
+f, ax = plt.subplots(figsize = (11, 9))
+
+# Draw the heatmap with the mask and correct aspect ratio
+sns.heatmap(corr_all, mask = mask,
+            square = True, linewidths = .5, ax = ax, cmap = "RdBu_r")
+plt.show()</code></pre>
+<p><img src="https://s2.loli.net/2022/10/03/5i3zckELaJ71Ods.png">         </p>
+<h4 id="3-3-4-进一步回归分析"><a href="#3-3-4-进一步回归分析" class="headerlink" title="3.3.4 进一步回归分析"></a>3.3.4 进一步回归分析</h4><p>由热力图我们可以看到，因变量price与自变量enginesize,horsepower强相关。<br>我们现在可以通过控制变量法对比一下一个分类变量取不同的类别时，price与连续型变量<br>horsepower的关系。使用implot可以很清晰地展示对比效果。                     </p>
+<pre class=" language-hljs 11.py"><code class="language-hljs 11.py">print(&#x27;fueltype:&#x27;, data[&#x27;fueltype&#x27;].unique(), &#x27;\ndoors:&#x27;, data[&#x27;doornumber&#x27;].unique())
+sns.lmplot(data,x=&#x27;price&#x27;,y=&#x27;horsepower&#x27;,hue=&#x27;fueltype&#x27;,
+           col=&#x27;fueltype&#x27;,row=&#x27;doornumber&#x27;,palette=&#x27;plasma&#x27;,
+           fit_reg=True)
+plt.show()</code></pre>
+<p><code>hue用颜色区分</code><br><img src="https://s2.loli.net/2022/10/03/ilvquKMx69pamBA.png">      </p>
+<ul>
+<li>根据燃料的类型和门的数量的不同，划分成4组，即4个图。我们看到，无论是那种组合下，一辆汽车马力与价格都是正相关</li>
+</ul>
+<h4 id="3-3-5-数值特征的标准化"><a href="#3-3-5-数值特征的标准化" class="headerlink" title="3.3.5 数值特征的标准化"></a>3.3.5 数值特征的标准化</h4><p>对于数值型的特征，需要进行标准化处理，减少由于不同数量级的度量范围对模型带来的影响。</p>
+<pre class=" language-hljs 12.py"><code class="language-hljs 12.py">target=data.price
+# 特征数据
+features = data.drop(columns=[&#x27;price&#x27;])
+# 数字类型的特征,连续型的进行标准化
+num = [&#x27;symboling&#x27;, &#x27;volume&#x27;, &#x27;horsepower&#x27;, &#x27;wheelbase&#x27;,
+       &#x27;boreratio&#x27;, &#x27;stroke&#x27;, &#x27;compressionratio&#x27;, &#x27;peakrpm&#x27;, &#x27;enginesize&#x27;, &#x27;highwaympg&#x27;]
+
+# 标准化处理
+standard_scaler = StandardScaler()
+features[num] = standard_scaler.fit_transform(features[num])</code></pre>
+
+<h4 id="3-3-6-独热编码"><a href="#3-3-6-独热编码" class="headerlink" title="3.3.6 独热编码"></a>3.3.6 独热编码</h4><p>对于连续型变量标准化，对于分类变量就需要进行独热处理，这样会使得自变量的项数增加 </p>
+<pre class=" language-hljs 13.py"><code class="language-hljs 13.py">## 需要进行one-hot编码的特征列
+classes = [&#x27;CarName&#x27;, &#x27;fueltype&#x27;, &#x27;aspiration&#x27;, &#x27;doornumber&#x27;,
+           &#x27;carbody&#x27;, &#x27;drivewheel&#x27;, &#x27;enginelocation&#x27;,
+           &#x27;enginetype&#x27;, &#x27;cylindernumber&#x27;, &#x27;fuelsystem&#x27;]
+
+## 使用pandas的get_dummies进行one-hot编码
+dummies = pd.get_dummies(features[classes])
+print(dummies.columns)
+
+## one-hot编码加工好的特征数据
+features = features.join(dummies).drop(classes, axis=1)
+print(features.shape)
+print(features.head())</code></pre>
+<h3 id="3-4-模型建立：Lasso回归"><a href="#3-4-模型建立：Lasso回归" class="headerlink" title="3.4 模型建立：Lasso回归"></a>3.4 模型建立：Lasso回归</h3><pre class=" language-hljs 14.py"><code class="language-hljs 14.py"># 按照30%划分数据集
+X_train, X_test, y_train, y_test = train_test_split(features, target,
+                                                    test_size = 0.3,
+                                                    random_state = seed)
+print("Train", X_train.shape, "and test", X_test.shape)</code></pre>
+<pre class=" language-hljs 15.py"><code class="language-hljs 15.py"># Lasso回归,基于线性回归的基础上，多加了一个绝对值想来惩罚过大的系数，即+\lambda*|w|,比如w=[1/4,1/4,1/4,1/4]和w=[1,0,0,0]的模型，前者更优
+# lassocv：交叉验证模型，
+
+# 交叉验证cross validation
+lassocv = LassoCV(cv=10, random_state=seed)
+# 制定模型，将训练集平均切10分，9份用来做训练，1份用来做验证，可设置alphas=[]是多少（序列格
+# 式），默认不设置则找适合训练集最优alpha
+lassocv.fit(features, target)
+lassocv_score = lassocv.score(features, target)  # 测试模型,返回r^2值
+lassocv_alpha = lassocv.alpha_
+
+plt.figure(figsize=(10, 4))
+plt.plot(lassocv_alpha, lassocv_score, &#x27;-ko&#x27;)
+plt.axhline(lassocv_score, color=&#x27;c&#x27;)
+plt.xlabel(r&#x27;$\alpha$&#x27;)
+plt.ylabel(&#x27;CV Score&#x27;)
+plt.xscale(&#x27;log&#x27;, base=2)
+sns.despine(offset=15)
+plt.show()
+print(&#x27;CV results:&#x27;, lassocv_score, lassocv_alpha)</code></pre>
+<p><img src="https://s2.loli.net/2022/10/04/kO8u6jaCBF9cKte.png"><br>$CV results: 0.9217061755833494 \ 63.67134077265599$  </p>
+<h3 id="3-5-特征重要性分析"><a href="#3-5-特征重要性分析" class="headerlink" title="3.5 特征重要性分析"></a>3.5 特征重要性分析</h3><pre class=" language-hljs 16.py"><code class="language-hljs 16.py"># lassocv coefficients
+coefs = pd.Series(lassocv.coef_, index = features.columns)
+
+# prints out the number of picked/eliminated features
+print("Lasso picked " + str(sum(coefs != 0)) + " features and eliminated the other " +  \
+      str(sum(coefs == 0)) + " features.")
+
+# 展示前5个和后5个
+coefs = pd.concat([coefs.sort_values().head(5), coefs.sort_values().tail(5)])
+
+plt.figure(figsize = (10, 4))
+coefs.plot(kind = "barh", color = c)
+plt.title("Coefficients in the Lasso Model")
+plt.show()</code></pre>
+<p>这个数据集被我改变了，所以结果有很大差异，展示一下形式<br><img src="https://s2.loli.net/2022/10/04/IPelWqnByKg3mUh.png">         </p>
+<pre class=" language-hljs 17.py"><code class="language-hljs 17.py"># 用交叉验证得到的\alpha去训练模型
+model_l1 = LassoCV(alphas=[lassocv.alpha_], cv=10, random_state=seed).fit(X_train, y_train)
+y_pred_l1 = model_l1.predict(X_test)
+##输出测试的结果
+print(model_l1.score(X_test, y_test))</code></pre>
+<p>$R^2:0.8283817335574528$        </p>
+<h3 id="3-6-结果评估"><a href="#3-6-结果评估" class="headerlink" title="3.6 结果评估"></a>3.6 结果评估</h3><h4 id="3-6-1-残差图"><a href="#3-6-1-残差图" class="headerlink" title="3.6.1 残差图"></a>3.6.1 残差图</h4><pre class=" language-hljs 18.py"><code class="language-hljs 18.py"># 用上面训练的模型查看测试集真实值和预测值的差异,残差图展示
+plt.rcParams[&#x27;figure.figsize&#x27;] = (6.0, 6.0)
+# 构造pandas 数据库。preds：预测值，true：真实值，residuals：真实值-预测值
+preds = pd.DataFrame(&#123;"preds": y_pred_l1, "true": y_test&#125;)
+preds["residuals"] = preds["true"] - preds["preds"]
+# 可视化 &#123;preds：预测值 &#125;和 &#123;residuals：真实值-预测值 &#125;之间的关系
+sns.scatterplot(x=&#x27;preds&#x27;, y="residuals", data=preds)
+plt.show()</code></pre>
+<p><img src="https://s2.loli.net/2022/10/04/BQglDyY8S2Iihkr.png">        </p>
+<h4 id="3-6-2-MSE和R2"><a href="#3-6-2-MSE和R2" class="headerlink" title="3.6.2 MSE和R2"></a>3.6.2 MSE和R2</h4><pre class=" language-19.py"><code class="language-19.py"># 计算指标：MSE和R2
+def MSE(y_true, y_pred):
+    mse = mean_squared_error(y_true, y_pred)
+    print('MSE: %2.3f' % mse)
+    return mse
 
 
-module led_flash(
-    clk,
-    Reset_n,
-    led
-    );
-    input clk;
-    input Reset_n;
-    output reg led;
-    
-    reg [24:0] count;
-    
-    //一般时序电路使用非阻塞赋值，assign语句一般使用=阻塞赋值
-    always@(posedge clk or negedge Reset_n)begin
-      if (!Reset_n)
-           count<=0;
-      else if(count==24999999)
-           count <= 0;
-      else 
-           count<= count+1&#x27;d1;
-    end 
-    
-    //分别写count和led改变的逻辑块
-    always@(posedge clk or negedge Reset_n)begin
-      if (!Reset_n)
-           led<=0;
-      else if(count==24999999)
-           led<=!led;
-    end 
-    
-endmodule</code></pre>
+def R2(y_true, y_pred):
+    r2 = r2_score(y_true, y_pred)
+    print('R2: %2.3f' % r2)
+    return r2
 
-<h2 id="3-Run-Synthesis跑综合，语法没问题"><a href="#3-Run-Synthesis跑综合，语法没问题" class="headerlink" title="3.Run Synthesis跑综合，语法没问题"></a>3.Run Synthesis跑综合，语法没问题</h2><h2 id="4-功能仿真"><a href="#4-功能仿真" class="headerlink" title="4.功能仿真"></a>4.功能仿真</h2><h3 id="4-1仿真设计"><a href="#4-1仿真设计" class="headerlink" title="4.1仿真设计"></a>4.1仿真设计</h3><p>输入clk,Reset都连相应的信号，并且设置信号改变的时间间隔           </p>
-<h3 id="4-2-仿真代码"><a href="#4-2-仿真代码" class="headerlink" title="4.2 仿真代码"></a>4.2 仿真代码</h3><pre class=" language-hljs led_flash_tb.v"><code class="language-hljs led_flash_tb.v">`timescale 1ns / 1ns
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 2022/08/17 22:16:15
-// Design Name: 
-// Module Name: led_flash_tb
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
-
-module led_flash_tb();
-    reg clk;
-    reg reset;
-    wire led;
-    
-    led_flash led_flash_inst(
-    .clk(clk),
-    .Reset_n(reset),
-    .led(led)
-    );
-    
-    initial clk=1;
-    always #10 clk=!clk;
-    
-    initial begin
-      reset=0;
-      #201;
-      reset=1;
-      #2000000000; //跑2s看看
-      $stop;
-    end
-endmodule
+MSE(y_test, y_pred_l1)
+R2(y_test, y_pred_l1)
 </code></pre>
-<h3 id="4-3-功能仿真"><a href="#4-3-功能仿真" class="headerlink" title="4.3 功能仿真"></a>4.3 功能仿真</h3><p><img src="https://s2.loli.net/2022/08/17/ZF1casrYjkV92DC.jpg"><br>可以看到是间隔500ms一亮一灭</p>
-<h2 id="5-布局布线，然后schematic"><a href="#5-布局布线，然后schematic" class="headerlink" title="5. 布局布线，然后schematic"></a>5. 布局布线，然后schematic</h2><p><img src="https://s2.loli.net/2022/08/17/ptMLcyVJGb1uxAe.jpg"></p>
-<h2 id="6-时序仿真-略"><a href="#6-时序仿真-略" class="headerlink" title="6. 时序仿真 (略)"></a>6. 时序仿真 (略)</h2><h2 id="7-设置引脚"><a href="#7-设置引脚" class="headerlink" title="7. 设置引脚"></a>7. 设置引脚</h2><p>复位设置成按键sw4，led设置为led0,时钟信号就1个FPGA_GCLK1<br><img src="https://s2.loli.net/2022/08/17/pC7nPd3UV9lA1Sq.jpg"></p>
-<h2 id="8-写比特流"><a href="#8-写比特流" class="headerlink" title="8. 写比特流"></a>8. 写比特流</h2><h2 id="9-板级调试"><a href="#9-板级调试" class="headerlink" title="9. 板级调试"></a>9. 板级调试</h2><p><img src="https://i.postimg.cc/wMmmth1b/1.gif"><br>1s闪一次（闪就是从暗到亮的那一瞬间）        </p>
+<p>$$\begin{aligned}<br>MSE: 6489133.605 \newline<br>R2: 0.828<br>\end{aligned}$$</p>
+<h4 id="3-6-3-测试数据的预估结果"><a href="#3-6-3-测试数据的预估结果" class="headerlink" title="3.6.3 测试数据的预估结果"></a>3.6.3 测试数据的预估结果</h4><pre class=" language-20.py"><code class="language-20.py">#结果预测
+# predictions
+d = &#123;'true' : list(y_test),
+     'predicted' : pd.Series(y_pred_l1)
+    &#125;
+
+print(pd.DataFrame(d).head())
+</code></pre>
+<p><img src="https://s2.loli.net/2022/10/04/2SXh1IExUiGFNlR.jpg"> </p>
+<p>哈哈哈，结果也可以接受     </p>
+<h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4.总结"></a>4.总结</h2><p>我们再来总结一下多元线性回归</p>
+<ul>
+<li>读取数据</li>
+<li>数据预处理，包括缺失数据填充、异常值处理、相关性分析消除多重共线性、连续型变量标准化、分类变量独热处理等        </li>
+<li>如上面我们使用lasso回归，需要一个参数$\alpha$，我们先用训练集交叉验证得到这个参数，还可以用交叉验证的结果进行特征的重要性分析     </li>
+<li>如果不需要参数，可以直接用训练集训练模型，当然，训练集和测试集可以自己设置比例分割得到，也可以事先给出         </li>
+<li>然后对测试数据进行结果评估，包括残差图，$MSE,R^2$,以及模型对数据的预估结果的展示等等</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/eee123xdn/ML_CarPrice">code_and_data</a>           </p>
 
                 
             </div>
@@ -637,7 +777,7 @@ endmodule
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://eee123xdn.github.io/2022/08/11/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E8%8A%82%EF%BC%88%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%EF%BC%89/">http://eee123xdn.github.io/2022/08/11/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E8%8A%82%EF%BC%88%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%EF%BC%89/</a>
+                    <a href="http://eee123xdn.github.io/2022/10/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E4%BE%8B%E4%B9%8B%E6%B1%BD%E8%BD%A6%E4%BB%B7%E6%A0%BC%E9%A2%84%E6%B5%8B%E4%BB%BB%E5%8A%A1/">http://eee123xdn.github.io/2022/10/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E4%BE%8B%E4%B9%8B%E6%B1%BD%E8%BD%A6%E4%BB%B7%E6%A0%BC%E9%A2%84%E6%B5%8B%E4%BB%BB%E5%8A%A1/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -675,12 +815,12 @@ endmodule
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/fpga/">
-                                    <span class="chip bg-color">fpga</span>
+                                <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">机器学习</span>
                                 </a>
                             
-                                <a href="/tags/verilog/">
-                                    <span class="chip bg-color">verilog</span>
+                                <a href="/tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/">
+                                    <span class="chip bg-color">回归分析</span>
                                 </a>
                             
                         </div>
@@ -851,7 +991,7 @@ endmodule
         repo: '',
         owner: '',
         admin: null,
-        id: '2022-08-11T19-00-00',
+        id: '2022-10-03T10-55-38',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -875,7 +1015,7 @@ endmodule
 <script src="/libs/gitment/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-    id: 'Thu Aug 11 2022 19:00:00 GMT+0800',
+    id: 'Mon Oct 03 2022 10:55:38 GMT+0800',
     owner: '',
     repo: '',
     oauth: {
@@ -900,9 +1040,9 @@ gitment.render('gitment-content');
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'http://eee123xdn.github.io/2022/08/11/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E8%8A%82%EF%BC%88%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%EF%BC%89/';
-        this.page.identifier = '/2022/08/11/fpga%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E8%8A%82%EF%BC%88%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%EF%BC%89/';
-        this.page.title = 'fpga学习第二节（时序逻辑）';
+        this.page.url = 'http://eee123xdn.github.io/2022/10/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E4%BE%8B%E4%B9%8B%E6%B1%BD%E8%BD%A6%E4%BB%B7%E6%A0%BC%E9%A2%84%E6%B5%8B%E4%BB%BB%E5%8A%A1/';
+        this.page.identifier = '/2022/10/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E4%BE%8B%E4%B9%8B%E6%B1%BD%E8%BD%A6%E4%BB%B7%E6%A0%BC%E9%A2%84%E6%B5%8B%E4%BB%BB%E5%8A%A1/';
+        this.page.title = '机器学习实例之汽车价格预测任务';
     };
     let disqus_shortname = '';
 
@@ -1261,17 +1401,18 @@ gitment.render('gitment-content');
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/08/14/Codeforces-Round-811-%EF%BC%88Div-3%EF%BC%89/">
+                <a href="/2022/10/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E4%BE%8B%E4%B9%8B%E6%B1%BD%E8%BD%A6%E4%BB%B7%E6%A0%BC%E9%A2%84%E6%B5%8B%E4%BB%BB%E5%8A%A1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Codeforces Round 811 (Div.3)">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="机器学习实例之汽车价格预测任务">
                         
-                        <span class="card-title">Codeforces Round 811 (Div.3)</span>
+                        <span class="card-title">机器学习实例之汽车价格预测任务</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1281,34 +1422,31 @@ gitment.render('gitment-content');
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/cf%E9%A2%98%E8%A7%A3/" class="post-category">
-                                    cf题解
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Codeforces/">
-                        <span class="chip bg-color">Codeforces</span>
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">数据结构与算法</span>
-                    </a>
-                    
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/">
+                        <span class="chip bg-color">回归分析</span>
                     </a>
                     
                 </div>
@@ -1322,13 +1460,13 @@ gitment.render('gitment-content');
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AF%87/">
+                <a href="/2022/08/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E6%8F%90%E9%AB%98%E7%AF%87%E4%B9%8B%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="机器学习数学基础之线性代数篇">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="机器学习数学基础提高篇之回归分析">
                         
-                        <span class="card-title">机器学习数学基础之线性代数篇</span>
+                        <span class="card-title">机器学习数学基础提高篇之回归分析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1339,7 +1477,7 @@ gitment.render('gitment-content');
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-28
                             </span>
                         <span class="publish-author">
                             
@@ -1364,8 +1502,8 @@ gitment.render('gitment-content');
                         <span class="chip bg-color">机器学习</span>
                     </a>
                     
-                    <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
-                        <span class="chip bg-color">线性代数</span>
+                    <a href="/tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/">
+                        <span class="chip bg-color">回归分析</span>
                     </a>
                     
                 </div>
@@ -1494,6 +1632,13 @@ gitment.render('gitment-content');
 
 </main>
 
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 
